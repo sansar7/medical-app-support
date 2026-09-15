@@ -9,7 +9,7 @@ parser.add_argument('--source-root', type=Path, help='Optional parent directory 
 args = parser.parse_args()
 base = args.source_root
 output = Path(__file__).resolve().parents[1]
-apps=[('cbct','Dental CBCT Studio','CBCTApp'),('easy3d','Easy3D','EasySTL'),('casebook','Casebook','DentalCaseTracker'),('denthesia','Denthesia','DosageCalculatorApp/DentalDosage')]
+apps=[('cbct','Dental CBCT Studio','CBCTApp'),('easy3d','Dental 3D','EasySTL'),('casebook','Casebook','DentalCaseTracker'),('denthesia','Denthesia','DosageCalculatorApp/DentalDosage')]
 style='''*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}'''
 def inline(s):
  s=escape(s)
@@ -42,13 +42,13 @@ for slug,name,repo in apps:
   (dest/source).write_text(text)
   body=markdown(text.split('## Publisher preparation')[0].replace('Unsupported formats and limits are described in [README.md](README.md).', 'See the in-app Help for supported formats and import limits.'))
   if source=='SUPPORT.md' and slug in ('easy3d','cbct'):
-   sample='Easy3D-Demo.stl' if slug=='easy3d' else 'CBCT-Synthetic-Review.zip'
-   helptext='Open the STL file in Easy3D.' if slug=='easy3d' else 'Unzip the archive, then use Open CBCT Folder and choose CBCT-Release-Synthetic.'
+   sample='Dental-3D-Demo.stl' if slug=='easy3d' else 'CBCT-Synthetic-Review.zip'
+   helptext='Open the STL file in Dental 3D.' if slug=='easy3d' else 'Unzip the archive, then use Open CBCT Folder and choose CBCT-Release-Synthetic.'
    body+=f'<h2>Fictional review sample</h2><p><a href="../samples/{sample}">Download the synthetic sample</a>. {helptext} It contains only computer-generated geometry, with no patient data. It is for demonstrating the software and does not validate clinical accuracy.</p>'
   (dest/filename).write_text(page(name+' — '+('Privacy' if source.startswith('PRIVACY') else 'Support'),body,nav))
 body='<h1>Dental app support</h1><p>Privacy policies, help, and contact information for apps by Sansar Gupta.</p><ul>'+''.join(f'<li><a href="{slug}/">{name} support</a> · <a href="{slug}/privacy.html">Privacy policy</a></li>' for slug,name,_ in apps)+'</ul><p>For urgent clinical needs, use your established clinical protocols and local emergency services. This site provides software support.</p>'
 (output/'index.html').write_text(page('Dental app support',body,''))
 (output/'.nojekyll').write_text('')
 (output/'source-sha256.json').write_text(json.dumps(manifest,indent=2)+'\n')
-(output/'README.md').write_text('# Medical app support\n\nPublic privacy policies, support pages, and entirely synthetic review samples for Dental CBCT Studio, Easy3D, Casebook, and Denthesia. No application source, patient data, credentials, or analytics scripts are included.\n\nHosted by GitHub Pages from main at the repository root. Update the per-app Markdown and run `python3 scripts/render.py` to regenerate HTML together when practices change. To refresh from the app repositories, use `python3 scripts/render.py --source-root /path/to/repositories`. The source directory is never published. `source-sha256.json` records the source document checksums at publication.\n\nContact: sansargupta10@gmail.com\n')
+(output/'README.md').write_text('# Medical app support\n\nPublic privacy policies, support pages, and entirely synthetic review samples for Dental CBCT Studio, Dental 3D, Casebook, and Denthesia. No application source, patient data, credentials, or analytics scripts are included.\n\nHosted by GitHub Pages from main at the repository root. Update the per-app Markdown and run `python3 scripts/render.py` to regenerate HTML together when practices change. To refresh from the app repositories, use `python3 scripts/render.py --source-root /path/to/repositories`. The source directory is never published. `source-sha256.json` records the source document checksums at publication.\n\nContact: sansargupta10@gmail.com\n')
 print('Rendered 4 privacy pages, 4 support pages and app index.')
