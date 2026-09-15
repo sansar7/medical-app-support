@@ -8,4 +8,6 @@ The app supports native iOS/iPadOS 18+ and Apple-silicon macOS 15+. It opens the
 
 **Quick Start & Help** is available offline in the app, including before a study is open. It explains the four workspaces, supported input, navigation and measurement tools, explicit Save Review…/Open Review… files, and the diagnostic-use limitation. A review file is separate from its original DICOM series and is not a substitute for retaining that source study. Save review work explicitly before closing the study or app.
 
-For release, host this support content at a publicly reachable HTTPS URL, set `SupportURL` in both platform Info.plists, and enter the same address in App Store Connect. No hosted support site has been created by this code update.
+Public support: https://sansar7.github.io/medical-app-support/cbct/index.html
+
+Privacy policy: https://sansar7.github.io/medical-app-support/cbct/privacy.html
