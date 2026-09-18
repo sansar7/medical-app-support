@@ -8,11 +8,13 @@ Email [Sansar Gupta](mailto:sansargupta10@gmail.com) for app support, privacy qu
 
 Use About & Support → Report a content concern to prepare a report with public build and reference-review metadata. You decide whether and where to share it. Do not include patient identifiers, patient screenshots, medical records, or protected health information in support email or GitHub issues. Support is not an emergency service or clinical consultation.
 
-## Calculations and references
+## References and height/BMI
 
-Enter measured weight and the correct units, age group, and epinephrine context. Decimal fields use the device locale; omit thousands separators, unit suffixes, signs, and scientific notation. A calculation that does not appear needs valid inputs and any required product-label verification. Changing a concentration or its units clears that verification.
+Browse medication references without entering a patient. Published dosage information is static, source-linked, and independent of the optional profile. Denthesia does not compute medication doses, cartridge counts, combined totals, preparation volumes, dilutions, or infusion rates. Review current product labeling and your clinical protocol.
 
-The combined local-anesthetic calculator contains only the amounts you enter from the paper record. Clear entries or New patient clears its scratch values; closing the app does not save them. Office reference text is distinct from numeric calculations. For a content concern, identify the formulation, route, displayed wording, and a current authoritative source.
+Height & BMI remains available in Local, Assist, Office Settings, and global search. Enter measured height and weight with the correct units. BMI does not change medication references. The app provides the raw BMI, not pediatric percentiles or a diagnosis.
+
+Apple Calculator links open its official App Store page on iPhone/iPad and its guide on Mac. Open the installed Calculator from Search, Control Center, Applications, or Spotlight as appropriate. Denthesia does not send an expression or patient information to Calculator. Office notes and concentration notes are manual references only.
 
 ## Timers and audio
 

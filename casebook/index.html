@@ -7,6 +7,9 @@
 <h2>Opening your casebook</h2>
 <p>Use the device authentication prompt to unlock Casebook. If authentication is unavailable, unlock the device and check that a device credential is configured. Canceling authentication leaves the app locked. Restarting the app does not bypass authentication. Release builds ignore developer demo arguments.</p>
 <p>If saved cases cannot be opened, the app keeps the existing saved file. Retry after unlocking the device. Do not erase the app&#x27;s storage or Keychain entries to troubleshoot: the device-only key is needed to read the local casebook. The developer cannot recover a missing encryption key or your archive passphrase.</p>
+<p>On Mac, closing the main window leaves Casebook running. Choose <strong>Window → Show Casebook</strong> or press <strong>Command-0</strong> to open it again.</p>
+<h2>Finding cases without an appointment</h2>
+<p><strong>Your cases → Unplanned</strong> shows open cases in progress, healing or maintenance, plus open cases with a recorded start date on or before today, when no appointment is recorded on that case. A patient-level appointment, task deadline or milestone date does not schedule an individual case. Past case appointments remain visible for review until updated or removed.</p>
 <h2>Backups and recovery</h2>
 <p>Use <strong>Backup &amp; CSV → Archive or restore records and photos</strong> for a complete passphrase-protected <code>.casebook</code> backup. Store the passphrase separately. Keep the app open while preparing large archives. On another device, choose the archive, enter its passphrase, review conflicts, and import. Existing records are kept when patient, reference, or nested record IDs conflict.</p>
 <p>Use <strong>Settings → Recently Deleted</strong> to restore a deleted patient. Records do not expire automatically. Permanent deletion also attempts to remove associated encrypted photos; existing exports and shared copies must be removed separately.</p>

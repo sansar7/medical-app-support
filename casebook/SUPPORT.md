@@ -14,6 +14,12 @@ Use the device authentication prompt to unlock Casebook. If authentication is un
 
 If saved cases cannot be opened, the app keeps the existing saved file. Retry after unlocking the device. Do not erase the app's storage or Keychain entries to troubleshoot: the device-only key is needed to read the local casebook. The developer cannot recover a missing encryption key or your archive passphrase.
 
+On Mac, closing the main window leaves Casebook running. Choose **Window → Show Casebook** or press **Command-0** to open it again.
+
+## Finding cases without an appointment
+
+**Your cases → Unplanned** shows open cases in progress, healing or maintenance, plus open cases with a recorded start date on or before today, when no appointment is recorded on that case. A patient-level appointment, task deadline or milestone date does not schedule an individual case. Past case appointments remain visible for review until updated or removed.
+
 ## Backups and recovery
 
 Use **Backup & CSV → Archive or restore records and photos** for a complete passphrase-protected `.casebook` backup. Store the passphrase separately. Keep the app open while preparing large archives. On another device, choose the archive, enter its passphrase, review conflicts, and import. Existing records are kept when patient, reference, or nested record IDs conflict.

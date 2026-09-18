@@ -1,20 +1,20 @@
 # Denthesia Privacy Policy
 
-Last updated: September 14, 2026
+Last updated: September 18, 2026
 
-Denthesia is developed by Sansar Gupta for trained dental clinicians. It provides dental anesthesia references, calculations, educational monitor examples, and Session Assist reminders. This policy describes how the app handles information.
+Denthesia is developed by Sansar Gupta for trained dental clinicians. It provides dental anesthesia references, a height and BMI calculator, educational monitor examples, and Session Assist reminders. This policy describes how the app handles information.
 
 ## Information processed on your device
 
-The patient profile can contain an optional name, weight, height, age group, measurement preferences, and epinephrine reference-ceiling selection. The current profile is stored on your device and restored when you reopen the app.
+The optional BMI profile can contain a name, weight, height, age group, and measurement preferences. It is stored on your device and restored when you reopen the app. Medication references do not use this profile or calculate doses. A previous epinephrine selection may be retained in older profile data for compatibility but is no longer an editable dosing setting.
 
 Session Assist stores session timing, last-dose timing, reminder intervals, and reminder preferences. It does not store patient names, medication names, administered doses, or vital values in its timing state. Office settings store your medication inventory choices, reference customizations, preparation presets, and display and reminder preferences. Do not enter patient information in office reference fields.
 
-The combined local-anesthetic calculator temporarily holds formulations and quantities that you enter from a paper record. These entries remain in memory during the current app use and are cleared by New patient, Clear entries, or termination of the app. They are not a saved anesthesia record. Monitor Interpretation displays authored synthetic examples and does not receive patient-monitor signals or save interpretation results. The CPR metronome plays a timing sound; it does not record audio or monitor a patient.
+Medication, combined local-anesthetic, preparation, dilution, and infusion pages contain static references and source links. They have no dosage-calculator inputs or patient-specific results. Apple Calculator links open Apple’s public pages; Denthesia does not send patient details, expressions, doses, or results to Calculator. Monitor Interpretation displays authored synthetic examples and does not receive patient-monitor signals or save interpretation results. The CPR metronome plays a timing sound; it does not record audio or monitor a patient.
 
 ## Collection, tracking, and sharing
 
-Denthesia does not require an account and does not send patient profiles, calculator entries, or session information to the developer. It has no advertising, third-party analytics SDK, app-operated patient-data server, or cloud synchronization. The developer does not sell or use this locally processed information for advertising or tracking.
+Denthesia does not require an account and does not send patient profiles or session information to the developer. It has no advertising, third-party analytics SDK, app-operated patient-data server, or cloud synchronization. The developer does not sell or use this locally processed information for advertising or tracking.
 
 Opening a reference, support, or other external link connects you to that website. Its provider may receive information such as your IP address and browser details under its own privacy policy. Apple services and any organization-managed device services operate under their own policies and settings.
 
@@ -36,7 +36,7 @@ Use an organization-approved device with an appropriate passcode or account pass
 
 ## Retention and your controls
 
-Edit profile changes the current patient details while keeping the current helper session. New patient is available from the dosing screens and Session Assist. After you confirm and the protected update succeeds, it clears the current profile, previous unsaved active case, combined calculator entries, last-dose timing, and helper reminders. Ending Session Assist clears its timing state and reminders. Expired timing is discarded when next loaded or refreshed. Office preferences remain until you edit or reset them or remove the app's local data.
+Height & BMI changes the optional profile while keeping the current helper session. New patient is available in Session Assist. After you confirm and the protected update succeeds, it clears the current profile, previous unsaved active case, last-dose timing, and helper reminders. Ending Session Assist clears its timing state and reminders. Expired timing is discarded when next loaded or refreshed. Office preferences remain until you edit or reset them or remove the app's local data.
 
 Older app versions may have left protected anesthesia records on the device. Updates preserve those records. The current navigation does not browse, export, or delete the legacy archive. Your practice must arrange an authorized retention, access, deletion, or migration process for legacy records. Losing device-only keys or removing the app's local data can permanently destroy those records. Deleting a Mac app executable does not necessarily remove its data.
 
