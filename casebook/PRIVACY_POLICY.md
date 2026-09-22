@@ -1,6 +1,6 @@
 # Casebook Privacy Policy
 
-Last updated: September 14, 2026
+Last updated: September 22, 2026
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -20,9 +20,9 @@ Casebook asks the operating system to authenticate you using Face ID, Touch ID, 
 
 ## Photos and permissions
 
-Casebook imports the photos you select through Photos or Files and can capture case photos with camera permission on supported devices. Imported photos are converted to reference copies with source filenames and embedded image metadata removed. Visible faces, anatomy, captions, and other image content may still identify a person. Metadata removal is not full de-identification.
+Casebook imports only the photos you select through Photos or Files. The system photo picker provides access to your selected images without requiring full photo-library access. Imported photos are converted to reference copies with source filenames and embedded image metadata removed. Visible faces, anatomy, captions, and other image content may still identify a person. Metadata removal is not full de-identification.
 
-Camera capture saves to the casebook rather than automatically adding photos to your Photos library. Saving an image to Photos requests the appropriate permission. Photos, Files, and any cloud provider you use handle selected originals and exported copies under their own settings. You can revoke camera or Photos permissions in system settings.
+Saving an image to Photos is an explicit export and requests add-only Photos permission. Photos, Files, and any cloud provider you use handle selected originals and exported copies under their own settings. You can revoke Photos permission in system settings.
 
 ## Reminders
 

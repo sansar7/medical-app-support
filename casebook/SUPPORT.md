@@ -30,7 +30,7 @@ CSV backups are unencrypted and exclude photographs and Recently Deleted. Analys
 
 ## Photos
 
-On iPhone and iPad, allow camera access to capture images. Photos and Files import only the images you select. Imports are limited to 25 MB per original, 50 million pixels, and 30 photos or 250 MB of prepared images per batch. Save one batch before adding more. Source filenames and embedded metadata are removed from imported reference copies, but visible image content may still identify a person.
+Choose **Choose from Photos** to select existing images from your photo library, or **Choose files** to import image files. Casebook imports only the images you select. The system photo picker does not require full photo-library access. Imports are limited to 25 MB per original, 50 million pixels, and 30 photos or 250 MB of prepared images per batch. Save one batch before adding more. Source filenames and embedded metadata are removed from imported reference copies, but visible image content may still identify a person.
 
 Saving an image to Photos requires add-only Photos permission. You can also use Share Image to choose a destination. Exported copies leave Casebook's encrypted storage and follow the destination's backup and synchronization settings.
 
