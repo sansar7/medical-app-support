@@ -1,6 +1,6 @@
 # Dental 3D Privacy Policy
 
-Last updated: September 15, 2026
+Last updated: September 24, 2026
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -28,7 +28,7 @@ Delete measurements, views, labels, and drawings in the workspace, or clear save
 
 ## Siri, Shortcuts, and permissions
 
-The Open 3D Workspace shortcut opens Dental 3D. It does not accept or return models, measurements, annotations, or filenames. Siri and Shortcuts operate under your Apple settings and Apple's privacy policy (https://www.apple.com/legal/privacy/). Dental 3D uses system file selection and does not request camera, microphone, location, contacts, or photo-library access.
+The Open 3D Workspace shortcut opens Dental 3D. Additional Siri and Shortcuts actions open, search, and read bundled public guide topics. Only those topics are indexed in Spotlight. Onscreen context describes the visible workspace category or guide topic. Model content, filenames, geometry, textures, measurements, annotations, project files, and saved view names are not indexed or donated. The Reset 3D View action centers an active, ready workspace and returns only generic status text; it does not change models, annotations, measurements, or saved views. Siri and Shortcuts operate under your Apple settings and Apple's privacy policy (https://www.apple.com/legal/privacy/). Dental 3D uses system file selection and does not request camera, microphone, location, contacts, or photo-library access.
 
 ## Apple diagnostics
 

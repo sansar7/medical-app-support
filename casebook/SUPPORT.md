@@ -20,6 +20,14 @@ On Mac, closing the main window leaves Casebook running. Choose **Window → Sho
 
 **Your cases → Unplanned** shows open cases in progress, healing or maintenance, plus open cases with a recorded start date on or before today, when no appointment is recorded on that case. A patient-level appointment, task deadline or milestone date does not schedule an individual case. Past case appointments remain visible for review until updated or removed.
 
+## Search, templates, and Siri
+
+Use **Search all Casebook** above a workspace or treatment screen, or **Command-F** on Mac. It searches the unlocked local workspace, templates, guides, and app destinations. Recently Deleted is excluded. Closing search returns to the original screen. Results refresh after saved edits; locking clears the query and results.
+
+**Find a template** accepts common abbreviations such as RCT, SRP, and FMR. Choose a result explicitly. Changing the search or category keeps your selected template; choose **Use a custom procedure** to remove that selection.
+
+Siri and Spotlight expose only the public app guide and generic navigation destinations. They cannot find or read patient information. A navigation request waits until the current detail or editor is closed. **Settings → Siri & Search** controls public guide indexing and onscreen context.
+
 ## Backups and recovery
 
 Use **Backup & CSV → Archive or restore records and photos** for a complete passphrase-protected `.casebook` backup. Store the passphrase separately. Keep the app open while preparing large archives. On another device, choose the archive, enter its passphrase, review conflicts, and import. Existing records are kept when patient, reference, or nested record IDs conflict.
@@ -42,7 +50,7 @@ Enable local reminders in Settings and permit notifications in system settings. 
 
 Settings can load 20 fictional evaluation patients. Loading a fresh log replaces both active and recently deleted examples and their photos, after confirmation. Personal patients and templates are kept. Restore missing examples preserves edited examples and skips references already in use.
 
-Outcomes summarize your entered observations. Unreviewed records do not count as successful. A success percentage is not a survival estimate or a comparison of treatment effectiveness.
+Outcomes summarize your entered observations. Unreviewed records do not count as successful. Tap a statistic to see the records counted under the current filters; Recorded success separates the successful numerator from the other assessed records in its denominator. A success percentage is not a survival estimate or a comparison of treatment effectiveness.
 
 ## Privacy
 

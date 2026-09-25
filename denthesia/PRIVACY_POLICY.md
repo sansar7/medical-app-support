@@ -1,6 +1,6 @@
 # Denthesia Privacy Policy
 
-Last updated: September 18, 2026
+Last updated: September 24, 2026
 
 Denthesia is developed by Sansar Gupta for trained dental clinicians. It provides dental anesthesia references, a height and BMI calculator, educational monitor examples, and Session Assist reminders. This policy describes how the app handles information.
 
@@ -22,7 +22,7 @@ Report a content concern lets you prepare text for a support report. The app inc
 
 ## Notifications, Live Activities, and device settings
 
-With your permission, system notifications display generic reassessment reminders. Optional Live Activities and authenticated Siri status can reveal that a session exists and show timing, but do not display patient names, administered medications, doses, or vital values. Medication-reference shortcuts may display names from the public drug catalog.
+With your permission, system notifications display generic reassessment reminders. Optional Live Activities and authenticated Siri status can reveal that a session exists and show timing, but do not display patient names, administered medications, doses, or vital values. Siri, Shortcuts, Apple Intelligence and Spotlight can access bundled public medication references, formulation and route information, timing, source citations, and associated visible reference cards. These integrations never index patient profiles, office-entered notes, administered medications, doses, or vital values. You can disable public-reference indexing and onscreen annotations in Office Settings → Siri & Shortcuts; explicitly requested reference shortcuts remain available. Content you ask Siri to read or transfer is handled by Apple’s system features and your chosen receiving app.
 
 You can change notification and Live Activity permissions in device settings. Time Sensitive reminders are optional and remain subject to your notification and Focus settings. The optional screen-awake setting keeps the display awake only while a helper session is active and the app is in the foreground. You can disable it in Office Settings or end the session. Restrict access to an unlocked device.
 

@@ -1,6 +1,6 @@
 # Privacy Policy for Enamel
 
-Last updated: September 14, 2026
+Last updated: September 24, 2026
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -20,7 +20,7 @@ If you allow notifications, Enamel gives your chosen reminder date to the operat
 
 ## Siri, Shortcuts, and Spotlight
 
-Enamel makes its bundled educational catalog available to Apple system search and shortcuts. If you use a reminder shortcut, Apple system features can present the reminder date after required authentication. Your use of Apple features, including their processing and retention, is governed by your settings and Apple's privacy terms. Enamel does not upload your history or reminder dates to a developer-operated service.
+Enamel makes its bundled educational catalog, including guide text, quick facts, and source references, available to Apple system search and shortcuts. Visible procedure guides and comparison items are associated with their catalog entries so supported Apple features can understand references to onscreen content. When you request a transfer or share action, Apple features can pass the public guide text and its references to the destination you choose. Saved procedures, recently viewed history, reminder dates, and brushing history are not added to Enamel's semantic catalog index. If you use a reminder shortcut, Apple system features can present the reminder date after required authentication. Your use of Apple features, including their processing and retention, is governed by your settings and Apple's privacy terms. Enamel does not upload your history or reminder dates to a developer-operated service.
 
 ## External references
 

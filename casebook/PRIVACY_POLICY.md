@@ -1,6 +1,6 @@
 # Casebook Privacy Policy
 
-Last updated: September 22, 2026
+Last updated: September 24, 2026
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -41,6 +41,12 @@ Files saved to iCloud Drive, Photos, or another service may upload or synchroniz
 Records remain until you change or delete them. Deleting a patient moves that patient and attached photos to Recently Deleted, where they remain until you restore or permanently delete them. Use Settings → Recently Deleted → Delete permanently to remove that patient from the saved workspace. The app attempts to remove associated encrypted photo files; failed file cleanup can leave encrypted files in local app storage. Undo and unsaved drafts may retain a previous edit during the current app session.
 
 Deleting data in Casebook does not erase original photos, previously exported archives or CSVs, copies in Photos or Files, backups, or information you shared. Remove those separately. Removing the app executable on a Mac does not necessarily remove its local storage. The developer has no remote copy of your workspace and cannot restore lost records or encryption keys.
+
+## Siri, Shortcuts, and Spotlight
+
+Casebook makes a fixed catalog of public app instructions available to Siri, Shortcuts, and the on-device Spotlight index. When a public guide is visible, the app can identify that guide to Siri and provide its text. The selected workspace can also be identified by its generic navigation name, without the records shown there. This catalog does not contain patient names, identifiers, notes, appointments, outcomes, photos, or custom templates. The integration does not read the encrypted workspace or export records. Opening a workspace through Siri still requires Casebook's normal device authentication.
+
+Settings → Siri & Search → Public guide in Siri & Spotlight controls guide indexing and onscreen guide and navigation context. Turning it off removes Casebook's public guide entities from its dedicated index. Public instructions and navigation actions remain available when you explicitly invoke a shortcut. Siri requests and any content you choose to share through Apple's system services are handled according to your Apple settings and Apple's privacy terms.
 
 ## Apple diagnostics
 

@@ -12,6 +12,12 @@ The fastest way to get help is by email:
 
 Please include your device model, operating-system version, and Enamel app version so we can help you faster. Please avoid including private dental or medical information.
 
+## Current app features
+
+The current source includes 27 illustrated procedure guides, 37 glossary definitions, comparison of 2–4 guides with 16 presets, and a separate Dental X-rays guide covering six imaging types. New procedure guides cover braces, clear aligners, inlays, onlays, and gum grafting. The Library's keyword search recognizes procedure aliases and imaging terms; it does not diagnose a condition or recommend treatment.
+
+Enamel supports iPhone and iPad on iOS/iPadOS 18 or later and Mac through Mac Catalyst on macOS 15 or later. The in-app timer is available on all three; the Live Activity is available only in supported iPhone/iPad environments. Check the App Store listing for the version and platforms currently distributed; repository features can precede a published update.
+
 ## Frequently Asked Questions
 
 **Does the app collect any of my data?**
@@ -30,7 +36,13 @@ Open the Brushing tab, tap Start, and keep Sound on if you want audible quadrant
 Make sure notifications are enabled for Enamel in **Settings → Notifications → Enamel**. Then reopen Enamel so it can reconcile a reminder that was saved while notifications were off.
 
 **How do I use Enamel with Siri?**
-Try “Tell me about root canals in Enamel,” “Search Enamel for jaw pain,” “Start my Enamel brushing timer,” or “When is my dental reminder in Enamel.” Siri availability and supported phrasing can vary by device, language, region, and iOS version.
+Try “Tell me about root canals in Enamel,” “Open crowns in Enamel,” “Read about implants in Enamel,” “Compare dental procedures in Enamel,” “Start brushing with Enamel,” or “When is my dental reminder in Enamel.” In Shortcuts, procedure details and comparisons can select a specific section such as recovery or sources. Siri availability and supported phrasing vary by device, language, region, OS, and Apple settings. The Dental X-rays explainer is available in the Library; it is not one of the procedure entities.
+
+**What can Siri and Spotlight access?**
+Only bundled public procedure information is indexed or transferred as guide text. Current-guide context identifies that public guide. Saved and recent history, last-visit dates, and reminder dates are not indexed; the next-reminder shortcut requires authentication.
+
+**Why does Recall show an overdue date or a different suggestion?**
+A past saved reminder remains visible for follow-up. When no reminder is set, the suggested date follows the locally recorded last visit. Recall refreshes its editable suggestion when the stored reminder or last-visit date changes. You choose the reminder date; the suggestion does not determine a clinical recall schedule.
 
 **Is Enamel a substitute for professional dental advice?**
 No. Enamel is for general educational purposes only. Always consult a licensed dentist or healthcare professional for diagnosis and treatment decisions specific to your situation.
@@ -41,4 +53,4 @@ Found a bug or have an idea? Email us at the address above with a short descript
 
 ---
 
-_Last updated: September 8, 2026_
+_Last updated: September 24, 2026_

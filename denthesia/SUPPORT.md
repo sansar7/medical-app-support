@@ -16,6 +16,12 @@ Height & BMI remains available in Local, Assist, Office Settings, and global sea
 
 Apple Calculator links open its official App Store page on iPhone/iPad and its guide on Mac. Open the installed Calculator from Search, Control Center, Applications, or Spotlight as appropriate. Denthesia does not send an expression or patient information to Calculator. Office notes and concentration notes are manual references only.
 
+## Published References, Siri and Spotlight
+
+Office Settings → Siri & Shortcuts opens the searchable Published References library with 65 exact formulation/route entries. Read the full identity and source context before using a reference. Siri actions can read public medication information, timing and citations or compare two separately cited references; ambiguous formulations or routes remain separate choices.
+
+**Public references in Siri & Spotlight** controls indexing and onscreen context. Turning it off removes the public index; explicitly requested public-reference shortcuts remain available. Private profiles, BMI inputs, office notes and retained records are not included. Authentication, Siri recognition and Apple Intelligence availability depend on the device, OS and system settings.
+
 ## Timers and audio
 
 Allow notifications in system settings for reminders outside the app. Focus, notification settings, device volume, and the selected audio route affect delivery. The in-app timer display remains available if notification permission is denied. Repeating vital reminders continue until stopped or Session Assist is ended, including while the app is closed; stop them before leaving a case.
