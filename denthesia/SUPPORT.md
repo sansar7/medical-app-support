@@ -6,6 +6,8 @@ Denthesia is developed by Sansar Gupta for trained dental clinicians.
 
 Email [Sansar Gupta](mailto:sansargupta10@gmail.com) for app support, privacy questions, or a clinical-content concern. Include the app version/build from Office Settings → About & Support, your device and operating-system version, the affected screen, and the steps that reproduce the issue.
 
+Use **Office Settings → About & Support → Report a Bug or Request a Feature** for Bug Report, Crash Report, or Feature Request. After a previous crash, reopen Denthesia and describe what you were doing before it closed unexpectedly. **Open Email** prepares a draft to sansargupta10@gmail.com for you to review and send. **Copy Report** and **Copy Email Address** work when email is unavailable or the report is too long for an email link. Only your description, selected category, app name/version/build, platform, and operating-system version are included. Nothing is sent automatically; no patient data, files, screenshots, or crash logs are attached.
+
 Use About & Support → Report a content concern to prepare a report with public build and reference-review metadata. You decide whether and where to share it. Do not include patient identifiers, patient screenshots, medical records, or protected health information in support email or GitHub issues. Support is not an emergency service or clinical consultation.
 
 ## References and height/BMI
@@ -25,6 +27,10 @@ Office Settings → Siri & Shortcuts opens the searchable Published References l
 ## Timers and audio
 
 Allow notifications in system settings for reminders outside the app. Focus, notification settings, device volume, and the selected audio route affect delivery. The in-app timer display remains available if notification permission is denied. Repeating vital reminders continue until stopped or Session Assist is ended, including while the app is closed; stop them before leaving a case.
+
+After changing notification permission, reopen Denthesia and review Session Assist. If permission is off, the visible timer is retained while obsolete pending requests are removed. Re-enabling notifications alone does not establish a new background reminder; reopening the app lets it reconcile the current timer.
+
+If the device clock changes, return to Session Assist and compare the displayed timing with the paper record. A system clock correction rebuilds affected notification requests; an invalid session ends with a warning. Ordinary timezone changes do not restart a valid repeating cadence. Notification delivery still depends on the operating system.
 
 The CPR metronome is a cadence aid. Confirm its sound is audible. It stops when leaving the event or app and when audio is interrupted or its output changes. Tap Start after confirming the new output. It does not measure compressions or replace resuscitation protocols.
 

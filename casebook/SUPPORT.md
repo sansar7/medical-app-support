@@ -6,6 +6,8 @@ Casebook is a personal dental treatment tracker for dentists and dental students
 
 Email Sansar Gupta at [sansargupta10@gmail.com](mailto:sansargupta10@gmail.com).
 
+In **Settings → Report a Bug or Request a Feature**, choose **Bug Report**, **Crash Report**, or **Feature Request** and describe what happened. Crash reports describe a previous unexpected closure; Casebook does not detect crashes or collect crash logs. The form shows the app name, version, build, operating system, and platform that will be included. **Open Email** prepares a draft for you to review and send. No report is sent automatically, and records, identifiers, photos, files, or logs are not attached. If an email app cannot open or the report is too long for an email link, use **Copy Report** and **Copy Email Address** with your preferred email service.
+
 Include your Casebook version and build number, device model, operating-system version, the steps that led to the problem, and the error message. Do not send patient names, chart numbers, identifiable case photos, clinical records, or screenshots containing patient information. Reproduce problems with an alias or the fictional examples whenever possible. Public GitHub issues are visible to other people when a repository is public.
 
 ## Opening your casebook
@@ -24,6 +26,8 @@ On Mac, closing the main window leaves Casebook running. Choose **Window → Sho
 
 Use **Search all Casebook** above a workspace or treatment screen, or **Command-F** on Mac. It searches the unlocked local workspace, templates, guides, and app destinations. Recently Deleted is excluded. Closing search returns to the original screen. Results refresh after saved edits; locking clears the query and results.
 
+In patient and treatment lists, combine a name or reference with words from recorded details to narrow the results. Every word must match; capitalization and accents do not matter. A patient-list match can use words from different treatments belonging to that patient. A treatment match uses that treatment's details and its patient's name/reference.
+
 **Find a template** accepts common abbreviations such as RCT, SRP, and FMR. Choose a result explicitly. Changing the search or category keeps your selected template; choose **Use a custom procedure** to remove that selection.
 
 Siri and Spotlight expose only the public app guide and generic navigation destinations. They cannot find or read patient information. A navigation request waits until the current detail or editor is closed. **Settings → Siri & Search** controls public guide indexing and onscreen context.
@@ -41,6 +45,8 @@ CSV backups are unencrypted and exclude photographs and Recently Deleted. Analys
 Choose **Choose from Photos** to select existing images from your photo library, or **Choose files** to import image files. Casebook imports only the images you select. The system photo picker does not require full photo-library access. Imports are limited to 25 MB per original, 50 million pixels, and 30 photos or 250 MB of prepared images per batch. Save one batch before adding more. Source filenames and embedded metadata are removed from imported reference copies, but visible image content may still identify a person.
 
 Saving an image to Photos requires add-only Photos permission. You can also use Share Image to choose a destination. Exported copies leave Casebook's encrypted storage and follow the destination's backup and synchronization settings.
+
+If the app locks or saved images are deleted or replaced while an export is preparing or waiting for Photos permission, Casebook cancels the pending export. Unlock if needed, reopen the current saved image, and choose **Share Image** or **Save Image** again. If Photos access is denied, allow Casebook to add images in system Settings or use Share Image to save to Files.
 
 ## Reminders
 

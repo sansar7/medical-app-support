@@ -44,13 +44,18 @@ Only bundled public procedure information is indexed or transferred as guide tex
 **Why does Recall show an overdue date or a different suggestion?**
 A past saved reminder remains visible for follow-up. When no reminder is set, the suggested date follows the locally recorded last visit. Recall refreshes its editable suggestion when the stored reminder or last-visit date changes. You choose the reminder date; the suggestion does not determine a clinical recall schedule.
 
+**How does procedure search work?**
+Search matches the bundled guide text, procedure names, aliases, and a reviewed set of common word forms. A match shows where information appears in a guide; it does not identify which treatment is suitable for you. Try a procedure name, a familiar alternate name, or a short phrase. Search and the bundled guides work offline.
+
 **Is Enamel a substitute for professional dental advice?**
 No. Enamel is for general educational purposes only. Always consult a licensed dentist or healthcare professional for diagnosis and treatment decisions specific to your situation.
 
 ## Reporting a Problem or Suggesting a Feature
 
-Found a bug or have an idea? Email us at the address above with a short description and, if possible, a screenshot. We appreciate the feedback.
+In Procedures, open **About Enamel → Report a Bug or Request a Feature**. Choose Bug Report, Crash Report, or Feature Request, then describe the issue or idea. For a previous crash, reopen Enamel and describe what happened before it closed unexpectedly.
+
+**Open Email** prepares a draft addressed to sansargupta10@gmail.com. Review and send it in your email app. If email is unavailable or a report is too long for an email link, use **Copy Report** and **Copy Email Address**. Reports include only your description, the selected category, and the displayed app name, version/build, platform, and operating-system version. No report is sent automatically; no crash logs, files, screenshots, saved guides, history, or reminder dates are attached. Do not include private dental or medical information. A Siri, Spotlight, or other external navigation request waits while the feedback sheet is open so it does not dismiss your draft; the latest request is applied when the sheet closes.
 
 ---
 
-_Last updated: September 24, 2026_
+_Last updated: September 27, 2026_

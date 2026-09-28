@@ -6,6 +6,12 @@ Supported platforms: iOS/iPadOS 17 or newer and macOS 15 or newer on Apple silic
 
 For a problem report, include the Dental 3D version/build, device model, OS version, file format, and the steps that led to the issue. A screenshot of the error can help. Do not send patient files or private dental or medical information. Use a synthetic or de-identified example only when needed to explain a file-format issue.
 
+## Send feedback from the app
+
+Open **Settings → Report a Bug or Request a Feature** and choose Bug Report, Crash Report, or Feature Request. Describe the issue or suggestion, then review the included app/version/build, OS, and platform information. **Open Email** prepares a draft addressed to the support email above; review and send it in your email app. The app sends nothing automatically and attaches no models, files, screenshots, identifiers, or crash logs. For a crash report, describe what happened before the app closed.
+
+If no email app opens, or the report is too long for an email link, use **Copy Report** and **Copy Email Address**, then paste into your preferred email service. Feedback drafts are not saved in Dental 3D; closing a draft with text asks whether to discard it. A draft already opened in an email app or copied remains there.
+
 ## Opening models
 
 Choose Open in the app, select a supported local model, or share a file from Files/Finder. For OBJ/WRL textures, select companion files together or place the complete model and companions in a ZIP archive. Files from iCloud Drive or another provider may need to finish downloading first. Supported formats include STL, OBJ/MTL, PLY, a bounded 3MF core subset, WRL, OFF/EOFF, XYZ variants, ASC, and ZIP archives containing those formats. See the app's Help for format and measurement guidance. Unsupported formats and files that exceed device resource limits report an import error.
@@ -27,6 +33,10 @@ Save a Dental 3D project to preserve models, annotations, measurements, appearan
 ## Measurements
 
 Verify the source scale and alignment before interpreting a measurement. Readout precision does not establish clinical accuracy. Clinical or diagnostic suitability has not been established by the engineering tests in this repository.
+
+## Picture and video exports
+
+Use the Export preview to check framing and annotation visibility before saving. If HEIC encoding is unavailable, choose JPG. Large exports depend on available device resources; choose a smaller output size if an export cannot finish. Canceling or failing an export does not publish a partial output. Visible model content and annotations remain in exported media, so review them before sharing.
 
 ## Privacy
 
