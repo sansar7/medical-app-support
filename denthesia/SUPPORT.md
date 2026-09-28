@@ -39,3 +39,5 @@ The CPR metronome is a cadence aid. Confirm its sound is audible. It stops when 
 The app has no account or patient-data server. The developer cannot retrieve information stored only on your device. Do not remove local app data or Keychain items while troubleshooting. If the app reports a protected-data or recovery error, preserve the current device state and include the error wording without patient information in your support request.
 
 Review the [Denthesia Privacy Policy](PRIVACY_POLICY.md) for storage, notifications, local clearing controls, support correspondence, and retained legacy records. Deleting the Mac app executable does not necessarily delete its local data.
+
+_Last updated: September 27, 2026_
