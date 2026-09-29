@@ -1,6 +1,6 @@
 # Denthesia Privacy Policy
 
-Last updated: September 24, 2026
+Last updated: September 29, 2026
 
 Denthesia is developed by Sansar Gupta for trained dental clinicians. It provides dental anesthesia references, a height and BMI calculator, educational monitor examples, and Session Assist reminders. This policy describes how the app handles information.
 
@@ -41,6 +41,12 @@ Height & BMI changes the optional profile while keeping the current helper sessi
 Older app versions may have left protected anesthesia records on the device. Updates preserve those records. The current navigation does not browse, export, or delete the legacy archive. Your practice must arrange an authorized retention, access, deletion, or migration process for legacy records. Losing device-only keys or removing the app's local data can permanently destroy those records. Deleting a Mac app executable does not necessarily remove its data.
 
 The developer cannot retrieve or erase patient data stored only on your device. Screenshots, screen sharing, earlier exports, paper records, device-management copies, and information you have shared with another service are outside the app's controls. Manage those copies separately under your organization's policies.
+
+## Language support
+
+The supported interface languages are English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. Russian is no longer included. Language preference changes display text and direction without translating stored personal information.
+
+Denthesia follows your system language. Reviewed common interface translations are bundled with the app. Clinical and educational content without a reviewed bundled translation stays in English. On supported devices, Apple Translation is limited to a small explicit allowlist of nonclinical public interface text, such as feedback controls; patient values, office notes, feedback drafts, saved information and interpolation values are never submitted. Apple may request a language-model download, managed by the operating system. Eligible translated interface text is cached locally; previously cached unreviewed clinical translations are ignored. Original source references and privacy-policy prose remain in English unless a reviewed bundled translation is available. The operating system may remove cached translations.
 
 ## Apple diagnostics
 

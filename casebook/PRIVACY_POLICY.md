@@ -1,6 +1,6 @@
 # Casebook Privacy Policy
 
-Last updated: September 24, 2026
+Last updated: September 29, 2026
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -11,6 +11,10 @@ Casebook is a personal case tracker for dentists and dental students. It process
 Your workspace can include patient names or aliases, optional surnames and chart/reference numbers, treatment plans, dates, appointments, tasks, notes, custom fields, milestones, complications, implant and restoration details, outcomes, photographs, and photo captions. Templates, saved outcome views, and preferences are also stored locally. Built-in example patients are fictional.
 
 Casebook does not require an account or send your workspace or photos to the developer. It has no advertising, tracking, third-party analytics SDK, developer-operated patient-data server, automatic cloud synchronization, or team-sharing service. We do not sell your app data or use it for advertising.
+
+## Languages and translation
+
+Interface translations are bundled and work offline. The app never sends patient records, photos, notes, or custom text to a translation service. Changing the interface language does not rewrite saved patient information.
 
 ## Storage and device access
 

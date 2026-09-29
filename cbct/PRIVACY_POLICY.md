@@ -1,6 +1,6 @@
 # Dental CBCT Studio Privacy Policy
 
-Last updated: September 24, 2026
+Last updated: September 29, 2026
 
 Developer: Sansar Gupta
 Contact: sansargupta10@gmail.com
@@ -46,3 +46,7 @@ This policy page contains no advertising, analytics scripts, or cookies added by
 ## Changes to this policy
 
 We will update this policy and its date when our data practices change. The current policy will be available with the app and on its published privacy page.
+
+## Language support
+
+The app bundles interface and app-authored help translations in English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. It selects resources using the system language preferences, with English fallback. Russian is no longer bundled. Switching languages does not upload or translate imported content, patient data, filenames, annotations, or saved records. The shipped app does not call a translation service or download language models. Developer-only translation tools process public app-authored strings during development; the resulting text is bundled with the app. This does not change the data handling described in this policy.

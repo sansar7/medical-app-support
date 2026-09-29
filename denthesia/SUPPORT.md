@@ -1,5 +1,7 @@
 # Denthesia Support
 
+The app follows your system language automatically. Reviewed interface and clinical labels are bundled in 15 languages. Clinical text without a reviewed bundled translation stays in English, and earlier unreviewed clinical caches are ignored. Apple Translation is limited to a small explicit list of nonclinical interface text, such as feedback controls; Apple may request a language-model download for those strings. See [Language support](LOCALIZATION.md) for languages, platform requirements, and verification limits.
+
 Denthesia is developed by Sansar Gupta for trained dental clinicians.
 
 ## Contact
@@ -41,3 +43,5 @@ The app has no account or patient-data server. The developer cannot retrieve inf
 Review the [Denthesia Privacy Policy](PRIVACY_POLICY.md) for storage, notifications, local clearing controls, support correspondence, and retained legacy records. Deleting the Mac app executable does not necessarily delete its local data.
 
 _Last updated: September 27, 2026_
+
+Supported interface languages: English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. Russian is no longer offered. Set the preferred language in system or per-app settings; an unsupported language falls back to the next supported preference, then English.

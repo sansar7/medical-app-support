@@ -37,3 +37,9 @@ Saved states retain views, zoom, measurements, arches, canal traces, accepted ed
 Public support: https://sansar7.github.io/medical-app-support/cbct/index.html
 
 Privacy policy: https://sansar7.github.io/medical-app-support/cbct/privacy.html
+
+## Languages and translation feedback
+
+The app bundles English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. It follows the system preferred-language order and supported per-app language settings, with English fallback. Russian is no longer bundled. Reopen the app after changing its system language. Bundled UI and app-authored help work offline; imported content, filenames, patient data, annotations, and saved identifiers are not translated. The language choice does not change measurements, physical geometry, or file formats.
+
+For a translation or layout issue, include the app version, OS version, selected language/region, screen name, exact app-authored wording, and the expected wording. Use a synthetic example and remove private content from screenshots. Siri language availability and external support pages can differ from the bundled interface. Software layout checks and terminology review do not establish clinical validation or independent native-speaker review of every translation.

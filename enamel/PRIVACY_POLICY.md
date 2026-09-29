@@ -1,6 +1,6 @@
 # Privacy Policy for Enamel
 
-Last updated: September 24, 2026
+Last updated: September 29, 2026
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -13,6 +13,12 @@ Enamel does not collect your app data off your device. There are no accounts, th
 Saved procedures, recently viewed procedure IDs, reminder and last-visit dates, timer state, and preferences are stored in the app's local container. They remain until you change or clear them, or the operating system removes the app's data. Enamel does not provide cloud sync. Operating-system backups and device transfers may include local app data, according to your Apple settings.
 
 In Procedures, open About Enamel to clear saved items or recently viewed history. In Recall, cancel the reminder and clear the last visit separately. In Brushing, reset the timer to clear the current session. Removing the app from an iPhone or iPad removes its container; offloading retains app data. Removing the app bundle on a Mac may leave its local container. Older device backups are managed separately through Apple settings.
+
+## Automatic language support
+
+The supported interface languages are English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. Russian is no longer included. Language preference changes display text and direction without translating stored personal information.
+
+Enamel follows your system language. Reviewed common interface translations are bundled with the app. Clinical and educational content without a reviewed bundled translation stays in English. On supported devices, Apple Translation is limited to a small explicit allowlist of nonclinical public interface text, such as feedback controls; patient values, office notes, feedback drafts, saved information and interpolation values are never submitted. Apple may request a language-model download, managed by the operating system. Eligible translated interface text is cached locally; previously cached unreviewed clinical translations are ignored. Original source references and privacy-policy prose remain in English unless a reviewed bundled translation is available. Enamel excludes its translation cache from device backups.
 
 ## Notifications and Live Activities
 

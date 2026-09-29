@@ -2,6 +2,14 @@
 
 Casebook is a personal dental treatment tracker for dentists and dental students on iPhone, iPad, and Mac. It does not replace dental notes, the official patient record, or practice management software.
 
+## Languages
+
+The bundled interface supports English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. Russian is not bundled. Some detailed safety, clinical and privacy passages remain in English while their translations await semantic review. The app follows your system’s preferred supported language or the standard per-app language setting, then falls back to English when no supported preference is available. Relaunch after changing the language. Brazilian Portuguese uses `pt-BR`; Traditional and Simplified Chinese have separate resources.
+
+Translations are included with the app and work offline. There is no translation account, translation permission, model download, or runtime translation service. Changing the interface language does not translate patient-entered text, saved names, custom labels, or imported records. Arabic uses the system’s right-to-left layout. Technical identifiers, file formats, units, and stored data contracts retain their original meanings.
+
+When reporting a language or layout problem, include the app version, platform, interface language, text size, and the exact label or view. Use fictional data in screenshots. Spoken Siri availability and recognition depend on Apple’s supported languages and device settings.
+
 ## Contact
 
 Email Sansar Gupta at [sansargupta10@gmail.com](mailto:sansargupta10@gmail.com).
