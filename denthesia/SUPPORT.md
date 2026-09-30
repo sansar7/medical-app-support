@@ -2,6 +2,8 @@
 
 The app follows your system language automatically. Reviewed interface and clinical labels are bundled in 15 languages. Clinical text without a reviewed bundled translation stays in English, and earlier unreviewed clinical caches are ignored. Apple Translation is limited to a small explicit list of nonclinical interface text, such as feedback controls; Apple may request a language-model download for those strings. See [Language support](LOCALIZATION.md) for languages, platform requirements, and verification limits.
 
+**Office Settings → Language and translations** explains that English is the primary language and that translations into other languages may be inaccurate. If wording is unclear, consult the original linked source and report the affected language and screen without patient information.
+
 Denthesia is developed by Sansar Gupta for trained dental clinicians.
 
 ## Contact

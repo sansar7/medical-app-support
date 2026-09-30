@@ -58,10 +58,12 @@ In Procedures, open **About Enamel → Report a Bug or Request a Feature**. Choo
 
 ---
 
-_Last updated: September 27, 2026_
+_Last updated: September 29, 2026_
 
 ## Which language does Enamel use?
 
 Enamel follows the system's preferred supported language automatically. It supports English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. There is no Translate button or in-app language selector. You can also use Apple's per-app language setting where offered.
 
 Common controls, procedure names, onboarding and the educational disclaimer are bundled. Clinical guides, comparisons, glossary definitions and X-ray explanations stay in English unless a reviewed bundled translation is available. This avoids displaying unreviewed machine-generated medical advice. On iOS/iPadOS 18+ and Mac Catalyst 26+, Apple Translation can translate a small explicit set of nonclinical interface text, such as feedback instructions. Apple may request a language-model download; completed eligible translations can be reused offline. Unsupported or unavailable translations retain English. Citation titles, linked websites, Siri/Shortcuts responses and indexed guide exports retain their original language. Confirm treatment details with your dentist.
+
+**Procedures → About Enamel → Language and translations** explains that English is the primary language and that translations into other languages may be inaccurate. If wording is unclear, ask your dentist and report the affected language and screen without private medical information.

@@ -4,7 +4,9 @@ Denthesia follows the browser’s ordered language preferences automatically. Th
 
 All language resources are included in the verified offline copy. Close all Denthesia tabs and installed-app windows, then reopen to apply a waiting update. The cloud status control reports offline readiness. External clinical references still need a connection.
 
-Clinical reference text stays in English unless a reviewed translation exists for the exact message and language. Other text also falls back if translation integrity checks fail. Translations are reading aids; check the original English reference and current product information. Patient labels, office notes, and saved preset names remain as written.
+Clinical reference text stays in English unless a reviewed translation exists for the exact message and language. Other text also falls back if translation integrity checks fail. English is the primary language, and translations may be inaccurate. Settings includes this notice. Translations are reading aids; check the original English reference and current product information. Patient labels, office notes, and saved preset names remain as written.
+
+Search accepts the original English terms and translated interface terms. The suggested Midazolam and capnography searches also accept their supported localized names while displayed medicine names and unreviewed clinical references retain their original spelling.
 
 For a layout or translation problem, contact sansargupta10@gmail.com with the screen name, device/browser, language and region, and the incorrect app-authored wording. Include a redacted screenshot when useful. Do not send patient identifiers, clinical records, office notes, or other private data.
 

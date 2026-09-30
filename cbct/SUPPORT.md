@@ -1,6 +1,6 @@
 # Dental CBCT Studio support
 
-Updated September 27, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source.
+Updated September 29, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. Features described here require a build containing the corresponding source changes; a GitHub update does not update an installed app.
 
 ## Contact
 
@@ -17,6 +17,14 @@ Enhanced multi-frame files need valid per-frame patient positions, orientation, 
 If an import reports that slice positions drift from a regular spatial grid, obtain a new compatible export from the source system with consistent patient geometry. The check covers the whole stack, not just each neighboring pair. Do not change geometry tags to make a study pass.
 
 **Quick Start & Help** is available offline, including before a study is open. It explains MPR, Slice & Panorama, Surface Export, and Media Export. On iPhone and iPad, use the slice slider or previous/next slice buttons and open Viewer Controls from the toolbar. On Mac, source panes also support scrolling and the app offers keyboard/menu commands.
+
+## Super Resolution and Metal Artifact Reduction
+
+In **Viewer Controls → Display**, **Super Resolution** uses BoneEnhance Baseline 2D and **Metal Artifact Reduction** uses RISE-MAR Dental Preview. Both are optional, start off, and run on the device using bundled models. The selected options are retained in saved states and reviews; older files open with both off. There is no model download or upload of scan data.
+
+These options process the current 2D views in the background. The acquired image stays visible while processing; a completed processed view is labeled **Enhanced preview**. Turn both options off or choose **Reset Display** to compare with the acquired images. Scrolling or changing views can restart processing. If a model is unavailable, a view is too large, or available memory is insufficient, the original view remains usable and the app explains the problem. **Clear Memory** releases enhancement models and processed views while retaining the selected options; a subsequent view interaction may process the view again.
+
+Enhancement is experimental and may alter anatomy and grayscale. A denser display grid does not prove improved diagnostic resolution, and CBCT gray values may differ from the model's training inputs. Source voxels, physical measurement geometry, ROI statistics, segmentation, and 3D rendering remain based on acquired data. PDF, annotated image, DICOM Secondary Capture, and media exports exclude enhancement previews. Model licenses and attribution are available offline in **Privacy & Licenses → Image enhancement models**. Clinical accuracy and physical-device performance are not established by the software checks.
 
 ## Saving and memory
 
@@ -39,6 +47,8 @@ Public support: https://sansar7.github.io/medical-app-support/cbct/index.html
 Privacy policy: https://sansar7.github.io/medical-app-support/cbct/privacy.html
 
 ## Languages and translation feedback
+
+**Viewer Controls → Language and translations** states that English is the primary language and translations into other languages may be inaccurate. A corrected translation is not independent native-speaker or clinical certification.
 
 The app bundles English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. It follows the system preferred-language order and supported per-app language settings, with English fallback. Russian is no longer bundled. Reopen the app after changing its system language. Bundled UI and app-authored help work offline; imported content, filenames, patient data, annotations, and saved identifiers are not translated. The language choice does not change measurements, physical geometry, or file formats.
 
