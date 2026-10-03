@@ -40,6 +40,8 @@ The CPR metronome is a cadence aid. Confirm its sound is audible. It stops when 
 
 ## Local information and privacy
 
+If a profile autosave warning remains after closing Height & BMI, its current changes may not have been saved. Resolve the protected-storage error and save again; a successful later save clears the notice. Do not assume closing an editor proves persistence.
+
 The app has no account or patient-data server. The developer cannot retrieve information stored only on your device. Do not remove local app data or Keychain items while troubleshooting. If the app reports a protected-data or recovery error, preserve the current device state and include the error wording without patient information in your support request.
 
 Review the [Denthesia Privacy Policy](PRIVACY_POLICY.md) for storage, notifications, local clearing controls, support correspondence, and retained legacy records. Deleting the Mac app executable does not necessarily delete its local data.
