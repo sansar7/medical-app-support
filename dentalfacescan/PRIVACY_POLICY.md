@@ -1,4 +1,4 @@
-# DentalFaceScan Privacy Policy
+# Easy3D Capture Privacy Policy
 
 Last updated: October 9, 2026
 
@@ -6,7 +6,7 @@ Developer: Sansar Gupta. Contact: [sansargupta10@gmail.com](mailto:sansargupta10
 
 ## Information processed on your iPhone
 
-DentalFaceScan uses rear-camera photographs and native Object Capture processing to reconstruct faces or objects on your iPhone. Saved scans can contain a case label you enter, capture dates, subject and quality metadata, 3D geometry and photographic textures. New photogrammetry captures remove their source photographs and reconstruction checkpoints after the completed model is validated. Existing records from retired capture modes may also contain previously retained depth observations, source photographs or calibrated camera poses; those records and files are preserved until you delete them. A facial model or photograph may identify a person even when its case label does not. Obtain the subject’s informed consent and follow your professional data-handling obligations.
+Easy3D Capture uses rear-camera photographs and native Object Capture processing to reconstruct faces or objects on your iPhone. Saved scans can contain a case label you enter, capture dates, subject and quality metadata, 3D geometry and photographic textures. New photogrammetry captures remove their source photographs and reconstruction checkpoints after the completed model is validated. Existing records from retired capture modes may also contain previously retained depth observations, source photographs or calibrated camera poses; those records and files are preserved until you delete them. A facial model or photograph may identify a person even when its case label does not. Obtain the subject’s informed consent and follow your professional data-handling obligations.
 
 The app has no patient account, advertising or tracking SDK, developer-operated scan server, cloud reconstruction service, or automatic scan upload. Capture, reconstruction and local storage occur on the device. The developer does not receive your scans simply because you use the app.
 

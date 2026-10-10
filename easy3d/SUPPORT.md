@@ -1,5 +1,7 @@
 # Dental 3D Support
 
+Updated October 9, 2026 for the prepared Dental 3D 2.0 update. The import, file-color, camera, and project-restoration improvements described below require version 2.0 or a build containing those changes. Earlier installed versions can behave differently; publishing these instructions does not update your app.
+
 Email: **sansargupta10@gmail.com**
 
 Supported platforms: iOS/iPadOS 17 or newer and macOS 15 or newer on Apple silicon (M-series). Intel Macs are not supported.

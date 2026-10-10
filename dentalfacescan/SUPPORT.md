@@ -1,6 +1,6 @@
-# DentalFaceScan Support
+# Easy3D Capture Support
 
-DentalFaceScan is an iPhone-only face and object capture app. The current application target requires iOS 27. Both Object and Face modes use rear-camera photogrammetry. Availability depends on the physical iPhone supporting native Object Capture and reconstruction; the app checks both capabilities. Front-camera and Gaussian capture are no longer available. Simulator samples exercise software only. Clinical accuracy and actual exocad interoperability require independent validation; facial capture does not replace an intraoral scanner.
+Easy3D Capture is an iPhone-only face and object capture app. The current application target requires iOS 27. Both Object and Face modes use rear-camera photogrammetry. Availability depends on the physical iPhone supporting native Object Capture and reconstruction; the app checks both capabilities. Front-camera and Gaussian capture are no longer available. Simulator samples exercise software only. Clinical accuracy and actual exocad interoperability require independent validation; facial capture does not replace an intraoral scanner.
 
 ## Languages
 
