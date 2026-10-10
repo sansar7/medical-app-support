@@ -1,14 +1,15 @@
 {
-  "cbct/PRIVACY_POLICY.md": "b5233dc8fa317d699f01e29c1cee918cf3fe7ac22adcf1eeb7d5f7eb8ef68e19",
-  "cbct/SUPPORT.md": "ef6914e30d59d53ae404cd6fe0b40ad3182bd299112f1c3c16392a6ec5bd09ea",
+  "cbct/PRIVACY_POLICY.md": "e505958f05292722a607148259c30222fcfc2924c81ce822b186a11e646b0adf",
+  "cbct/SUPPORT.md": "0e816814b42dbe0316e35705f218ffc17170027e3f3d09f0287fef092703a3cd",
   "easy3d/PRIVACY_POLICY.md": "e763b8224ed5a74618334e595d732ff13b748f6f982ec0004cb5dc2d051cd6f8",
-  "easy3d/SUPPORT.md": "3859ad426affceae02200dba19f9a2901d59019efa4e033c1b80ff36ed3e7b5d",
+  "easy3d/SUPPORT.md": "a994cac7bdbbf77be3c8fdc4999ec55832a82f61a9a502b2dcd791e60ffb8aa3",
   "denthesia/PRIVACY_POLICY.md": "c5c52e56346c8bdea4821bc829abbfaa11a74636ae8052b52726ce1724051c04",
   "denthesia/SUPPORT.md": "5a144287b7c7b124add6bc41fdcf3fed575d3f7f952b273ce35172055eb97ff9",
   "enamel/PRIVACY_POLICY.md": "e361941fb8edc1d1e0ce11410380f79b908accf54606817103b9aa59f7ddd014",
   "enamel/SUPPORT.md": "8d2c446a275bc3d82c43d56a67ea5b5f880ffefcb45360549ea53efcf293180a",
-  "dentalfacescan/PRIVACY_POLICY.md": "09d5fabd8740d0cea4d72297ff3449e5b65a71835dcdad69b93158c7f8d6eb42",
-  "dentalfacescan/SUPPORT.md": "e0761d1e07111c2392d2e24228f4a3e7aa5ca44941fe0569f690b84cd7ed42dd",
+  "dentalfacescan/PRIVACY_POLICY.md": "885d30758e00a2db434bda9fa66d553768ad43cb4125b4d73bf87493d9668bd3",
+  "dentalfacescan/SUPPORT.md": "5b694e6ef28cb0a68c4bbdfc27fbbc48dced223eb822889d417f465e75198f50",
   "denthesia-web/PRIVACY_POLICY.md": "0424204af4946442fd35be13c8ff4ab2f57c83ed2c09f80a565da46148c9bf7a",
-  "denthesia-web/SUPPORT.md": "4e49060f78bbef4f448b3ac2c8adb6144becb7525f93d233aa453b8f3a457fe9"
+  "denthesia-web/SUPPORT.md": "4e49060f78bbef4f448b3ac2c8adb6144becb7525f93d233aa453b8f3a457fe9",
+  "cbct/ENDODONTICS.md": "596d44a475b49ba36f7858cd5720bfc9c72d24f1b49da34909b31a6645c0beae"
 }

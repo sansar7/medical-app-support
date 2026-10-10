@@ -6,14 +6,17 @@ from html import escape
 import re, shutil, hashlib, json
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--source-root', type=Path, help='Optional parent directory containing the app repositories')
+parser.add_argument('--app', action='append', choices=['cbct', 'easy3d', 'denthesia', 'enamel', 'dentalfacescan', 'denthesia-web'], help='Refresh only this app from --source-root; repeat for several apps. Other bundled documents are retained.')
 args = parser.parse_args()
+if args.app and not args.source_root:
+ parser.error('--app requires --source-root')
 base = args.source_root
 output = Path(__file__).resolve().parents[1]
 apps=[('cbct','Dental CBCT Studio','CBCTApp'),('easy3d','Dental 3D','EasySTL'),('denthesia','Denthesia','DosageCalculatorApp/DentalDosage'),('enamel','Enamel','DentalEducation'),('dentalfacescan','DentalFaceScan','FacialScanner'),('denthesia-web','Denthesia website','DosageCalculatorWebsite')]
 style='''*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}'''
 def inline(s):
  s=escape(s)
- s=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',lambda m:f'<a href="{("privacy.html" if m[2] in ("PRIVACY_POLICY.md", "PRIVACY.md") else "../languages.html" if m[2] in ("LOCALIZATION.md", "docs/LANGUAGES.md", "docs/LOCALIZATION.md", "Docs/LOCALIZATION.md") else m[2])}">{m[1]}</a>',s)
+ s=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',lambda m:f'<a href="{("privacy.html" if m[2] in ("PRIVACY_POLICY.md", "PRIVACY.md") else "../languages.html" if m[2] in ("LOCALIZATION.md", "docs/LANGUAGES.md", "docs/LOCALIZATION.md", "Docs/LOCALIZATION.md") else "endodontics.html" if m[2] == "docs/ENDODONTICS.md" else m[2])}">{m[1]}</a>',s)
  s=re.sub(r'\*\*(.+?)\*\*',r'<strong>\1</strong>',s)
  s=re.sub(r'`([^`]+)`',r'<code>\1</code>',s)
  s=re.sub(r'(?<!["=>])(https://[^\s<)]+)',r'<a href="\1">\1</a>',s)
@@ -27,7 +30,15 @@ def markdown(s):
   if block.startswith('For release, host this support content'):continue
   if block.startswith('# '):chunks.append('<h1>'+inline(block[2:])+'</h1>')
   elif block.startswith('## '):chunks.append('<h2>'+inline(block[3:])+'</h2>')
-  elif block.startswith(('- ','* ')):chunks.append('<ul>'+''.join('<li>'+inline(x[2:])+'</li>' for x in block.splitlines())+'</ul>')
+  elif re.match(r'(?:[-*] |\d+\. )', block):
+   ordered = bool(re.match(r'\d+\. ', block))
+   pattern = r'^\d+\.\s+' if ordered else r'^[-*]\s+'
+   items=[]
+   for line in block.splitlines():
+    if re.match(pattern, line):items.append(re.sub(pattern, '', line))
+    elif items:items[-1]+=' '+line.strip()
+   tag='ol' if ordered else 'ul'
+   chunks.append('<'+tag+'>'+''.join('<li>'+inline(item)+'</li>' for item in items)+'</'+tag+'>')
   else:chunks.append('<p>'+inline(' '.join(block.splitlines()))+'</p>')
  return '\n'.join(chunks)
 
@@ -39,7 +50,7 @@ for slug,name,repo in apps:
  nav='<a href="../">All apps</a><a href="./">Support</a><a href="privacy.html">Privacy policy</a><a href="../languages.html">Languages</a>'
  for source,filename in [('PRIVACY_POLICY.md','privacy.html'),('SUPPORT.md','index.html')]:
   canonical_source='PRIVACY.md' if slug=='enamel' and source=='PRIVACY_POLICY.md' else source
-  p=(base/repo/canonical_source) if base else (dest/source);text=p.read_text();manifest[slug+'/'+source]=hashlib.sha256(p.read_bytes()).hexdigest()
+  p=(base/repo/canonical_source) if base and (not args.app or slug in args.app) else (dest/source);text=p.read_text();manifest[slug+'/'+source]=hashlib.sha256(p.read_bytes()).hexdigest()
   (dest/source).write_text(text)
   body=markdown(text.split('## Publisher preparation')[0].replace('Unsupported formats and limits are described in [README.md](README.md).', 'See the in-app Help for supported formats and import limits.'))
   if source=='SUPPORT.md' and slug in ('easy3d','cbct'):
@@ -47,6 +58,13 @@ for slug,name,repo in apps:
    helptext='Open the STL file in Dental 3D.' if slug=='easy3d' else 'Unzip the archive, then use Open CBCT Study / Choose DICOM File or Folder and choose CBCT-Release-Synthetic.'
    body+=f'<h2>Fictional review sample</h2><p><a href="../samples/{sample}">Download the synthetic sample</a>. {helptext} It contains only computer-generated geometry, with no patient data. It is for demonstrating the software and does not validate clinical accuracy.</p>'
   (dest/filename).write_text(page(name+' — '+('Privacy' if source.startswith('PRIVACY') else 'Support'),body,nav))
+# Publish the Endo workflow linked from CBCT support alongside the canonical copy.
+endo_source = (base/'CBCTApp/docs/ENDODONTICS.md') if base and (not args.app or 'cbct' in args.app) else output/'cbct/ENDODONTICS.md'
+if endo_source.exists():
+ endo_text = endo_source.read_text()
+ (output/'cbct/ENDODONTICS.md').write_text(endo_text)
+ manifest['cbct/ENDODONTICS.md'] = hashlib.sha256(endo_source.read_bytes()).hexdigest()
+ (output/'cbct/endodontics.html').write_text(page('Dental CBCT Studio — Endo workflow', markdown(endo_text), '<a href="../">All apps</a><a href="./">CBCT support</a><a href="privacy.html">Privacy policy</a>'))
 body='<h1>Dental app support</h1><p>Privacy policies, help, and contact information for apps by Sansar Gupta.</p><ul>'+''.join(f'<li><a href="{slug}/">{name} support</a> · <a href="{slug}/privacy.html">Privacy policy</a></li>' for slug,name,_ in apps)+'</ul><p>For urgent clinical needs, use your established clinical protocols and local emergency services. This site provides software support.</p>'
 body += '<p><a href="languages.html">Language support across the apps and website</a></p>'
 (output/'index.html').write_text(page('Dental app support',body,''))
@@ -55,5 +73,5 @@ language_body = language_body.replace('<h2>Privacy and accuracy</h2>', '<h2>Engl
 (output/'languages.html').write_text(page('Dental apps — Language support', language_body, '<a href="./">All apps</a>'))
 (output/'.nojekyll').write_text('')
 (output/'source-sha256.json').write_text(json.dumps(manifest,indent=2)+'\n')
-(output/'README.md').write_text('# Medical app support\n\nPublic privacy policies, support pages, and entirely synthetic review samples for Dental CBCT Studio, Dental 3D, Denthesia, Enamel, DentalFaceScan, and the Denthesia website. The multilingual products share English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified and Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. These public support documents remain in English. No application source, patient data, credentials, or analytics scripts are included.\n\nHosted by GitHub Pages from main at the repository root. Update the per-app Markdown and run `python3 scripts/render.py` to regenerate HTML together when practices change. To refresh from the app repositories, use `python3 scripts/render.py --source-root /path/to/repositories`. The source directory is never published. `source-sha256.json` records the source document checksums at publication. Enamel uses `DentalEducation/PRIVACY.md` as the canonical source of its bundled `enamel/PRIVACY_POLICY.md` copy.\n\nContact: sansargupta10@gmail.com\n')
+(output/'README.md').write_text('# Medical app support\n\nPublic privacy policies, support pages, and entirely synthetic review samples for Dental CBCT Studio, Dental 3D, Denthesia, Enamel, DentalFaceScan, and the Denthesia website. The multilingual products share English, Spanish, French, German, Italian, Brazilian Portuguese, Simplified and Traditional Chinese, Japanese, Korean, Hindi, Arabic, Indonesian, Turkish, and Vietnamese. These public support documents remain in English. No application source, patient data, credentials, or analytics scripts are included.\n\nHosted by GitHub Pages from main at the repository root. Update the per-app Markdown and run `python3 scripts/render.py` to regenerate HTML together when practices change. To refresh from the app repositories, use `python3 scripts/render.py --source-root /path/to/repositories`. To refresh only selected apps, repeat `--app`, for example `--source-root /path/to/repositories --app easy3d --app cbct --app dentalfacescan`; other apps keep their bundled documents. The linked CBCT Endo workflow is published with its support page. The source directory is never published. `source-sha256.json` records the source document checksums at publication. Enamel uses `DentalEducation/PRIVACY.md` as the canonical source of its bundled `enamel/PRIVACY_POLICY.md` copy.\n\nContact: sansargupta10@gmail.com\n')
 print(f'Rendered {len(apps)} privacy pages, {len(apps)} support pages and app index.')

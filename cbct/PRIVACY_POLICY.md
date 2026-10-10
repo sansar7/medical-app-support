@@ -1,6 +1,6 @@
 # Dental CBCT Studio Privacy Policy
 
-Last updated: September 29, 2026
+Last updated: October 9, 2026
 
 Developer: Sansar Gupta
 Contact: sansargupta10@gmail.com
@@ -13,11 +13,17 @@ Dental CBCT Studio processes the DICOM folders you choose on your device. This i
 
 The current study and review state are held during your session. Large volumes can use private temporary disk storage. Prepared exports use private temporary files and are cleaned up after use or on a later launch. Temporary file dates are read only to identify stale app-owned export files for cleanup. Closing a study clears its active review state; it does not erase your original files or any files you saved.
 
-Save Review explicitly writes a .cbctreview JSON file at a location you choose. It contains the DICOM series identifier and geometry, arch curves, canal traces, measurements, segmentation edits, and display settings. It contains no scan pixels, patient demographics, source-folder path, or file-access bookmark. The series identifier and anatomy can still link a review to a person; treat review files as sensitive. Open Review requires the original matching DICOM series. There is no automatic review saving or recent-study history.
+Save Review explicitly writes a .cbctreview JSON file at a location you choose. It contains the DICOM series identifier and geometry, arch curves, canal traces, measurements, segmentation edits, display settings, and endodontic segmentations, notes, and tooth/canal designations. It does not copy scan pixels, patient demographics from source DICOM metadata, source-folder paths, or file-access bookmarks. Series identifiers, anatomy, and user-entered text may identify a person; treat review files as sensitive. Open Review requires the original matching DICOM series. There is no automatic review saving or recent-study history.
 
-Save State explicitly writes Dental-CBCT-State.cbctstate into the selected CBCT folder; Save State Copy lets you choose another location. Reopening a selected folder restores its last saved state only after checking the complete source scan and geometry using a randomly salted content fingerprint. This format excludes DICOM identifiers, patient demographics, images, source paths, bookmarks, and free-text provenance. It includes display and view settings, measurements, arches, canal traces, and segmentation edits, which remain sensitive study-specific geometry. A state file is not an anonymized clinical record. The app holds folder access only for the open session and does not remember that location between launches. Clear Memory releases generated segmentation and 3D resources while preserving the source study and accepted edits in the current session; it does not delete saved files.
+Save State explicitly writes Dental-CBCT-State.cbctstate into the selected CBCT folder; Save State Copy lets you choose another location. Reopening a selected folder restores its last saved state only after checking the complete source scan and geometry using a randomly salted content fingerprint. It does not copy identifiers or patient demographics from source DICOM metadata, scan pixels, source-folder paths, or file-access bookmarks. It includes display and view settings, measurements, arches, canal traces, segmentation edits, and endodontic segmentations, notes, and tooth/canal designations. Saved geometry and user-entered text may identify a person and must be treated as sensitive. A state file is not an anonymized clinical record. The app holds folder access only for the open session and does not remember that location between launches. Clear Memory releases generated segmentation and 3D resources while preserving the source study and accepted edits in the current session; it does not delete saved files.
 
 Saved states, reviews, images, videos, PDF reports, DICOM captures, and mesh exports are not encrypted by the app and remain wherever you choose to save them. Delete these files in Files or Finder when they are no longer needed. The app cannot delete copies you shared or copies held by another service.
+
+## Endo processing and exports
+
+The experimental Endo workspace runs the bundled STSR26 single-tooth tooth-and-pulp model locally on the selected region of the scan. The scan is not sent to a remote AI service. Endo targets, predicted and corrected masks, tooth identifiers, canal traces, reference landmarks, notes, and model provenance are included when you save the study state or review.
+
+Endo exports contain tooth and pulp STL surfaces and a JSON summary with measurements, selected-region geometry, model provenance, and the text you entered. Notes, landmarks, and tooth identifiers are not automatically scrubbed for personal information. Derived anatomy and coordinates may also link these files to a person. Treat Endo exports as sensitive even when no patient demographics were copied from the DICOM header, and review both their contents and destination before sharing. Files saved into a cloud-backed folder may sync under that provider's settings.
 
 ## Sharing, backups, and permissions
 

@@ -1,6 +1,18 @@
 # Dental CBCT Studio support
 
-Updated September 29, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. Features described here require a build containing the corresponding source changes; a GitHub update does not update an installed app.
+Updated October 9, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. Features described here require a build containing the corresponding source changes; a GitHub update does not update an installed app.
+
+## Endo
+
+The Endo workspace uses bundled STSR26 inference on the device, with no separate
+runtime or server. Select a tooth region and review the tooth and pulp masks
+against all three acquired slice planes. Optional enhancement appears only while
+navigating; painting, erasing, and placing canal points return to the acquired
+single slice with an **Original · editing** label. Use **Show Original** for
+immediate comparison while navigating. Manual trace length is not a clinical
+working length. Save State retains masks, traces, and notes; restored surfaces
+require review before export. Notes may identify a person. See the
+[Endo workflow](docs/ENDODONTICS.md).
 
 ## Contact
 
@@ -16,15 +28,21 @@ Enhanced multi-frame files need valid per-frame patient positions, orientation, 
 
 If an import reports that slice positions drift from a regular spatial grid, obtain a new compatible export from the source system with consistent patient geometry. The check covers the whole stack, not just each neighboring pair. Do not change geometry tags to make a study pass.
 
-**Quick Start & Help** is available offline, including before a study is open. It explains MPR, Slice & Panorama, Surface Export, and Media Export. On iPhone and iPad, use the slice slider or previous/next slice buttons and open Viewer Controls from the toolbar. On Mac, source panes also support scrolling and the app offers keyboard/menu commands.
+**Quick Start & Help** is available offline, including before a study is open. It explains MPR, Slice & Panorama, Endo, Surface Export, and Media Export. On iPhone and iPad, use the slice slider or previous/next slice buttons and open Viewer Controls from the toolbar. On Mac, source panes also support scrolling and the app offers keyboard/menu commands.
 
 ## Super Resolution and Metal Artifact Reduction
 
 In **Viewer Controls → Display**, **Super Resolution** uses BoneEnhance Baseline 2D and **Metal Artifact Reduction** uses RISE-MAR Dental Preview. Both are optional, start off, and run on the device using bundled models. The selected options are retained in saved states and reviews; older files open with both off. There is no model download or upload of scan data.
 
-These options process the current 2D views in the background. The acquired image stays visible while processing; a completed processed view is labeled **Enhanced preview**. Turn both options off or choose **Reset Display** to compare with the acquired images. Scrolling or changing views can restart processing. If a model is unavailable, a view is too large, or available memory is insufficient, the original view remains usable and the app explains the problem. **Clear Memory** releases enhancement models and processed views while retaining the selected options; a subsequent view interaction may process the view again.
+These options process the visible MPR slices/slabs, arch scout, simulated panorama, tooth cross-sections, and Endo slice panes in the background. The acquired image stays visible while processing; a completed processed view is labeled **Enhanced preview**. **Show Original** instantly compares the same cut with its acquired image while retaining the processed result. This temporary comparison choice is not saved. Turn both options off or choose **Reset Display** to disable enhancement. Scrolling or changing views can restart processing. If a model is unavailable, a view is too large, or available memory is insufficient, the original view remains usable and the app explains the problem. **Clear Memory** releases enhancement models and processed views while retaining the selected options; a subsequent view interaction may process the view again.
 
-Enhancement is experimental and may alter anatomy and grayscale. A denser display grid does not prove improved diagnostic resolution, and CBCT gray values may differ from the model's training inputs. Source voxels, physical measurement geometry, ROI statistics, segmentation, and 3D rendering remain based on acquired data. PDF, annotated image, DICOM Secondary Capture, and media exports exclude enhancement previews. Model licenses and attribution are available offline in **Privacy & Licenses → Image enhancement models**. Clinical accuracy and physical-device performance are not established by the software checks.
+The corrections are deliberately limited, so broad streaks may remain and the visible difference can be subtle. Compare the same cut and display settings; a visible change does not establish recovered anatomy. Enhancement is experimental and may alter anatomy and grayscale. A denser display grid does not prove improved diagnostic resolution, and CBCT gray values may differ from the model's training inputs. Source voxels, physical measurement geometry, ROI statistics, segmentation, and 3D rendering remain based on acquired data. PDF, annotated image, DICOM Secondary Capture, and media exports exclude enhancement previews. Model licenses and attribution are available offline in **Privacy & Licenses → Image enhancement models**. Clinical accuracy and physical-device performance are not established by the software checks.
+
+## Exporting an enhanced CT copy
+
+Choose **Export → Export Enhanced CT…**, select Bone Enhance and/or Metal Artifact Reduction, and choose a destination folder. This separately processes every axial slice and saves a derived DICOM series on the original voxel grid. The progress view reports completed slices; cancellation waits for the current calculation to finish and removes the incomplete output. **Open Saved CT** opens the completed copy with live enhancement off.
+
+The copy includes available source patient/study information and processed grayscale. Retain the original scan for comparison and review identifiers before sharing. The processed values are not calibrated HU, and the copy is not a validated diagnostic reconstruction. Regular PNG, PDF, DICOM Secondary Capture, and media exports continue to use source data. On narrow screens and at large text sizes, scroll the export details; the destination and cancel/done controls remain available.
 
 ## Saving and memory
 
@@ -32,7 +50,7 @@ Enhancement is experimental and may alter anatomy and grayscale. A denser displa
 
 A saved state is matched to the source pixels and geometry. Valid established spacing remains unchanged; if an older import represented a long decimal-rounded stack with incorrect spacing, the corrected geometry may reject that older state. Reopen the original source, review the work, and save a new state.
 
-Saved states retain views, zoom, measurements, arches, canal traces, accepted edits, and display settings. They exclude source pixels, patient names, DICOM identifiers, paths, arbitrary provenance text, media captions/timelines, generated meshes, and export approval. Saved geometry is still study-specific and sensitive. Keep the original DICOM source: a state file is not a scan backup. The older **Save Review / Open Review** workflow remains available; `.cbctreview` files include a series identifier and sensitive anatomical work and also require the matching original source.
+Saved states retain views, zoom, measurements, arches, canal traces, accepted edits, and display settings. They exclude source pixels, DICOM patient demographics and identifiers, paths, imported provenance text, media captions/timelines, generated meshes, and export approval. User-authored Endo notes and tooth designations are retained and may identify a person. Saved geometry is still study-specific and sensitive. Keep the original DICOM source: a state file is not a scan backup. The older **Save Review / Open Review** workflow remains available; `.cbctreview` files include a series identifier and sensitive anatomical work and also require the matching original source.
 
 **Clear Memory** in Viewer Controls releases generated segmentation, surfaces, reformat caches, and the inference model after active work finishes. It keeps the loaded source and accepted work and returns to MPR with its 3D view unloaded. Choose **Load 3D View** to resume; regenerate and explicitly review segmented surfaces before exporting again. It does not discard the loaded study or free every allocation.
 
@@ -40,7 +58,7 @@ Saved states retain views, zoom, measurements, arches, canal traces, accepted ed
 
 ## Siri and Spotlight
 
-**Search Guide & Siri Topics** opens nine public app guides. Siri and Shortcuts can open, search, and read these guides; Spotlight indexes only bundled public guide content. **Reset MPR View** requires the active MPR workspace, a loaded study, and no pending operation, drawing, or measurement. It resets pane focus and the MPR camera without changing records or approving an export. Patient data, filenames, pixels, measurements, saved states, and reviews are never donated to this public catalog. Availability depends on device, OS, language, and Apple settings.
+**Search Guide & Siri Topics** opens eleven public app guides, including image enhancement. Siri and Shortcuts can open, search, and read these guides; Spotlight indexes only bundled public guide content. **Reset MPR View** requires the active MPR workspace, a loaded study, and no pending operation, drawing, or measurement. It resets pane focus and the MPR camera without changing records or approving an export. Patient data, filenames, pixels, measurements, saved states, and reviews are never donated to this public catalog. Availability depends on device, OS, language, and Apple settings.
 
 Public support: https://sansar7.github.io/medical-app-support/cbct/index.html
 
