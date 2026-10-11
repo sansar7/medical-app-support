@@ -86,5 +86,6 @@ its README also describes research and academic use.
 
 ## Verification
 
-See `ENDODONTICS_VALIDATION_2026-10-09.md` for completed native tests,
-example-scan checks, visual inspection, and their limitations.
+See the [October 9 Endo validation record](history/ENDODONTICS_VALIDATION_2026-10-09.md)
+for completed native tests, example-scan checks, visual inspection, and their
+limitations. Current verification is in [STATUS.md](../STATUS.md).

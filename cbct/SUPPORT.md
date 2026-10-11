@@ -1,6 +1,6 @@
 # Dental CBCT Studio support
 
-Updated October 9, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. Features described here require a build containing the corresponding source changes; a GitHub update does not update an installed app.
+Updated October 11, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. Features described here require a build containing the corresponding source changes; a GitHub update does not update an installed app.
 
 ## Endo
 
@@ -28,7 +28,7 @@ Enhanced multi-frame files need valid per-frame patient positions, orientation, 
 
 If an import reports that slice positions drift from a regular spatial grid, obtain a new compatible export from the source system with consistent patient geometry. The check covers the whole stack, not just each neighboring pair. Do not change geometry tags to make a study pass.
 
-**Quick Start & Help** is available offline, including before a study is open. It explains MPR, Slice & Panorama, Endo, Surface Export, and Media Export. On iPhone and iPad, use the slice slider or previous/next slice buttons and open Viewer Controls from the toolbar. On Mac, source panes also support scrolling and the app offers keyboard/menu commands.
+**Quick Start & Help** is available offline, including before a study is open. It explains MPR, Slice & Panorama, Endo, Surface Export, and Media Export. Use the slice slider or the previous/next slice buttons on every platform. On iPhone and iPad, open Viewer Controls from the toolbar. On Mac, source panes also support scrolling and the app offers keyboard/menu commands; the Distance tool is **⌥⌘L**.
 
 ## Super Resolution and Metal Artifact Reduction
 
@@ -40,9 +40,13 @@ The corrections are deliberately limited, so broad streaks may remain and the vi
 
 ## Exporting an enhanced CT copy
 
-Choose **Export → Export Enhanced CT…**, select Bone Enhance and/or Metal Artifact Reduction, and choose a destination folder. This separately processes every axial slice and saves a derived DICOM series on the original voxel grid. The progress view reports completed slices; cancellation waits for the current calculation to finish and removes the incomplete output. **Open Saved CT** opens the completed copy with live enhancement off.
+Choose **Export → Export Enhanced CT…**, select Bone Enhance and/or Metal Artifact Reduction, and choose a destination folder outside the open study's folder (a copy saved inside it would compete with the source series when that folder is reopened, so the app refuses it). This separately processes every axial slice and saves a derived DICOM series on the original voxel grid. The progress view reports completed slices; cancellation waits for the current calculation to finish and removes the incomplete output. If the app quits or stops during an export, a visible `…-incomplete` folder may remain; delete it, or the next export to the same folder removes it once it is a day old. **Open Saved CT** opens the completed copy with live enhancement off.
 
 The copy includes available source patient/study information and processed grayscale. Retain the original scan for comparison and review identifiers before sharing. The processed values are not calibrated HU, and the copy is not a validated diagnostic reconstruction. Regular PNG, PDF, DICOM Secondary Capture, and media exports continue to use source data. On narrow screens and at large text sizes, scroll the export details; the destination and cancel/done controls remain available.
+
+## Measurements
+
+Cross-section measurements belong to the current dental arch. Switching jaw, **Use Automatic**, or clearing the arch asks before those measurements are deleted. **Undo Last** cancels a measurement in progress, restores what the last row Delete or **Clear All** removed (Clear All asks first), and otherwise removes the newest measurement. Measurements are not clinically validated.
 
 ## Saving and memory
 
@@ -54,7 +58,7 @@ Saved states retain views, zoom, measurements, arches, canal traces, accepted ed
 
 **Clear Memory** in Viewer Controls releases generated segmentation, surfaces, reformat caches, and the inference model after active work finishes. It keeps the loaded source and accepted work and returns to MPR with its 3D view unloaded. Choose **Load 3D View** to resume; regenerate and explicitly review segmented surfaces before exporting again. It does not discard the loaded study or free every allocation.
 
-**Close Study** clears the visible study immediately. If you then open another study, “Finishing current study work” means canceled processing is still releasing its source buffers before replacement loading starts. This avoids overlapping large study allocations.
+**Close Study** clears the visible study immediately. If you then open another study, “Finishing current study work” means canceled processing is still releasing its source buffers before replacement loading starts. This avoids overlapping large study allocations. **Cancel** in the loading view stops reading a folder that was chosen by mistake; the study that was already open stays open.
 
 ## Siri and Spotlight
 
