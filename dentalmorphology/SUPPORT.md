@@ -12,6 +12,8 @@ For a problem report, include the app version and build, device model, operating
 
 The app opens on a complete permanent dentition. Tap or click a tooth, or use **Choose tooth**, to study it. **All teeth** returns to the full arch, and the reset button restores the camera.
 
+Right and left in tooth names refer to the patient's anatomical sides, regardless of how you rotate the view. The patient's lower-right central and lateral incisors are **#25 (FDI 41)** and **#26 (FDI 42)**; the lower-left counterparts are **#24 (FDI 31)** and **#23 (FDI 32)**. **About this model** explains the source specimen and any mirrored or representative placement.
+
 | | Rotate | Move | Zoom |
 |---|---|---|---|
 | Mac | Drag | Right-drag, Option-drag, middle-drag, or Shift-scroll | Scroll or pinch on the trackpad, toward the pointer |
@@ -27,11 +29,15 @@ On a Mac, and on an iPad with a hardware keyboard, the **Atlas** menu lists ever
 
 Each model is an individual anatomical example, not a standard for every patient. Some positions are mirrored counterparts or class examples where the source does not document the original side; the app labels these. The sources include author-prepared tissue surfaces and locally inferred automatic segmentations; the complete atlas has not been reviewed by an anatomy educator or endodontist. Some prototype display surfaces also use inferred repair or simplification. Fine apical anatomy and fissure detail may be incomplete, and the models are not a calibrated measurement tool.
 
+The lower-right central and lateral incisor teaching models (**#25/#26**) are explicit mirrors of their lower-left counterparts (**#24/#23**), including all three tissues. The source contains repeated central/lateral enamel forms. Correcting their right-side orientation preserves that source limitation; it does not establish distinct, expert-validated central- and lateral-incisor anatomy.
+
+The Root Canal Anatomy Project (RCAP) upper-premolar specimens do not document their original side, so their four positions remain class representatives. The five ACTA-DIRECT specimens used for ten positions do not document tooth class or side; those were inferred as imaged during an in-house review. Their source notes disclose that uncertainty for each placement, including the mirrored counterparts.
+
 Enamel and dentin colors and translucency are an illustrative rendering. The shading uses thickness estimates ray-cast from each display mesh and published optical data with calibrated display constants; those estimates are not independently measured enamel thickness. Micro-CT records structure, not the tooth's real color. Enamel is shown slightly whiter than dentin to make the tissues easy to tell apart.
 
-On devices whose graphics support hardware ray tracing, a **Ray tracing** switch appears in the full arch and in every study with enamel, dentin and pulp layers. It draws the same view with ray-traced lighting, light scattering in enamel and dentin, and the gloss of wet enamel. This is also an illustrative rendering, not a measured color. The standard view is the default and returns automatically if ray tracing stops. In the full arch, and in a study on slower graphics, the standard view shows while the model moves and the ray-traced image returns once it is still. Ray-tracing performance on iPhone and iPad has not yet been verified on devices.
+On devices with Metal ray tracing and Apple GPU family 9 or newer, a **Ray tracing** switch appears in every tooth study with enamel, dentin and pulp layers; the full arch always uses the standard view. It draws the same view with ray-traced lighting, light scattering in enamel and dentin, and the gloss of wet enamel. This is also an illustrative rendering, not a measured color. The standard view is the default and returns automatically if ray tracing stops. On slower graphics, the standard view shows while the model moves and the ray-traced image returns once it is still. The choice stays with the window as you move between teeth, including through the full arch, and resets when the window closes. Ray-tracing performance on iPhone and iPad has not yet been verified on devices.
 
-Anatomy summaries and canal-configuration percentages come from cited textbooks and studies. Percentages describe study populations, not a particular patient. Sources & credits lists every reference and model source.
+Anatomy summaries and canal-configuration percentages come from cited textbooks, university teaching resources and research studies. Percentages describe study populations, not a particular patient. Sources & credits lists every reference and model source; textbook and course-note full texts and images are not bundled or offered for download.
 
 ## Accessibility
 
@@ -42,6 +48,8 @@ Every tooth can be chosen from a list, without using the 3D view. VoiceOver read
 - **"3D model unavailable"**: choose another tooth or reopen the app. If it persists, reinstall the app and send a report.
 - **The model looks too small or off-center** after rotating or resizing: press the reset button.
 - **A tooth takes a moment to appear**: detailed specimens are large and load in the background the first time they are opened.
+- **No Ray tracing switch**: open a layered tooth study on supported graphics hardware. The full arch and the two combined-hard-tissue demos use the standard view.
+- **A side or shape looks wrong**: use Reset camera, confirm the tooth number, and read About this model. Include the tooth number and viewing angle in a report so the displayed orientation can be checked against its source.
 
 ## Privacy
 
