@@ -1,6 +1,6 @@
 # Easy3D Capture Privacy Policy
 
-Last updated: October 9, 2026
+Last updated: October 14, 2026
 
 Developer: Sansar Gupta. Contact: [sansargupta10@gmail.com](mailto:sansargupta10@gmail.com).
 
@@ -24,9 +24,13 @@ Interface translations are bundled and work offline. The app does not send scans
 
 Sharing is initiated by you through the iOS share sheet. You choose the recipient, application or provider, whose privacy, retention, backup and synchronization rules then apply. Files copied to a cloud provider may upload according to that provider’s settings. Exported geometry and photographic textures may contain sensitive or identifying information. Model exports can include their required image textures. Legacy splat/CAD exports omit any separately retained source photograph dataset; exported representations are still potentially identifying.
 
+An OBJ, PLY or STL export is a ZIP containing the model file and any required material and texture images, a READ-ME.txt with units and handling notes, and a scan-manifest.json with technical details: a random scan ID, capture mode and subject, the date and time the scan was saved, the iPhone model identifier and iOS version recorded at that time, units, coordinate system, vertex and triangle counts, capture-quality counts and warnings, scale status, and internal format fields such as the record schema version. Legacy splat exports include similar splat-manifest.json and SPLAT-READ-ME.txt files. An original USDZ export is the unchanged reconstructed model file. Export file names are built from the random scan ID. The updated source prepared for the next release keeps the case label you enter in the app’s library on your iPhone and does not write it into exported files or their names. The submitted version 1.0 (12) and earlier distributed builds include the case label as the `name` value in scan-manifest.json and splat-manifest.json; review or delete those exported copies if needed. Local development copies currently retain the same version number, so that number alone does not identify which behavior a test copy has.
+
 ## Retention and deletion
 
 Unfinished captures can temporarily retain photographs and reconstruction checkpoints. On cancellation, the app waits for native processing to stop before removing those files. If removal fails, it reports the failure and retains the files for a cleanup retry. Interrupted or recently modified work can remain locally until cleanup can safely complete.
+
+Temporary export files are removed when the share sheet reports completion or dismissal. In the updated source prepared for the next release, swiping the share sheet away also schedules removal after a 60-second grace period. If the app is interrupted before cleanup finishes, eligible temporary capture and export folders older than 24 hours are checked during a later library opening. Cleanup preserves recent, unreadable or otherwise unsafe-to-remove files; 24 hours is not a guaranteed deletion deadline. Incomplete local save stages can also remain until recovery succeeds or you remove the app.
 
 Saved scans remain locally until you delete them. Open the scan and use Scan actions → Delete scan to remove its saved model and retained capture data from the app. Deleting the app removes its local library. Neither action removes exported copies, recipient copies, or files in another app or provider. Manage those copies separately. The developer has no remote copy from which to recover scans and cannot remotely delete data held only on your device.
 
@@ -36,7 +40,7 @@ Only the bundled public capture guides and generic app navigation are exposed. P
 
 ## Diagnostics and support correspondence
 
-Capture diagnostics are created locally. Share diagnostics opens the system share sheet; no report is sent automatically. The report includes capture timing, camera readiness and processing state, without photographs, facial geometry, case labels or file paths. Review a report and its destination before sharing.
+Capture diagnostics are created locally. Share diagnostics opens the system share sheet; no report is sent automatically. The report includes app version/build, iPhone model and iOS version, capture timing and photograph counts, the chosen Object or Face subject and reconstruction mode, camera readiness, processing and thermal state, and recent diagnostic events. It excludes photographs, facial geometry, case labels and file paths. Review a report and its destination before sharing.
 
 If you contact support, we receive your email address, message, and any attachments you choose to send. We use correspondence to respond and investigate the issue, retaining it only as needed for that purpose or applicable legal obligations. Contact the same address to request access, correction or deletion of correspondence we hold. Do not send patient identifiers, facial images, scans or clinical records by ordinary support email or public GitHub issues. Apple may provide crash or usage diagnostics according to your system sharing settings.
 

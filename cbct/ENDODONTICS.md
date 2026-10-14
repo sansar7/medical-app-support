@@ -34,7 +34,8 @@ Wide windows show the inspector beside all four views. On iPhone and narrow
 windows, use the **Axial / Coronal / Sagittal / 3D** picker for the full-width
 view and **Controls** for target, trace, and review settings. On iPhone and iPad,
 backgrounding cancels pending inference at the next prediction boundary;
-returning to the same study resumes it after the cancelled work has drained.
+returning to the same study starts it again from the beginning after the
+cancelled work has drained.
 Explicit cancellation and changing studies discard that pending restart.
 
 ## Model and Geometry
@@ -50,12 +51,41 @@ Explicit cancellation and changing studies discard that pending restart.
 - Native preprocessing adds 2 mm context where scan coverage allows,
   resamples in canonical LPS coordinates, normalizes the crop, and blends
   overlapping model logits. Predictions map back to the original source ROI.
+- Every tile uses nnU-Net's mirrored test-time augmentation. The model runs
+  on the tile and its seven mirrored copies, covering every combination of the
+  three axes the checkpoint's default trainer allows. Each output is flipped
+  back, and the logits are averaged before blending. This is always on and
+  costs about eight times the single-pass model time. On October 12 on this Mac,
+  three teeth in one example scan took 18–24 s with the default 24 mm region,
+  compared with 2.4–3.2 s single-pass. The 36 mm maximum region took about 75 s.
+  Mirroring reduced the tooth and pulp predicted outside the target tooth, and
+  pulp inside the target tooth changed little. It does not establish accuracy
+  (see [the model notes](../Tools/Endodontics/README.md)). The upstream STSR26
+  script runs this stage with `--disable_tta`, so the app follows nnU-Net's
+  default predictor instead.
 - Every editing pane uses one acquired source slice, independent of MPR slab
   thickness or image-enhancement previews. Navigation previews use a separate
   display layer; segmentation, mask edits, traces, 3D surfaces, and exports retain
   source geometry and source-based masks. Original DICOM pixels are unchanged.
 - Mesh coordinates are millimetres in the DICOM patient LPS frame. Native mask
   sampling, crop boundaries, and source geometry remain part of the export.
+- Tooth and pulp surfaces follow the Surface Export **Surface** setting, and the
+  3D pane and the export always use the same one. **Smooth** (the default)
+  smooths and simplifies each surface, puts back local shrinkage and caps each
+  piece's volume change at 10%. Vertices move at most 0.25 mm from the
+  unsmoothed extracted surface, plus at most about 0.03 mm from
+  simplification; because that extracted surface already cuts voxel corners,
+  the result can lie about 0.3 mm (0.15 mm voxels) to 0.4 mm (0.4 mm voxels)
+  from the voxel-mask boundary. No piece is removed or bridged; the tooth's
+  enclosed voids are filled (they have no surface), and the masks are unchanged.
+  **Exact voxels** keeps the unsmoothed source-grid surface. Changing the
+  setting clears the Endo surfaces and the Endo review; the surfaces are rebuilt
+  at once in Endo, or when Endo is next opened.
+  `endodontic-summary.json` (schema 3) records the style and each surface's
+  settings and triangle counts. Its `model` block and the Endo saved state
+  (schema 2) record `mirroredInference`, which is true for every app run.
+  Endo saved states from earlier versions are rejected as invalid instead of
+  being migrated.
 - Numerical conversion checks compare Core ML against the original PyTorch
   checkpoint. They do not measure anatomical accuracy.
 

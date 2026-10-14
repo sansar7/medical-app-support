@@ -1,6 +1,6 @@
 # Dental CBCT Studio Privacy Policy
 
-Last updated: October 9, 2026
+Last updated: October 14, 2026
 
 Developer: Sansar Gupta
 Contact: sansargupta10@gmail.com
@@ -18,6 +18,8 @@ Save Review explicitly writes a .cbctreview JSON file at a location you choose. 
 Save State explicitly writes Dental-CBCT-State.cbctstate into the selected CBCT folder; Save State Copy lets you choose another location. Reopening a selected folder restores its last saved state only after checking the complete source scan and geometry using a randomly salted content fingerprint. It does not copy identifiers or patient demographics from source DICOM metadata, scan pixels, source-folder paths, or file-access bookmarks. It includes display and view settings, measurements, arches, canal traces, segmentation edits, and endodontic segmentations, notes, and tooth/canal designations. Saved geometry and user-entered text may identify a person and must be treated as sensitive. A state file is not an anonymized clinical record. The app holds folder access only for the open session and does not remember that location between launches. Clear Memory releases generated segmentation and 3D resources while preserving the source study and accepted edits in the current session; it does not delete saved files.
 
 Saved states, reviews, images, videos, PDF reports, DICOM captures, and mesh exports are not encrypted by the app and remain wherever you choose to save them. Delete these files in Files or Finder when they are no longer needed. The app cannot delete copies you shared or copies held by another service.
+
+Surface exports contain sensitive anatomy and coordinates. Segmentation and enhancement run locally. Export Enhanced CT preserves available patient and study identity in a processed DICOM copy. It checks free disk space and may leave an incomplete output folder after an interruption. Review and delete exported copies in Files or Finder.
 
 ## Endo processing and exports
 

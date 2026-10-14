@@ -1,17 +1,19 @@
 {
-  "cbct/PRIVACY_POLICY.md": "e505958f05292722a607148259c30222fcfc2924c81ce822b186a11e646b0adf",
-  "cbct/SUPPORT.md": "38da3b44a28fe8321bfe12d479aa841514943199ae947460e23b7668161b6a27",
+  "cbct/PRIVACY_POLICY.md": "2cc0dff526d2f245840cfe3f2d6126c1c9f5da3b86a29ce1b0487a369ccbd82e",
+  "cbct/SUPPORT.md": "7cdc7691df2d1ac13e226358b7393c37be93d4edf41002c051a40f3d188164a6",
   "easy3d/PRIVACY_POLICY.md": "e763b8224ed5a74618334e595d732ff13b748f6f982ec0004cb5dc2d051cd6f8",
   "easy3d/SUPPORT.md": "b34f37a321eaad428c7352b962f6753b1658c66f5ab9efc5be68ca31ebc2ea79",
   "denthesia/PRIVACY_POLICY.md": "c5c52e56346c8bdea4821bc829abbfaa11a74636ae8052b52726ce1724051c04",
   "denthesia/SUPPORT.md": "5a144287b7c7b124add6bc41fdcf3fed575d3f7f952b273ce35172055eb97ff9",
   "enamel/PRIVACY_POLICY.md": "e361941fb8edc1d1e0ce11410380f79b908accf54606817103b9aa59f7ddd014",
   "enamel/SUPPORT.md": "8d2c446a275bc3d82c43d56a67ea5b5f880ffefcb45360549ea53efcf293180a",
-  "dentalfacescan/PRIVACY_POLICY.md": "06af68d093ebba0875ab5c7b92cab494e131a74da09aabb51c3e3e2d24a62070",
-  "dentalfacescan/SUPPORT.md": "84dcb3ff0df3dd66b0bce679719aff7376839a010962df0c369f771ea26c0e38",
+  "dentalfacescan/PRIVACY_POLICY.md": "fdb3612a763686c86e24322384797baf68c1e8884407df1837b85e1e3b9b8e1b",
+  "dentalfacescan/SUPPORT.md": "b569e4fcd77a5fb86f98093a3412da70786857f90de8fffc303b63bfca0182b8",
   "denthesia-web/PRIVACY_POLICY.md": "0424204af4946442fd35be13c8ff4ab2f57c83ed2c09f80a565da46148c9bf7a",
   "denthesia-web/SUPPORT.md": "4e49060f78bbef4f448b3ac2c8adb6144becb7525f93d233aa453b8f3a457fe9",
-  "dentalmorphology/PRIVACY_POLICY.md": "53b2b143117dfb44c9ac851f4fcea615a1645ccb275fbaf4c8677a6abfc09c28",
-  "dentalmorphology/SUPPORT.md": "6a0f307a40c7f52cb47f39b0176eeb75d4c0fb7810cdafe46f3a406f20cf60ee",
-  "cbct/ENDODONTICS.md": "72df8f87c17b5a9960ace16207225a468b88fac241f12fdf765c1137da49a766"
+  "dentalmorphology/PRIVACY_POLICY.md": "3e15905239c45ff1630b74d2f6233e1ae5ea75f6902341a162237fc4ad1892c7",
+  "dentalmorphology/SUPPORT.md": "8aecf6aa4374fe00e1f2c5611a2decfb0523469d8f88b92821a11fa52aca080b",
+  "foundrycallstudio/PRIVACY_POLICY.md": "8f2fac9e5df6e23b41d570ff8f7776192270dbe5f721f06d574b3114cb1c02ad",
+  "foundrycallstudio/SUPPORT.md": "a1f1d91c411a0297bab851bc3c1035a07d66a6b7176ea737015dc98cd6a456cc",
+  "cbct/ENDODONTICS.md": "801102401e246c662441db89ee7a72afb7838fb6e4e6f31ecdae4b2ba77e76fb"
 }

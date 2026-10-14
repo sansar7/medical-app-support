@@ -1,6 +1,6 @@
 # Dental CBCT Studio support
 
-Updated October 11, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. Features described here require a build containing the corresponding source changes; a GitHub update does not update an installed app.
+Updated October 14, 2026 for the current native iPhone, iPad, and Apple-silicon Mac source. The Surface Export and Endo refinements described here require a build made from the October 13-14 source or later. The 1.0 (7) submission built from commit 62f8110 does not include those refinements; the same version number on a local build does not establish source parity. A GitHub or support-page update does not update an installed app.
 
 ## Endo
 
@@ -10,7 +10,8 @@ against all three acquired slice planes. Optional enhancement appears only while
 navigating; painting, erasing, and placing canal points return to the acquired
 single slice with an **Original · editing** label. Use **Show Original** for
 immediate comparison while navigating. Manual trace length is not a clinical
-working length. Save State retains masks, traces, and notes; restored surfaces
+working length. Tooth and pulp surfaces follow the Surface Export **Surface**
+setting. Save State retains masks, traces, and notes; restored surfaces
 require review before export. Notes may identify a person. See the
 [Endo workflow](docs/ENDODONTICS.md).
 
@@ -47,6 +48,10 @@ The copy includes available source patient/study information and processed grays
 ## Measurements
 
 Cross-section measurements belong to the current dental arch. Switching jaw, **Use Automatic**, or clearing the arch asks before those measurements are deleted. **Undo Last** cancels a measurement in progress, restores what the last row Delete or **Clear All** removed (Clear All asks first), and otherwise removes the newest measurement. Measurements are not clinically validated.
+
+## Surface Export
+
+Review the jaw, tooth, and IAN labels against the source slices, correct them, and confirm each surface before exporting STL files. The **Surface** setting is **Smooth** by default: interior spaces are filled, loose fragments removed, and each structure is smoothed and simplified into a closed solid for viewing and 3D printing. **Exact voxels** builds the source-grid label surface without filling, smoothing or simplification, and uses coarser sampling when memory is low; its STL files are not closed solids (they can have open edges and many separate pieces), so repair them before 3D printing. Changing the setting rebuilds the surfaces and clears their reviews. The Surface setting also applies to Endo tooth and pulp surfaces and clears an Endo review. With Smooth surfaces, **Combine into one STL** writes two or more reviewed structures to one STL file with one sidecar: a jaw and its teeth fuse into one solid, while upper and lower structures stay separate solids unless their teeth touch. Smoothing does not add anatomy the model did not label. Automatic segmentation is not validated for diagnostic use.
 
 ## Saving and memory
 
