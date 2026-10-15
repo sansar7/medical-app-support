@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>ToothForm: Dental Anatomy 3D — BERN007_ATTRIBUTION</title><style>*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}.source-notice{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}</style></head><body><main><nav aria-label="Site"><a href="../../">All apps</a><a href="../">Support</a><a href="../privacy.html">Privacy policy</a><a href="../licenses.html">Licensing</a><a href="../../languages.html">Languages</a></nav><h1>BERN007 ATTRIBUTION</h1><p>Current source-family notice. This copy retains the bundled attribution, processing and reuse information. The licensing overview describes current positions and unresolved distribution permissions.</p><p><a href="BERN007_ATTRIBUTION.txt">Download raw notice (.txt)</a></p><pre class="source-notice">Bern Tooth007 mandibular canine — standalone demo 1107
+
+Source: David Haberthür, Ruslan Hlushchuk and Thomas Gerhard Wolf (2021).
+Automated segmentation and description of the internal morphology of human
+permanent teeth by means of micro-CT. BMC Oral Health 21, 185.
+https://doi.org/10.1186/s12903-021-01551-x
+Dataset: ZMK Tooth Cohort, https://osf.io/rt3da/
+Public source file: https://osf.io/7trgk/
+
+The OSF project metadata has no dataset license. Article CC BY 4.0 terms and
+its data-waiver statement do not independently confirm redistribution rights
+for this external volume. This is a local attributed research prototype;
+external dataset redistribution permission remains unconfirmed.
+
+Tooth007 is an intact mandibular canine with undocumented source side. It is
+not assigned a Universal tooth number and has no mirrored atlas counterpart.
+The original 3,002 PNG slices are at nominal 10 micrometre sampling. A bounded
+crop and exact rounded 2x2x2 block means create the 20 micrometre working volume.
+Original data remain preserved. Sampling is not a claim of anatomical accuracy.
+
+ToothForm derives hard tissue from intensity &gt;30 and the largest
+connected component. Enamel/dentin use a source-gradient watershed with deep
+source-intensity core seeds. Ambiguous existing outer-boundary labels are
+classified from their nearest confident tissue sample within 0.18 mm of air
+and enamel. This changes labels within measured tissue only. Tiny final enamel
+boundary islands are retained. Pulp is the largest connected enclosed-void
+component. All tissues use one shared calibrated scale and proper rigid frame.
+Isosurfaces use Gaussian sigma 0.6 voxels. Bounded native detail simplification
+retains source positions/normals. The displayed pulp is a meshoptimizer
+simplification to 149,908 triangles of the 738,370-triangle dense pulp
+(2026-10-11); the dense source is kept. Compiled display archives carry baked
+optical attributes and smoothed display normals; vertex positions are unchanged.
+
+Ring/pepper scan artifacts and uncertain tissue interfaces remain. Small
+disconnected spaces and apical/accessory anatomy are not validated. These
+automatic labels are visually reviewed prototypes, not expert ground truth or
+clinically validated anatomy. Tissue colors are display colors.
+
+</pre><footer>App support from Sansar Gupta. Contact <a href="mailto:sansargupta10@gmail.com">sansargupta10@gmail.com</a>. Please do not send patient information.</footer></main></body></html>

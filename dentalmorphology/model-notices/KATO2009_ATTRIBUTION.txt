@@ -1,0 +1,71 @@
+Kato and Ohno — university micro-CT tooth surfaces
+
+Akiko Kato and Norikazu Ohno (2009). Construction of three-dimensional tooth
+model by micro-computed tomography and application for data sharing.
+Clinical Oral Investigations 13, 43–46.
+https://doi.org/10.1007/s00784-008-0198-4
+https://a-kato.agu.ac.jp/English/bottom.html
+https://a-kato.agu.ac.jp/3D_tooth_models.html
+
+Public source archive in the app:
+46RLM1_OBJ.lzh: FDI46, right mandibular first molar → #30; #19 is its mirror.
+
+Earlier placements, replaced on 2026-10-12 by ACTA-DIRECT v2 teeth 0158 (#3/#14)
+and 0217 (#21/#28); their converted, repaired and compiled files remain in the
+local model archive but are no longer packaged in the app:
+16RUM1_OBJ.lzh: FDI16, right maxillary first molar → Universal #3, mirror #14.
+44LRP1_OBJ.lzh: FDI44, right mandibular first premolar → #28, mirror #21.
+
+Each archive supplies separately registered enamel, dentin and pulp-cavity
+surfaces. The project describes Shimadzu SMX-225CT acquisition; specimen-specific
+scan spacing and physical coordinate calibration have not been independently
+confirmed. The original coordinate scale is retained. Buccal/lingual orientation
+is not independently labelled; the cervical plane is a display estimate.
+
+Reuse status: public university research download, with no confirmed dataset
+redistribution grant. These files are local prototype sources only; permission
+is needed before app redistribution. No Creative Commons license is asserted.
+
+The source conversion preserves every original detail triangle, welds only
+coincident coordinates for computed vertex normals, and applies one shared
+proper rigid rotation/translation to the three tissues. The opposite side reflects X and
+reverses triangle winding. The source conversion adds no tissue cleanup, hole
+filling, synthetic canal, anatomy smoothing, nonuniform scaling or tissue
+offsets.
+
+Before the 2026-10-11 display repair, the atlas used bounded display
+simplification with original source positions, locked borders and retained
+source shading normals, and a separately reviewed normal-only derivative
+reduced CT staircase shading in exterior detail/atlas meshes: Gaussian sigma
+0.055 within radius 0.15 source coordinate units, 64 neighbors maximum,
+area/normal-angle weights, change capped at 25 degrees. In that derivative all
+non-normal OBJ bytes remained identical. Mirrored normals are exact reflected
+original-side normals. Pulp geometry and normals are untouched. Source meshes
+and original unsmoothed display files remain preserved in the local project.
+
+CT terrace geometry, open/nonmanifold boundaries and disconnected components
+are retained outside the display repair described below. In the source,
+exposed occlusal dentin patches may reflect wear or segmentation; the public
+low-resolution photographs do not establish which. No fine canal,
+apical-foramen, expert-anatomy or clinical validation is asserted. Display colors
+are illustrative, not photographic specimen color.
+
+The separate FDI35 DXF candidate was inspected but was not selected for the
+numbered atlas because of its coarse tessellation and small mesh openings.
+
+For the former #3/#14 placement, a later shared proper Y-axis rotation of 180 degrees corrected
+display orientation based on the single large inferred palatal root and paired
+buccal roots. All six meshes, including pulp and atlas layers, received exactly
+the same vertex/normal transform. That step changed no other records or shape. The
+source FDI16/right identity remains; mesial/distal direction is not independently
+source-labelled. Earlier normal-only and atlas files remain preserved upstream.
+
+Display repair (2026-10-11): at #19/#30 (and, until 2026-10-12, at #3/#14 and
+#21/#28) the displayed meshes are derived from these sources. Small detached enamel and dentin specks were
+removed, and porous or perforated occlusal enamel, with the dentin beneath it,
+was rebuilt as a smooth inferred surface that follows the specimen's own porous
+enamel, with at least 0.5 mm of enamel over smoothed dentin
+(Tools/Models/repair_scan_display.swift). The app labels the repair; it is not
+segmented anatomy. Atlas tiers were re-simplified to 12,000 triangles per tissue
+from the repaired meshes. Compiled display archives also carry baked optical
+attributes and smoothed display normals. The source meshes are unchanged.

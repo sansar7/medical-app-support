@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>ToothForm: Dental Anatomy 3D — LIAO2018_ATTRIBUTION</title><style>*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}.source-notice{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}</style></head><body><main><nav aria-label="Site"><a href="../../">All apps</a><a href="../">Support</a><a href="../privacy.html">Privacy policy</a><a href="../licenses.html">Licensing</a><a href="../../languages.html">Languages</a></nav><h1>LIAO2018 ATTRIBUTION</h1><p>Current source-family notice. This copy retains the bundled attribution, processing and reuse information. The licensing overview describes current positions and unresolved distribution permissions.</p><p><a href="LIAO2018_ATTRIBUTION.txt">Download raw notice (.txt)</a></p><pre class="source-notice">Liao 2018 microCT third-molar specimen
+
+Source: Che-Wei Liao, Lih-Jyh Fuh, Yen-Wen Shen, Heng-Li Huang, Chih-Wei Kuo,
+Ming-Tzu Tsai and Jui-Ting Hsu (2018), Self-assembled micro-computed tomography
+for dental education, PLOS ONE.
+https://doi.org/10.1371/journal.pone.0209698
+Public S1 dataset:
+https://doi.org/10.1371/journal.pone.0209698.s001
+License: Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+
+One scanned maxillary right third molar supplies Universal #1. Universal #16 is
+an explicitly mirrored counterpart with reversed triangle winding, not another
+specimen. The Skyscan 2211 source comprises 517 reconstructed TIFF slices. The
+study reports 36 micrometre sampling; this is not a measured accuracy claim.
+
+ToothForm derived hard tissue from the largest intensity &gt;60/255
+component. Enamel and dentin are a core-seeded gradient watershed partition of
+that fixed mask, with dentin cores at least 15 voxels from air. A disconnected
+44-voxel high-density root island was assigned to dentin. A further 53,530
+existing partial-volume boundary voxels were classified as enamel only where
+they lay within 5 voxels of air and prior enamel and their nearest confident
+source-intensity tissue sample was enamel. This inferred boundary labelling
+changes no whole-tooth geometry; it is not an expert tissue annotation. Pulp is the largest connected axial enclosed-void component. Masks
+were converted to 0.5 isosurfaces after Gaussian smoothing at sigma 0.6 voxels.
+All layers share the same calibrated scale, rotation and translation.
+Meshoptimizer creates detail and atlas display tiers by retaining source
+vertices/normals. Native SceneKit archives preserve the exported geometry.
+Tissue colors are display colors; no photographic color data were supplied.
+
+The original volume and full-density isosurfaces remain in the research cache.
+Tiny tissue contacts at the first/last supplied slices create finite end caps.
+Accessory canals, apical foramina and disconnected spaces are not validated.
+Automatic segmentation was checked against source sections, but has not been
+compared with expert labels or clinically validated. No artificial canal
+connectors, idealized crown, nonuniform scaling or synthetic anatomy was added.
+
+
+Exterior detail/atlas display normals are a derivative: Gaussian sigma 0.055 mm,
+radius 0.15 mm, at most 64 neighbors, with area and normal-angle weights and a
+25-degree maximum deviation from each stored source normal. Vertices, triangle
+indices and all non-normal OBJ records remain byte-identical. Mirrored normals
+are exactly reflected; pulp normals and all source geometry remain unchanged.
+</pre><footer>App support from Sansar Gupta. Contact <a href="mailto:sansargupta10@gmail.com">sansargupta10@gmail.com</a>. Please do not send patient information.</footer></main></body></html>

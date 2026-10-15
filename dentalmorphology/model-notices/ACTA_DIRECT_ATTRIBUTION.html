@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>ToothForm: Dental Anatomy 3D — ACTA_DIRECT_ATTRIBUTION</title><style>*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}.source-notice{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}</style></head><body><main><nav aria-label="Site"><a href="../../">All apps</a><a href="../">Support</a><a href="../privacy.html">Privacy policy</a><a href="../licenses.html">Licensing</a><a href="../../languages.html">Languages</a></nav><h1>ACTA DIRECT ATTRIBUTION</h1><p>Current source-family notice. This copy retains the bundled attribution, processing and reuse information. The licensing overview describes current positions and unresolved distribution permissions.</p><p><a href="ACTA_DIRECT_ATTRIBUTION.txt">Download raw notice (.txt)</a></p><pre class="source-notice">ACTA-DIRECT Dataset v2 — micro-CT tooth scans
+
+Source: Gonzalez Valenzuela, Ricardo Eugenio (creator), with Erwin Berkhout,
+Henk Marquering, Pascal Mettes and Bruno Loos (supervisors). ACTA-DIRECT
+Dataset v2. Vrije Universiteit Amsterdam, 2025.
+https://doi.org/10.48338/VU01-H5ALYJ
+Names, roles, publisher and year as registered in the DOI&#x27;s DataCite record
+(checked 2026-10-12); the record gives the creator&#x27;s affiliation as Academic
+Center for Dentistry Amsterdam.
+Licence stated by the deposit: Creative Commons Attribution 4.0 International
+(CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+Acquisition (dataset paper): Gonzalez Valenzuela RE et al., BMC Oral Health
+2024, https://doi.org/10.1186/s12903-024-05076-x — SCANCO MicroCT40, 72
+micrometre voxels.
+
+Files used (original/1_Micro-CT_Scans/), each one extracted, anonymised tooth:
+  0164_tooth.nii (SHA-256 a3ce5bcde49e650d9ac3bf86ed503f06e530645486dda13eb2d5f89399967cb0)
+    Universal #15; #2 is its explicit mirror.
+  0158_tooth.nii (SHA-256 ca8bcc6895f3470210b134ba2d019289ef35fd65401c77582f588a92f6d5bc19)
+    Universal #3; #14 is its explicit mirror.
+  0059_tooth.nii (SHA-256 c85b81696ba76c5a31205e392e4f2a663705207e84bda309abeec0cd54c1e868)
+    Universal #32; #17 is its explicit mirror.
+  0056_tooth.nii (SHA-256 ee39089b25266ed610d344a91e9f601cf3fe2e68d326b66e31a4099566225450)
+    Universal #18; #31 is its explicit mirror.
+  0217_tooth.nii (SHA-256 8537ae810354ee8b243d4c4b83672f6c13c0bd7488c8c72098ca7e2454744d92)
+    Universal #21; #28 is its explicit mirror.
+
+The dataset records no tooth type, number or side. ToothForm assigned each
+tooth&#x27;s class and side from our in-house morphology review (three independent
+visual analyses plus a morphometric script, then a consensus); this is an
+inference, not a source label and not expert-confirmed. The side is the side
+as imaged, because the scans&#x27; image handedness is not documented. Each mirrored
+position is a reflected copy of the same tooth with reversed triangle winding,
+not another specimen. The teeth are five different specimens, not a matched set.
+
+Changes made by ToothForm: enamel, dentin and pulp were segmented automatically
+from the published volumes on their native 72 micrometre grid (intensity
+thresholds, seeded watershed and partial-volume boundary labelling). Pulp
+includes canal stretches traced only where the voxels are measurably darker
+than the surrounding dentin (for 0059, sub-voxel apical canals are drawn at a
+0.216 mm minimum width; for 0056, 6,587 scan-hard voxels were relabelled as
+pulp this way); tiny enclosed voids were filled; small label refinements are
+listed per tooth in the app&#x27;s model notes. Labels were
+converted to millimetre surface meshes, placed by one proper rotation and
+translation per tooth, simplified with meshoptimizer for display tiers, and
+given smoothed display normals (shading only). For tooth 0056 the surfaces
+were also smoothed with every vertex kept within half a voxel. No crown repair,
+surface patching, idealised anatomy or nonuniform scaling was added. The labels
+are not expert annotations and make no clinical claim. Tissue colours and
+translucency are illustrative display colours.
+
+Full provenance and reproduction: Research/ACTA_DIRECT_PROVENANCE.md.
+</pre><footer>App support from Sansar Gupta. Contact <a href="mailto:sansargupta10@gmail.com">sansargupta10@gmail.com</a>. Please do not send patient information.</footer></main></body></html>

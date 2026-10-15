@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>ToothForm: Dental Anatomy 3D — SCANNED_ATTRIBUTION</title><style>*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}.source-notice{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}</style></head><body><main><nav aria-label="Site"><a href="../../">All apps</a><a href="../">Support</a><a href="../privacy.html">Privacy policy</a><a href="../licenses.html">Licensing</a><a href="../../languages.html">Languages</a></nav><h1>SCANNED ATTRIBUTION</h1><p>Current source-family notice. This copy retains the bundled attribution, processing and reuse information. The licensing overview describes current positions and unresolved distribution permissions.</p><p><a href="SCANNED_ATTRIBUTION.txt">Download raw notice (.txt)</a></p><pre class="source-notice">Native scanned specimens
+
+Current separate enamel/dentin/pulp coverage is 32 of the 32 numbered positions.
+These positions include mirrored and side-unknown class representatives; they
+do not represent 32 independently scanned specimens.
+RCAP first-premolar class representatives occupy #5/#12 and second-premolar representatives occupy #4/#13; source side is unknown. See RCAP_LAYERED_ATTRIBUTION.txt.
+See RCAP_PREMOLAR_ATTRIBUTION.txt for source, display-normal and reuse limits.
+Kato sources occupy #19/#30; see KATO2009_ATTRIBUTION.txt.
+Eight OpenMandible positions (#20, #22-27, #29) supplement the sources below; see
+OPENMANDIBLE_ATTRIBUTION.txt for author smoothing, source reuse and rights limits.
+ACTA-DIRECT v2 teeth 0164, 0158, 0059, 0056 and 0217 occupy #15/#2, #3/#14,
+#32/#17, #18/#31 and #21/#28 (class and side inferred by our morphology review,
+not source labels; each second number is an explicit mirror); see
+ACTA_DIRECT_ATTRIBUTION.txt.
+
+Liao 2018 replaces atlas positions 1 and 16; see LIAO2018_ATTRIBUTION.txt.
+Toothnroll specimens replace atlas positions 6 through 11; see the separate
+TOOTHNROLL_ATTRIBUTION.txt for their sources, licenses, original-versus-mirrored
+identities, and modifications. Bern Tooth007 uses demo 1107; see the separate
+BERN007_ATTRIBUTION.txt for its source and unconfirmed external reuse status.
+The three additional specimens below use demo identifiers
+outside Universal numbering. Tissue colors are display colors, not measured
+photographic color. These prototype models are not clinically validated.
+
+Demo 1001: Micro-CT tooth, Tomo1B (tooth class and side unspecified)
+Original source: Pereira, Andre; Tonelli, Stéphanie; Antunes, Marcelo Avelar;
+Miranda, Antonio; Silveira, Frank Ferreira (2020). ds-uct-002: Root Canal Strain:
+X-Ray micro-CT of four teeth before and after root canal procedure.
+https://doi.org/10.5281/zenodo.3877625
+Original scan: Zeiss Xradia Versa 510, nominal 20 µm voxels, before treatment.
+Public derivative by OdontoIQ:
+https://odontoliq.com/models/tooth-scan.glb
+https://odontoliq.com/models/tooth-scan-LICENSE.txt
+License: Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+See ODONTOIQ_SOURCE_LICENSE.txt for the supplied derivative license notice.
+
+OdontoIQ read the source at 40 µm sampling, separated enamel, dentin (including
+indistinguishable cementum), and pulp by density, smoothed and simplified the
+surfaces, and normalized pose. ToothForm decoded the public GLB, retained
+all triangles, applied one shared 180-degree X rotation and uniform display
+scale of 5 to all layers, exported OBJ, and compiled native SceneKit geometry.
+Display units are not calibrated anatomical measurements. Source segmentation
+parameters are not supplied. The source enamel has an open/nonmanifold region;
+small surface irregularities may reflect anatomy, scanning, or segmentation.
+No additional canal or chamber geometry was fabricated.
+
+Demo 1103: RCAP maxillary first molar (side unspecified)
+Demo 1108: RCAP maxillary central incisor (side unspecified)
+Source: Prof. Marco A. Versiani / The Root Canal Anatomy Project
+https://rootcanalanatomy.blogspot.com/2013/06/a-new-microct-based-educational-resource.html
+Original VXM files: 062_Max_1st_Molar_Versiani.vxm and
+062_Max_Central_Incisor_Versiani.vxm, distributed through the project&#x27;s links.
+Source terms allow attributed noncommercial educational use. These assets are
+included only in this local educational prototype; commercial/App Store
+redistribution requires appropriate permission. No standardized Creative
+Commons license is asserted for these RCAP files.
+
+ToothForm decoded the highest-resolution supplied VXM volume and derived
+hard tissue using a 60/255 threshold plus the largest component. The candidate
+pulp is the largest connected internal void from axial hole filling; other
+voids were excluded. Both masks were smoothed with Gaussian sigma 0.6 voxels and
+converted to a 0.5 isosurface with one shared rigid coordinate conversion. No
+canal connectors, synthetic pulp horns, or nonuniform scale were introduced.
+The mobile export voxel spacings are approximately 91.573 µm isotropic for the
+molar and 45.786 × 45.786 × 91.573 µm for the incisor; original scanner acquisition
+resolution is unspecified. Original export dimensions are retained.
+
+Axial hole filling stops when a void communicates with the slice exterior.
+Zero padding and the isosurface create finite canal end caps. Apical foramina,
+accessory openings, and disconnected spaces are not asserted preserved.
+Automatic segmentations were visually checked against source slices; this does
+not establish clinical accuracy or diagnostic suitability.
+</pre><footer>App support from Sansar Gupta. Contact <a href="mailto:sansargupta10@gmail.com">sansargupta10@gmail.com</a>. Please do not send patient information.</footer></main></body></html>

@@ -12,6 +12,13 @@ from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
+TOOTHFORM_NOTICES = (
+    "ACTA_DIRECT_ATTRIBUTION.txt", "ATTRIBUTION.txt", "BERN007_ATTRIBUTION.txt",
+    "DENTAL_SCOPE_CREDITS.txt", "DENTAL_SCOPE_LICENSE.txt", "DUNDEE_ATTRIBUTION.txt",
+    "KATO2009_ATTRIBUTION.txt", "LIAO2018_ATTRIBUTION.txt", "ODONTOIQ_SOURCE_LICENSE.txt",
+    "OPENMANDIBLE_ATTRIBUTION.txt", "RCAP_LAYERED_ATTRIBUTION.txt",
+    "RCAP_PREMOLAR_ATTRIBUTION.txt", "SCANNED_ATTRIBUTION.txt", "TOOTHNROLL_ATTRIBUTION.txt",
+)
 
 
 class Links(HTMLParser):
@@ -36,6 +43,35 @@ class PublicationTests(unittest.TestCase):
             [sys.executable, str(self.site / "scripts/render.py"), *args],
             check=True, capture_output=True, text=True,
         )
+
+    def toothform_sources(self):
+        sources = Path(self.temporary.name) / "sources"
+        selected = sources / "DentalMorphology"
+        models = selected / "DentalMorphology/Resources/Models"
+        models.mkdir(parents=True)
+        (selected / "SUPPORT.md").write_text("# ToothForm support\n\nRead [Licensing](LICENSES.md).\n")
+        (selected / "PRIVACY_POLICY.md").write_text("# ToothForm privacy\n\nOffline atlas.\n")
+        rows = "\n".join(
+            f"| [{name}](DentalMorphology/Resources/Models/{name}) | See notice |"
+            for name in TOOTHFORM_NOTICES
+        )
+        (selected / "LICENSES.md").write_text(
+            "# ToothForm licensing\n\n| Source | Terms |\n|---|---|\n" + rows + "\n\n"
+            "Read [Licensing](LICENSES.md), [private](STATUS.md), "
+            "[extra](DentalMorphology/Resources/Models/SECRET.txt), "
+            "[mesh](DentalMorphology/Resources/Models/tooth.stl), "
+            "and [upstream](https://example.com/license).\n"
+        )
+        for number, name in enumerate(TOOTHFORM_NOTICES):
+            (models / name).write_bytes(
+                f'Notice {number}: {name}\r\n<script>alert("unsafe")</script> & ©\r\n'.encode()
+            )
+        (models / "SECRET.txt").write_text("DO_NOT_PUBLISH_MODEL_SENTINEL")
+        (models / "tooth.stl").write_bytes(b"DO_NOT_PUBLISH_MODEL_SENTINEL\x00\xff")
+        (models / "private").mkdir()
+        (models / "private/ATTRIBUTION.txt").write_text("DO_NOT_PUBLISH_MODEL_SENTINEL")
+        (selected / "STATUS.md").write_text("DO_NOT_PUBLISH_MODEL_SENTINEL")
+        return sources, selected, models
 
     def test_selective_refresh_preserves_other_sources_and_manifest(self):
         sources = Path(self.temporary.name) / "sources"
@@ -114,6 +150,111 @@ class PublicationTests(unittest.TestCase):
             self.assertNotIn("DO_NOT_PUBLISH_SENTINEL", page.read_text(), str(page))
         self.assertIn("Foundry Call Studio (local prototype)", (self.site / "index.html").read_text())
         self.assertIn("ToothForm: Dental Anatomy 3D", (self.site / "index.html").read_text())
+
+    def test_toothform_refresh_exports_exact_notices_and_preserves_bytes(self):
+        sources, selected, models = self.toothform_sources()
+        retained = {
+            str(p.relative_to(self.site)): p.read_bytes()
+            for p in self.site.rglob("*")
+            if p.is_file() and p.suffix in (".html", ".md")
+            and len(p.relative_to(self.site).parts) > 1
+            and p.relative_to(self.site).parts[0] not in ("dentalmorphology", "scripts")
+        }
+        self.render("--source-root", str(sources), "--app", "dentalmorphology")
+        dest = self.site / "dentalmorphology"
+        self.assertEqual((dest / "LICENSES.md").read_bytes(), (selected / "LICENSES.md").read_bytes())
+        self.assertEqual(
+            {p.name for p in (dest / "model-notices").iterdir()},
+            set(TOOTHFORM_NOTICES) | {Path(name).stem + ".html" for name in TOOTHFORM_NOTICES},
+        )
+        manifest = json.loads((self.site / "source-sha256.json").read_text())
+        expected = {"dentalmorphology/LICENSES.md"} | {
+            "dentalmorphology/model-notices/" + name for name in TOOTHFORM_NOTICES
+        }
+        self.assertEqual(
+            {key for key in manifest if key.startswith("dentalmorphology/")},
+            expected | {"dentalmorphology/SUPPORT.md", "dentalmorphology/PRIVACY_POLICY.md"},
+        )
+        for name in TOOTHFORM_NOTICES:
+            content = (models / name).read_bytes()
+            self.assertEqual((dest / "model-notices" / name).read_bytes(), content)
+            self.assertEqual(manifest["dentalmorphology/model-notices/" + name], hashlib.sha256(content).hexdigest())
+            html = (dest / "model-notices" / (Path(name).stem + ".html")).read_text()
+            self.assertIn('&lt;script&gt;alert(&quot;unsafe&quot;)&lt;/script&gt; &amp; ©', html)
+            self.assertNotIn('<script>', html)
+            self.assertIn(f'href="{name}"', html)
+            self.assertIn('white-space:pre-wrap', html)
+            self.assertIn('href="../licenses.html"', html)
+            if name in ("ATTRIBUTION.txt", "DUNDEE_ATTRIBUTION.txt"):
+                self.assertIn("Historical ", html)
+                self.assertIn("current ToothForm app package", html)
+            elif name == "DENTAL_SCOPE_CREDITS.txt":
+                self.assertIn("not a dependency inventory for ToothForm", html)
+            elif name == "DENTAL_SCOPE_LICENSE.txt":
+                self.assertIn("MIT license covers the Dental Scope software", html)
+                self.assertIn("does not license ToothForm&#x27;s original application code", html)
+            else:
+                self.assertIn("Current source-family notice.", html)
+        for page in dest.rglob("*"):
+            if page.is_file():
+                self.assertNotIn(b"DO_NOT_PUBLISH_MODEL_SENTINEL", page.read_bytes(), str(page))
+        for relative, content in retained.items():
+            self.assertEqual((self.site / relative).read_bytes(), content, relative)
+
+    def test_toothform_bundled_render_preserves_links_and_scopes_styles(self):
+        sources, _, _ = self.toothform_sources()
+        other = self.site / "cbct/SUPPORT.md"
+        other.write_text("# Support\n\nRead [private license](LICENSES.md).\n")
+        self.render("--source-root", str(sources), "--app", "dentalmorphology")
+        first = {
+            str(p.relative_to(self.site)): p.read_bytes()
+            for p in self.site.rglob("*")
+            if p.is_file() and p.suffix in (".html", ".md", ".txt", ".json")
+        }
+        shutil.rmtree(sources)
+        self.render()
+        for relative, content in first.items():
+            self.assertEqual((self.site / relative).read_bytes(), content, relative)
+        licensing = (self.site / "dentalmorphology/licenses.html").read_text()
+        self.assertIn('aria-label="Tooth model sources and license status"', licensing)
+        self.assertNotIn('aria-label="Controls by platform"', licensing)
+        self.assertIn('<a href="licenses.html">Licensing</a>, private, extra, mesh,', licensing)
+        self.assertIn('<a href="https://example.com/license">upstream</a>', licensing)
+        self.assertNotIn('white-space:pre-wrap', licensing)
+        for name in TOOTHFORM_NOTICES:
+            self.assertIn(f'href="model-notices/{Path(name).stem}.html"', licensing)
+        for filename in ("index.html", "privacy.html"):
+            html = (self.site / "dentalmorphology" / filename).read_text()
+            self.assertIn('href="licenses.html">Licensing</a>', html)
+            self.assertNotIn('white-space:pre-wrap', html)
+        self.assertIn('Read private license.', (self.site / "cbct/index.html").read_text())
+        self.assertNotIn('>Licensing</a>', (self.site / "cbct/index.html").read_text())
+        for page in (self.site / "dentalmorphology").rglob("*.html"):
+            parser = Links()
+            parser.feed(page.read_text())
+            for href in parser.hrefs:
+                parsed = urlsplit(href)
+                if parsed.scheme or parsed.netloc or not parsed.path:
+                    continue
+                target = page.parent / unquote(parsed.path)
+                if target.is_dir():
+                    target /= "index.html"
+                self.assertTrue(target.is_file(), f"{page.name}: broken link {href}")
+
+    def test_toothform_refresh_requires_complete_allowlist(self):
+        sources, _, models = self.toothform_sources()
+        (models / TOOTHFORM_NOTICES[-1]).unlink()
+        before = {
+            str(p.relative_to(self.site / "dentalmorphology")): p.read_bytes()
+            for p in (self.site / "dentalmorphology").rglob("*") if p.is_file()
+        }
+        with self.assertRaises(subprocess.CalledProcessError):
+            self.render("--source-root", str(sources), "--app", "dentalmorphology")
+        after = {
+            str(p.relative_to(self.site / "dentalmorphology")): p.read_bytes()
+            for p in (self.site / "dentalmorphology").rglob("*") if p.is_file()
+        }
+        self.assertEqual(after, before)
 
 
 if __name__ == "__main__":

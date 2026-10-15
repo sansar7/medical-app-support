@@ -1,0 +1,43 @@
+TOOTHFORM: DENTAL ANATOMY 3D — 3D MODEL CREDITS
+
+BodyParts3D, © The Database Center for Life Science licensed under
+CC Attribution-Share Alike 2.1 Japan.
+https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
+https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en
+
+Adapted through Dental Scope by Yoseph and Dental Scope contributors.
+Source: https://github.com/Yoosseph/dental-scope
+Revision: 37eb3919436854061c00071b5dc8a494a5a826a7
+Source materials retrieved October 10, 2026.
+
+Dental Scope selected and simplified BodyParts3D tooth meshes, added modeled
+tooth-specific crown relief and internal anatomy, and derived the third molars
+from neighboring second molars. The pulp chambers and canals are schematic;
+they were not segmented from medical images. These surfaces illustrate one
+configuration and do not represent prevalence, apical anatomy, or a patient.
+
+ToothForm modifications: meshopt decompression, moderate triangle
+simplification (relative target error 0.0006), rigid per-tooth orientation,
+conversion from centimeters to millimeters, translation, recomputed smooth
+normals and Wavefront OBJ export. Schematic overlapping coronal connector
+surfaces were added to 54 canals whose source surfaces ended short of the pulp
+chamber, so the educational display shows continuity. These are visual model
+adaptations, not measured canal anatomy. No mirrored teeth or scanned canals
+were added to this model family. Per-file hashes, transformations and connector
+metadata are preserved in manifest.json.
+
+These OBJ assets and their adapted geometry remain licensed under Creative
+Commons Attribution-ShareAlike 2.1 Japan. This asset license is separate from
+the app source-code license. Retain credits and the license link when sharing;
+adaptations must retain the applicable ShareAlike terms. Do not impose further
+legal or technological restrictions on this licensed material. Full legal code:
+https://creativecommons.org/licenses/by-sa/2.1/jp/legalcode
+
+This material is supplied for education, without endorsement by the source
+authors or institutions, and is not validated for clinical measurement,
+treatment planning, or manufacturing.
+
+Reference: Mitsuhashi N, Fujieda K, Tamura T, Kawamoto S, Takagi T, Okubo K.
+BodyParts3D: 3D structure database for anatomical concepts.
+Nucleic Acids Research. 2009;37:D782–D785.
+https://doi.org/10.1093/nar/gkn613

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>ToothForm: Dental Anatomy 3D — TOOTHNROLL_ATTRIBUTION</title><style>*{box-sizing:border-box}body{margin:0;background:#f6faf9;color:#183630;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:800px;margin:auto;padding:40px 24px 72px}h1{font-size:2.25rem;line-height:1.15;color:#075e58}h2{font-size:1.3rem;margin-top:2rem}nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px}a{color:#254caf;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #0b796f;outline-offset:4px}p,li{max-width:72ch}code{font-size:.92em}footer{margin-top:40px;border-top:1px solid #c7d8d3;padding-top:18px;font-size:14px}li{margin:8px 0}@media(prefers-color-scheme:dark){body{background:#10231f;color:#e2f0eb}h1{color:#88d7c8}a{color:#a4bfff}footer{border-color:#3a5149}}.source-notice{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}</style></head><body><main><nav aria-label="Site"><a href="../../">All apps</a><a href="../">Support</a><a href="../privacy.html">Privacy policy</a><a href="../licenses.html">Licensing</a><a href="../../languages.html">Languages</a></nav><h1>TOOTHNROLL ATTRIBUTION</h1><p>Current source-family notice. This copy retains the bundled attribution, processing and reuse information. The licensing overview describes current positions and unresolved distribution permissions.</p><p><a href="TOOTHNROLL_ATTRIBUTION.txt">Download raw notice (.txt)</a></p><pre class="source-notice">Toothnroll study data — registered enamel, dentin and pulp surfaces
+
+Dataset: Profico, Antonio and Augoyard, Mathilde (2025).
+R vignette of Toothnroll: full data and R code, version 2.
+https://doi.org/10.5281/zenodo.15113184
+https://zenodo.org/records/15113184
+Related research: Profico, Augoyard, Zanolli and Bayle, Toothnroll.
+https://doi.org/10.1002/ajpa.70079
+
+License of the downloaded Zenodo data: Creative Commons Attribution 4.0
+International, as recorded by the deposit&#x27;s metadata.
+https://creativecommons.org/licenses/by/4.0/
+The accompanying R implementation is not imported into this application.
+
+Original modern-human specimens, from individual 6220:
+- Right maxillary central incisor 6220URI1, UI1_root_r_6220URI1.txt:
+  original atlas position 8; explicitly mirrored counterpart at position 9.
+- Right maxillary lateral incisor 6220URI2, UI2_root_r_6220URI2.txt:
+  original atlas position 7; explicitly mirrored counterpart at position 10.
+- Left maxillary canine 6220ULC, UC_root_l_6220ULC.txt:
+  original atlas position 11; explicitly mirrored counterpart at position 6.
+The canine assignment follows the specimen-specific filename, header, vignette
+and landmarks. The article&#x27;s more general prose could imply right laterality;
+this discrepancy has not been resolved by direct author confirmation.
+These are three physical specimens plus three mirrored teaching views.
+
+The paper describes Nikon XTH 225ST micro-CT sampling of 40–58 micrometres for
+the study cohort and researcher watershed segmentation with manual correction.
+The exact acquisition spacing for these three exports was not established.
+Original raw scan volumes are not included in this deposit. No independent
+image-to-segmentation or clinical accuracy validation is asserted.
+
+Modifications by ToothForm:
+Parsed the public text exports and preserved all original triangles in dense
+detail meshes. Applied one shared rigid coordinate transform to all tissues
+using the cervical outline, apex and buccal/lingual landmarks, with scale
+unchanged: crown near Y=0, roots +Y, buccal -Z. Opposite-side displays reflect X
+and reverse face winding. Dense meshes receive no resegmentation, smoothing,
+repair, canal invention, or per-tissue fitting. OBJ normals are computed from
+the preserved faces. Converted reviewed OBJ meshes to native SceneKit files.
+Atlas display LODs use meshoptimizer simplification with locked source borders,
+retained source vertex positions/normals, and about 12,000 triangles per tissue.
+Dense geometry remains available in isolated detail. Tissue colors, gloss and
+translucency are authored display materials, not measured photographic color.
+
+Source enamel/dentin meshes have open boundaries and small source defects;
+these are research surfaces, not certified closed tissue solids. Pulp meshes
+are closed surfaces. Natural wear and tiny source fragments are retained.
+These meshes are not certified for diagnosis, precision measurement, simulation
+or physical printing. Complete hashes, topology, transforms and simplification
+records accompany this project&#x27;s source provenance reports.
+</pre><footer>App support from Sansar Gupta. Contact <a href="mailto:sansargupta10@gmail.com">sansargupta10@gmail.com</a>. Please do not send patient information.</footer></main></body></html>

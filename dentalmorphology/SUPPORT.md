@@ -39,6 +39,10 @@ On devices with Metal ray tracing and Apple GPU family 9 or newer, a **Ray traci
 
 Anatomy summaries and canal-configuration percentages come from cited textbooks, university teaching resources and research studies. Percentages describe study populations, not a particular patient. Sources & credits lists every reference and model source; textbook and course-note full texts and images are not bundled or offered for download.
 
+## Licensing and model notices
+
+The [Licensing and model notices](LICENSES.md) page explains the distinction between ToothForm's original application-code rights and the independent licenses or permission requirements of its model sources. It provides all 14 bundled model notices as readable pages and unchanged text copies, with historical and upstream notices identified separately. These documents preserve source-license rights; they do not supply missing redistribution permissions or amend the selected App Store EULA.
+
 ## Accessibility
 
 Every tooth can be chosen from a list, without using the 3D view. VoiceOver reads tooth names and layer states, and the 3D view offers rotate, tilt, move, zoom and Reset View actions. The app follows Reduce Motion, Reduce Transparency, Increase Contrast and Dynamic Type.

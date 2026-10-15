@@ -1,0 +1,38 @@
+Bern Tooth007 mandibular canine — standalone demo 1107
+
+Source: David Haberthür, Ruslan Hlushchuk and Thomas Gerhard Wolf (2021).
+Automated segmentation and description of the internal morphology of human
+permanent teeth by means of micro-CT. BMC Oral Health 21, 185.
+https://doi.org/10.1186/s12903-021-01551-x
+Dataset: ZMK Tooth Cohort, https://osf.io/rt3da/
+Public source file: https://osf.io/7trgk/
+
+The OSF project metadata has no dataset license. Article CC BY 4.0 terms and
+its data-waiver statement do not independently confirm redistribution rights
+for this external volume. This is a local attributed research prototype;
+external dataset redistribution permission remains unconfirmed.
+
+Tooth007 is an intact mandibular canine with undocumented source side. It is
+not assigned a Universal tooth number and has no mirrored atlas counterpart.
+The original 3,002 PNG slices are at nominal 10 micrometre sampling. A bounded
+crop and exact rounded 2x2x2 block means create the 20 micrometre working volume.
+Original data remain preserved. Sampling is not a claim of anatomical accuracy.
+
+ToothForm derives hard tissue from intensity >30 and the largest
+connected component. Enamel/dentin use a source-gradient watershed with deep
+source-intensity core seeds. Ambiguous existing outer-boundary labels are
+classified from their nearest confident tissue sample within 0.18 mm of air
+and enamel. This changes labels within measured tissue only. Tiny final enamel
+boundary islands are retained. Pulp is the largest connected enclosed-void
+component. All tissues use one shared calibrated scale and proper rigid frame.
+Isosurfaces use Gaussian sigma 0.6 voxels. Bounded native detail simplification
+retains source positions/normals. The displayed pulp is a meshoptimizer
+simplification to 149,908 triangles of the 738,370-triangle dense pulp
+(2026-10-11); the dense source is kept. Compiled display archives carry baked
+optical attributes and smoothed display normals; vertex positions are unchanged.
+
+Ring/pepper scan artifacts and uncertain tissue interfaces remain. Small
+disconnected spaces and apical/accessory anatomy are not validated. These
+automatic labels are visually reviewed prototypes, not expert ground truth or
+clinically validated anatomy. Tissue colors are display colors.
+

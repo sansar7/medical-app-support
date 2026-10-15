@@ -1,0 +1,53 @@
+Root Canal Anatomy Project — layered class representatives
+
+Source: Prof. Marco A. Versiani / The Root Canal Anatomy Project
+https://rootcanalanatomy.blogspot.com/2013/06/a-new-microct-based-educational-resource.html
+
+The source-labelled maxillary first premolar is represented at #5/#12 and
+the maxillary second premolar at #4/#13. Source laterality is undocumented.
+The maxillary second molar (#2/#15) and mandibular third molar (#17/#32) were
+shown until 2026-10-12 and were then replaced by ACTA-DIRECT v2 teeth 0164 and
+0059; their converted, repaired and compiled files remain in the local model
+archive but are no longer packaged in the app. The text below also records
+those earlier placements.
+Each pair contains one class representative and an exact reflected teaching
+counterpart; neither placement identifies the source specimen's known side.
+
+Original VXM files and source masks are preserved. Highest-grid mobile export
+sampling is retained without upsampling; original scanner resolution is unknown.
+Enamel/dentin boundaries are density-inferred prototype labels. Matched pulp
+is the largest connected enclosed void, with finite capped surface ends;
+accessory/disconnected canals and apical patency are not validated. Separate
+tissue colors are illustrative. Each tissue uses the same physical coordinate
+transform and source registration.
+
+Apart from the 2026-10-11 re-tier (and, for the retired second molar, the
+display repair) described below, the two current RCAP classes (#4/#13, #5/#12)
+and the two retired classes use only changed stored display normals: vertex-area times
+Gaussian-distance weights, sigma 0.18 mm, radius 0.45 mm, up to 256 neighbors,
+no angular neighbor weighting/rejection, and a 45-degree change cap. Every
+non-normal OBJ record remains identical; pulp/canal geometry is unchanged.
+This reduces terrace shading, softens fine shading, and does not recover detail
+missing from the coarse source grid. Bounded atlas simplification preserves
+selected source positions. Original/rejected display alternatives are retained.
+
+Reuse status: attributed noncommercial educational use under the source terms.
+Commercial app redistribution is not established; these are local prototype
+sources pending any additional permission required for distribution.
+
+The retired second-molar source has an open occlusal defect of unverified
+cause. It is retained in the source meshes. Until 2026-10-12 it was shown at
+#2/#15, closed by a labelled display repair (2026-10-11) except one small rim
+region, and not presented as an intact textbook crown. Source
+review reclassified 7,804 density-confounded crack-wall voxels from dentin to
+enamel while preserving the measured hard mask, physical voids and pulp exactly.
+The boundary is inferred, not expert-segmented or histologically validated.
+
+Display changes (2026-10-11): for the retired #2/#15 second molar, small
+detached dentin specks were removed and the occlusal surface over the defect
+was rebuilt as an inferred surface, with at least 0.5 mm of enamel over
+smoothed dentin (Tools/Models/repair_scan_display.swift); it is not segmented
+anatomy. Atlas tiers of the four classes then shown were re-simplified to
+12,000 triangles per tissue; the current #4/#13 and #5/#12 keep those tiers.
+Compiled display archives also carry baked optical attributes and smoothed
+display normals. The source meshes are unchanged.

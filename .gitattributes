@@ -1,0 +1,2 @@
+# Keep copied source notices byte-for-byte, including their final blank lines.
+dentalmorphology/model-notices/*.txt -text whitespace=-blank-at-eof

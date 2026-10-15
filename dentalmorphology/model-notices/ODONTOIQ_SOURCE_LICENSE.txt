@@ -1,0 +1,15 @@
+tooth-scan.glb — a real human tooth from a micro-CT scan
+
+Source: ds-uct-002 "Root Canal Strain: X-Ray micro-CT of four teeth before and after
+root canal procedure", scan tomo1b (a tooth before any treatment, 20 µm voxels).
+  Pereira, A., Tonelli, S., Antunes, M. A., Miranda, A., Silveira, F. F. (2020).
+  Zenodo. https://doi.org/10.5281/zenodo.3877625
+
+Licence: Creative Commons Attribution 4.0 International (CC BY 4.0),
+https://creativecommons.org/licenses/by/4.0/
+
+Changes made for OdontoIQ (scripts/build-tooth-scan.ts): the scan was read at
+40 µm, separated into enamel, dentin and pulp by density (cementum can't be told
+apart from dentin in this scan, so it is included with the dentin), converted to
+smoothed surfaces, stood upright and centred, simplified, and compressed into one
+glTF file. It is shown on OdontoIQ, a student project, for illustration only.
