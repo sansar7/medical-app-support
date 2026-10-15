@@ -30,6 +30,19 @@ Replacing a target or region with existing masks or traces requires explicit
 confirmation. Mask edits and changes to recorded information invalidate export
 review. Closing or replacing a study cancels pending work.
 
+Paint and erase sweep the selected physical-radius brush between accepted
+pointer samples on the same acquired slice. Unequal column, row and slice
+spacing is respected, the stroke is clipped to the target region, and one
+stroke produces one undo step. Erasing pulp returns those voxels to tooth;
+erasing tooth preserves pulp. Samples from different source
+planes or slices are never connected.
+
+A change to the source, slice, target region, tool or brush settings before
+release discards the pending gesture, even if the controls are later returned
+to their original values. A gesture exceeding the point limit is also
+discarded as a whole; release and start a shorter stroke. No retained prefix
+is joined to the final release point after intermediate samples were dropped.
+
 Wide windows show the inspector beside all four views. On iPhone and narrow
 windows, use the **Axial / Coronal / Sagittal / 3D** picker for the full-width
 view and **Controls** for target, trace, and review settings. On iPhone and iPad,
@@ -60,7 +73,7 @@ Explicit cancellation and changing studies discard that pending restart.
   compared with 2.4–3.2 s single-pass. The 36 mm maximum region took about 75 s.
   Mirroring reduced the tooth and pulp predicted outside the target tooth, and
   pulp inside the target tooth changed little. It does not establish accuracy
-  (see [the model notes](../Tools/Endodontics/README.md)). The upstream STSR26
+  (the app repository's `Tools/Endodontics/README.md` records the model notes). The upstream STSR26
   script runs this stage with `--disable_tta`, so the app follows nnU-Net's
   default predictor instead.
 - Every editing pane uses one acquired source slice, independent of MPR slab
@@ -81,6 +94,8 @@ Explicit cancellation and changing studies discard that pending restart.
   **Exact voxels** keeps the unsmoothed source-grid surface. Changing the
   setting clears the Endo surfaces and the Endo review; the surfaces are rebuilt
   at once in Endo, or when Endo is next opened.
+  Long enclosed-void traversals check cancellation within the flood, so closing,
+  replacement and cancellation can stop that stage before it finishes.
   `endodontic-summary.json` (schema 3) records the style and each surface's
   settings and triangle counts. Its `model` block and the Endo saved state
   (schema 2) record `mirroredInference`, which is true for every app run.
@@ -116,6 +131,17 @@ its README also describes research and academic use.
 
 ## Verification
 
-See the [October 9 Endo validation record](history/ENDODONTICS_VALIDATION_2026-10-09.md)
-for completed native tests, example-scan checks, visual inspection, and their
-limitations. Current verification is in [STATUS.md](../STATUS.md).
+The October 14 audit added synthetic regressions for continuous paint/erase,
+anisotropic brush radius, ROI clipping, plane changes, grouped undo and
+cancellation during enclosed-void filling. The complete Mac suite passed
+1,022 tests with 21 optional-input skips; the iPhone iOS 18.6 Simulator suite
+passed 1,018 with 14 skips; targeted iPad simulator checks passed 148 with no
+skips. All had zero failures. These checks do not establish the feel of the
+final brush gesture on a physical device or clinical accuracy. No private study
+was opened or enabled for this audit.
+
+The app repository's `STATUS.md` and `docs/AUDIT_COVERAGE.tsv` record the exact
+candidate, verification boundaries and per-file review. Its dated October 9
+Endo validation record preserves earlier native tests, example-scan checks,
+visual inspection and limitations; those private-study results were not rerun
+by the October 14 audit.

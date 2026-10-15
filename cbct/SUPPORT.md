@@ -15,6 +15,12 @@ setting. Save State retains masks, traces, and notes; restored surfaces
 require review before export. Notes may identify a person. See the
 [Endo workflow](docs/ENDODONTICS.md).
 
+Painting and erasing connect the points of a drag with the selected physical
+brush radius, including on scans with unequal voxel spacing. One stroke has
+one undo step and stays inside the selected region. Changing the slice,
+region, source or brush settings before release discards the pending stroke.
+Very long gestures can also be rejected; release and start a shorter stroke.
+
 ## Contact
 
 Contact Sansar Gupta at **sansargupta10@gmail.com**. Choose **Report a Bug or Request a Feature** in Viewer Controls (Settings), Review & Help, Privacy & Licenses, or the Mac Help menu. Select Bug Report, Crash Report, or Feature Request, describe the issue, and choose **Open Email** to review and send a draft. The form includes app version/build and OS/platform only. **Copy Report** and **Copy Email Address** work when email is unavailable or a report is too long for an email link. Reports are never sent automatically; crash reporting is a description of a previous crash, with no automatic crash-log collection or attachments. Privacy & Licenses also includes the complete offline privacy policy.
@@ -47,11 +53,29 @@ The copy includes available source patient/study information and processed grays
 
 ## Measurements
 
-Cross-section measurements belong to the current dental arch. Switching jaw, **Use Automatic**, or clearing the arch asks before those measurements are deleted. **Undo Last** cancels a measurement in progress, restores what the last row Delete or **Clear All** removed (Clear All asks first), and otherwise removes the newest measurement. Measurements are not clinically validated.
+Cross-section measurements belong to the current dental arch. Switching jaw, **Use Automatic**, **Redraw Arch** from any of its buttons, or clearing the arch asks before those measurements are deleted. Cancel keeps the arch and its measurements. **Undo Last** cancels a measurement in progress, restores what the last row Delete or **Clear All** removed (Clear All asks first), and otherwise removes the newest measurement. Measurements are not clinically validated.
 
 ## Surface Export
 
 Review the jaw, tooth, and IAN labels against the source slices, correct them, and confirm each surface before exporting STL files. The **Surface** setting is **Smooth** by default: interior spaces are filled, loose fragments removed, and each structure is smoothed and simplified into a closed solid for viewing and 3D printing. **Exact voxels** builds the source-grid label surface without filling, smoothing or simplification, and uses coarser sampling when memory is low; its STL files are not closed solids (they can have open edges and many separate pieces), so repair them before 3D printing. Changing the setting rebuilds the surfaces and clears their reviews. The Surface setting also applies to Endo tooth and pulp surfaces and clears an Endo review. With Smooth surfaces, **Combine into one STL** writes two or more reviewed structures to one STL file with one sidecar: a jaw and its teeth fuse into one solid, while upper and lower structures stay separate solids unless their teeth touch. Smoothing does not add anatomy the model did not label. Automatic segmentation is not validated for diagnostic use.
+
+The **General surface** panel builds one surface of the whole study from the **Bone threshold**, without the model, and follows the same Surface setting; changing it there also clears segment and Endo reviews. A Smooth General surface is one closed threshold surface: teeth are not separated from the bone, thin bone can look pitted, and marrow that opens into the nerve canal or a foramen can stay hollow. The threshold starts from the study's own gray-value levels unless you move the slider or a saved state sets it. **Export STL** saves `CBCT-general-surface.stl`; **Save sidecar** then optionally saves a JSON file with the threshold and processing figures, without patient or study details. On iPhone and iPad the General surface shares the device's surface memory limit with the segment surfaces kept for the Segments panel, which stay with their reviews; when the General panel says they use part of that limit, removing segment surfaces from the 3D view on the Segments panel and rebuilding gives the General surface more room. This surface has no review step and is not validated for diagnostic use.
+
+Cancelling or changing studies can wait for active surface work to drain;
+long cavity and component traversals check cancellation during processing.
+For Smooth surfaces, the reported simplification error covers the bounded
+collapse passes, not the separate minimum-spacing corrections. Triangle-target
+status describes the final surface after both stages.
+
+## Images and video
+
+Media Export creates still images and H.264 video from its captured viewer
+settings. **Use Viewer Settings** takes a fresh snapshot. **3D Bone Surface**
+uses the General surface built in Surface Export. If a rebuild finishes while
+an export is running, that export keeps its captured surface and the preview
+refreshes after it finishes or is cancelled. Review the refreshed preview
+before exporting again. Leaving the workspace or changing studies cancels work;
+existing output files are replaced only after a complete export is ready.
 
 ## Saving and memory
 
