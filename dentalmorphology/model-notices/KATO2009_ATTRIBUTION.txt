@@ -7,14 +7,17 @@ https://doi.org/10.1007/s00784-008-0198-4
 https://a-kato.agu.ac.jp/English/bottom.html
 https://a-kato.agu.ac.jp/3D_tooth_models.html
 
-Public source archive in the app:
-46RLM1_OBJ.lzh: FDI46, right mandibular first molar → #30; #19 is its mirror.
-
-Earlier placements, replaced on 2026-10-12 by ACTA-DIRECT v2 teeth 0158 (#3/#14)
-and 0217 (#21/#28); their converted, repaired and compiled files remain in the
-local model archive but are no longer packaged in the app:
-16RUM1_OBJ.lzh: FDI16, right maxillary first molar → Universal #3, mirror #14.
-44LRP1_OBJ.lzh: FDI44, right mandibular first premolar → #28, mirror #21.
+Historical notice: since 2026-10-15 the app packages no geometry from these
+archives. Their converted, repaired and compiled files remain in the local
+model archive, and this notice keeps their attribution and the record of what
+was done to them. Former placements:
+46RLM1_OBJ.lzh: FDI46, right mandibular first molar → #30, mirror #19; replaced
+on 2026-10-15 by ACTA-DIRECT v2 tooth 0039, a two-rooted lower first molar (the
+FDI46 specimen has a third, distolingual root).
+16RUM1_OBJ.lzh: FDI16, right maxillary first molar → Universal #3, mirror #14;
+replaced on 2026-10-12 by ACTA-DIRECT v2 tooth 0158.
+44LRP1_OBJ.lzh: FDI44, right mandibular first premolar → #28, mirror #21;
+replaced on 2026-10-12 by ACTA-DIRECT v2 tooth 0217.
 
 Each archive supplies separately registered enamel, dentin and pulp-cavity
 surfaces. The project describes Shimadzu SMX-225CT acquisition; specimen-specific
@@ -23,8 +26,9 @@ confirmed. The original coordinate scale is retained. Buccal/lingual orientation
 is not independently labelled; the cervical plane is a display estimate.
 
 Reuse status: public university research download, with no confirmed dataset
-redistribution grant. These files are local prototype sources only; permission
-is needed before app redistribution. No Creative Commons license is asserted.
+redistribution grant. These files were local prototype sources only and are no
+longer packaged; permission would be needed before any app redistribution. No
+Creative Commons license is asserted.
 
 The source conversion preserves every original detail triangle, welds only
 coincident coordinates for computed vertex normals, and applies one shared
@@ -60,8 +64,8 @@ the same vertex/normal transform. That step changed no other records or shape. T
 source FDI16/right identity remains; mesial/distal direction is not independently
 source-labelled. Earlier normal-only and atlas files remain preserved upstream.
 
-Display repair (2026-10-11): at #19/#30 (and, until 2026-10-12, at #3/#14 and
-#21/#28) the displayed meshes are derived from these sources. Small detached enamel and dentin specks were
+Display repair (2026-10-11): at #19/#30 until 2026-10-15 (and, until 2026-10-12,
+at #3/#14 and #21/#28) the displayed meshes were derived from these sources. Small detached enamel and dentin specks were
 removed, and porous or perforated occlusal enamel, with the dentin beneath it,
 was rebuilt as a smooth inferred surface that follows the specimen's own porous
 enamel, with at least 0.5 mm of enamel over smoothed dentin

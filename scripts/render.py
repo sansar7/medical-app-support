@@ -23,6 +23,7 @@ toothform_notices = (
 toothform_notice_context = {
  'ATTRIBUTION.txt': 'Historical geometry notice. BodyParts3D / Dental Scope geometry is a retired development family and is not in the current ToothForm app package. This notice describes those separately licensed adapted assets.',
  'DUNDEE_ATTRIBUTION.txt': 'Historical surface-model notice. The current ToothForm app package contains no Dundee geometry; these surfaces remain local fallback and development resources.',
+ 'KATO2009_ATTRIBUTION.txt': 'Historical source notice. Since October 15, 2026 the current ToothForm app package contains no Kato and Ohno geometry: ACTA-DIRECT v2 tooth 0039, a two-rooted lower first molar, replaced its last placement at #19/#30. Build 1.0 (4), prepared on October 14, still contains it. This notice keeps the attribution, reuse status and processing record of the former placements.',
  'DENTAL_SCOPE_CREDITS.txt': 'Retained upstream credits. This is historical Dental Scope documentation, not a dependency inventory for ToothForm. It describes the upstream project, whose geometry and runtime differ from the current ToothForm app.',
  'DENTAL_SCOPE_LICENSE.txt': 'Upstream software license. This MIT license covers the Dental Scope software described below. It does not license ToothForm\'s original application code or the separately licensed tooth geometry.',
 }

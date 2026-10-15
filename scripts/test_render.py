@@ -185,7 +185,7 @@ class PublicationTests(unittest.TestCase):
             self.assertIn(f'href="{name}"', html)
             self.assertIn('white-space:pre-wrap', html)
             self.assertIn('href="../licenses.html"', html)
-            if name in ("ATTRIBUTION.txt", "DUNDEE_ATTRIBUTION.txt"):
+            if name in ("ATTRIBUTION.txt", "DUNDEE_ATTRIBUTION.txt", "KATO2009_ATTRIBUTION.txt"):
                 self.assertIn("Historical ", html)
                 self.assertIn("current ToothForm app package", html)
             elif name == "DENTAL_SCOPE_CREDITS.txt":

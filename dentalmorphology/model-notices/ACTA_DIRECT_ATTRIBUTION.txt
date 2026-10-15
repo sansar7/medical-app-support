@@ -24,14 +24,18 @@ Files used (original/1_Micro-CT_Scans/), each one extracted, anonymised tooth:
     Universal #18; #31 is its explicit mirror.
   0217_tooth.nii (SHA-256 8537ae810354ee8b243d4c4b83672f6c13c0bd7488c8c72098ca7e2454744d92)
     Universal #21; #28 is its explicit mirror.
+  0039_tooth.nii (SHA-256 4bc58a8bc20951d429cf6df12213c23a3c8be62c75171e2c22732fc1c0b75fe1)
+    Universal #30; #19 is its explicit mirror (added 2026-10-15).
 
 The dataset records no tooth type, number or side. ToothForm assigned each
 tooth's class and side from our in-house morphology review (three independent
-visual analyses plus a morphometric script, then a consensus); this is an
-inference, not a source label and not expert-confirmed. The side is the side
+visual analyses plus a morphometric script, then a consensus; for 0039, crown,
+root and canal morphometrics with CT sections, then the owner's review of the
+rendered views); this is an inference, not a source label and not
+expert-confirmed. The side is the side
 as imaged, because the scans' image handedness is not documented. Each mirrored
 position is a reflected copy of the same tooth with reversed triangle winding,
-not another specimen. The teeth are five different specimens, not a matched set.
+not another specimen. The teeth are six different specimens, not a matched set.
 
 Changes made by ToothForm: enamel, dentin and pulp were segmented automatically
 from the published volumes on their native 72 micrometre grid (intensity
