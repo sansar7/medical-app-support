@@ -1,6 +1,6 @@
 # ToothForm: Dental Anatomy 3D Privacy Policy
 
-Last updated: October 14, 2026
+Last reviewed: October 15, 2026. Data practices are unchanged from October 14, 2026.
 
 Developer: Sansar Gupta. Contact: sansargupta10@gmail.com.
 
@@ -12,7 +12,7 @@ The app does not import, open, or store patient records, photographs, scans, or 
 
 ## Local storage
 
-ToothForm does not save your tooth selections, tissue visibility or opacity, ray-tracing choice, or camera positions after you close a window. Both rendering modes process the bundled models on your device; they do not send geometry, images, or interaction history to a server.
+ToothForm does not save your tooth selections, tissue visibility or opacity, ray-tracing choice, or camera positions after you close a window. Both rendering modes process the bundled models on your device; they do not send geometry, images, or interaction history to a server. Camera recovery and retrying interrupted ray-tracing work also happen entirely on your device and add no data collection or transmission.
 
 The operating system may remember window size and position on a Mac or restore an open scene on iPhone and iPad according to your system settings. Device and computer backups follow your Apple settings.
 

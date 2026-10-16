@@ -1,12 +1,12 @@
 # ToothForm: Dental Anatomy 3D Support
 
-Updated October 14, 2026. ToothForm: Dental Anatomy 3D (ToothForm) is a prototype educational 3D tooth atlas for dental students. It is not on the App Store yet; this page describes builds that contain the October 2026 changes. The app's display name and Mac application menu use **ToothForm**.
+Updated October 15, 2026. ToothForm: Dental Anatomy 3D (ToothForm) is a prototype educational 3D tooth atlas for dental students. It is not on the App Store yet. This page describes the current source and local builds containing the October 15 model and reliability changes. The **1.0 (4)** builds prepared in App Store Connect on October 14 predate these changes; newer local builds can still display the same version and build number. The app's display name and Mac application menu use **ToothForm**.
 
 Email: **sansargupta10@gmail.com**
 
 Supported platforms: iPhone and iPad with iOS/iPadOS 26 or newer, and Macs with Apple silicon (M-series) running macOS 26 or newer. Intel Macs are not supported.
 
-For a problem report, include the app version and build, device model, operating system version, the tooth or specimen you were viewing, and the steps that led to the issue. A screenshot can help. Do not send patient information.
+For a problem report, include the app version and build, whether it is a developer-provided local build, device model, operating system version, the tooth or specimen you were viewing, and the steps that led to the issue. A screenshot can help. Do not send patient information.
 
 ## Exploring the atlas
 
@@ -19,7 +19,7 @@ Right and left in tooth names refer to the patient's anatomical sides, regardles
 | Mac | Drag | Right-drag, Option-drag, middle-drag, or Shift-scroll | Scroll or pinch on the trackpad, toward the pointer |
 | iPhone and iPad | Drag with one finger | Drag with two fingers; on iPad, also a trackpad two-finger scroll or a secondary-button drag | Pinch, toward your fingers; on iPad, also a mouse wheel, toward the pointer |
 
-A rotation glides briefly after you let go, except with Reduce Motion. A tap or click that stops a moving model does not open a tooth.
+A rotation glides briefly after you let go, except with Reduce Motion. A tap or click that stops a moving model does not open a tooth. Reset and opening another tooth cancel the previous drag, pinch or trackpad scroll, including its remaining glide. Start a new gesture to move the newly fitted model.
 
 Each numbered position shows separately segmented enamel, dentin and pulp from a micro-CT specimen. Use **Enamel**, **Dentin** and **Pulp** to show or hide each tissue without moving the model; hide enamel and dentin to inspect the pulp chamber and canals. **Tissue opacity**, near the top of a tooth's details, has a slider for each tissue: lower the dentin's opacity, for example, to see the canals inside the root. 0% hides a tissue. Opacity applies to the standard view; with ray tracing on, shown tissues are opaque. **Additional scan specimens** at the end of a tooth's details opens four separate micro-CT demonstrations. Two of them offer **Endo**, which isolates that specimen's own pulp.
 
@@ -31,7 +31,7 @@ Each model is an individual anatomical example, not a standard for every patient
 
 The lower-incisor teaching models use reviewed patient-right placements at **#25/#26** and explicit patient-left mirrors at **#24/#23**, with all three tissues kept together. The source authors label those original forms as left-sided; the app discloses their reviewed right-side placement. The source also contains repeated central/lateral enamel forms. These reviewed placements retain that limitation and do not establish distinct, independently verified central- and lateral-incisor anatomy.
 
-The Root Canal Anatomy Project (RCAP) upper-premolar specimens do not document their original side, so their four positions remain class representatives. The five ACTA-DIRECT specimens used for ten positions do not document tooth class or side; those were inferred as imaged during an in-house review. Their source notes disclose that uncertainty for each placement, including the mirrored counterparts.
+The Root Canal Anatomy Project (RCAP) upper-premolar specimens do not document their original side, so their four positions remain class representatives. The six ACTA-DIRECT specimens used for twelve positions do not document tooth class or side; those were inferred as imaged during an in-house review. Their source notes disclose that uncertainty for each placement, including the mirrored counterparts. The lower first molars **#19/#30** now use the two-rooted ACTA-DIRECT tooth 0039, with its short roots and other source limits disclosed in About this model.
 
 Enamel and dentin colors and translucency are an illustrative rendering. The shading uses thickness estimates ray-cast from each display mesh and published optical data with calibrated display constants; those estimates are not independently measured enamel thickness. Micro-CT records structure, not the tooth's real color. Enamel is shown slightly whiter than dentin to make the tissues easy to tell apart.
 
@@ -53,6 +53,7 @@ Every tooth can be chosen from a list, without using the 3D view. VoiceOver read
 - **The model looks too small or off-center** after rotating or resizing: press the reset button.
 - **A tooth takes a moment to appear**: detailed specimens are large and load in the background the first time they are opened.
 - **No Ray tracing switch**: open a layered tooth study on supported graphics hardware. The full arch and the two combined-hard-tissue demos use the standard view.
+- **Rendering was interrupted while the app was inactive**: the standard view remains available. After a temporary system refusal of ray-tracing work, ray tracing retries when the window can draw again, keeping the camera and the window's choice. If it reports a permanent failure, continue in the standard view and include the message in a report.
 - **A side or shape looks wrong**: use Reset camera, confirm the tooth number, and read About this model. Include the tooth number and viewing angle in a report so the displayed orientation can be checked against its source.
 
 ## Privacy

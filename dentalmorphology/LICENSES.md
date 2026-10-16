@@ -1,6 +1,6 @@
 # ToothForm: Dental Anatomy 3D — Licensing and model notices
 
-Updated October 15, 2026. This page describes the licensing records for the current ToothForm source and provides all 14 bundled model attribution, license and reuse notices. On October 15 the lower first molars (#19/#30) changed from the Kato and Ohno model to ACTA-DIRECT tooth 0039; build 1.0 (4), prepared on October 14, still contains the earlier Kato model, so the change applies to the next build. The app has not been released on the App Store.
+Updated October 15, 2026. This page describes the licensing records for the current ToothForm source and provides all 14 bundled model attribution, license and reuse notices. On October 15 the lower first molars (#19/#30) changed from the Kato and Ohno model to ACTA-DIRECT tooth 0039. The **1.0 (4)** builds prepared in App Store Connect on October 14 still contain the earlier Kato model; current local builds also report **1.0 (4)** but contain the replacement and subsequent reliability fixes. The version number alone does not identify which model set a build contains. The app has not been released on the App Store.
 
 ## Application license
 
@@ -46,7 +46,7 @@ Each link opens the complete notice in a readable page with a link to its unchan
 
 The following five notices are retained with the app for provenance. The current app package contains no Kato, Dundee or BodyParts3D / Dental Scope geometry. Kato surfaces remain in the local model archive; Dundee surfaces remain local fallback and development resources; BodyParts3D / Dental Scope geometry is a retired development family.
 
-- [Kato and Ohno attribution and reuse status](DentalMorphology/Resources/Models/KATO2009_ATTRIBUTION.txt): public research downloads with no confirmed dataset redistribution grant. Their last placement, the three-rooted lower first molar at #19/#30, is in build 1.0 (4) and was replaced in the source on October 15, 2026.
+- [Kato and Ohno attribution and reuse status](DentalMorphology/Resources/Models/KATO2009_ATTRIBUTION.txt): public research downloads with no confirmed dataset redistribution grant. Their last placement, the three-rooted lower first molar at #19/#30, is in the 1.0 (4) builds prepared in App Store Connect on October 14 and was replaced in the source on October 15, 2026.
 - [University of Dundee surface-model attribution](DentalMorphology/Resources/Models/DUNDEE_ATTRIBUTION.txt): source models are published under CC BY 4.0.
 - [BodyParts3D / Dental Scope geometry attribution](DentalMorphology/Resources/Models/ATTRIBUTION.txt): adapted geometry retains [CC BY-SA 2.1 Japan](https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en) terms.
 - [Dental Scope upstream credits](DentalMorphology/Resources/Models/DENTAL_SCOPE_CREDITS.txt): the original upstream credits also mention other anatomy, fonts and web libraries. They are preserved as upstream documentation, not as a dependency inventory for ToothForm.
