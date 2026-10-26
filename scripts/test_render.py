@@ -151,6 +151,39 @@ class PublicationTests(unittest.TestCase):
         self.assertIn("Foundry Call Studio (local prototype)", (self.site / "index.html").read_text())
         self.assertIn("ToothForm: Dental Anatomy 3D", (self.site / "index.html").read_text())
 
+    def test_cbct_refresh_publishes_only_linked_workflows(self):
+        sources = Path(self.temporary.name) / "sources"
+        selected = sources / "CBCTApp"
+        docs = selected / "docs"
+        docs.mkdir(parents=True)
+        (selected / "SUPPORT.md").write_text(
+            "# CBCT support\n\nRead [Endo](docs/ENDODONTICS.md) and "
+            "[reorientation](docs/VOLUME_REORIENTATION.md).\n"
+        )
+        (selected / "PRIVACY_POLICY.md").write_text("# Privacy\n\nEnglish only.\n")
+        (docs / "ENDODONTICS.md").write_text("# Endo\n\nReview source slices.\n")
+        (docs / "VOLUME_REORIENTATION.md").write_text("# Reorientation\n\nReview the derived grid.\n")
+        (docs / "CLINIC_IMPORT_OPTIONS.md").write_text("DO_NOT_PUBLISH_RESEARCH")
+        (selected / "STATUS.md").write_text("DO_NOT_PUBLISH_RESEARCH")
+        retained = {str(p.relative_to(self.site)): p.read_bytes()
+                    for p in self.site.glob("*/*")
+                    if p.is_file() and p.parent.name not in ("cbct", "scripts")}
+        self.render("--source-root", str(sources), "--app", "cbct")
+        dest = self.site / "cbct"
+        self.assertEqual({p.name for p in dest.iterdir()}, {
+            "SUPPORT.md", "PRIVACY_POLICY.md", "ENDODONTICS.md", "VOLUME_REORIENTATION.md",
+            "index.html", "privacy.html", "endodontics.html", "volume-reorientation.html"})
+        html = (dest / "index.html").read_text()
+        self.assertIn('href="endodontics.html">Endo</a>', html)
+        self.assertIn('href="volume-reorientation.html">reorientation</a>', html)
+        manifest = json.loads((self.site / "source-sha256.json").read_text())
+        self.assertEqual({key for key in manifest if key.startswith("cbct/")}, {
+            "cbct/SUPPORT.md", "cbct/PRIVACY_POLICY.md", "cbct/ENDODONTICS.md", "cbct/VOLUME_REORIENTATION.md"})
+        for relative, content in retained.items():
+            self.assertEqual((self.site / relative).read_bytes(), content, relative)
+        for p in dest.iterdir():
+            self.assertNotIn("DO_NOT_PUBLISH_RESEARCH", p.read_text())
+
     def test_toothform_refresh_exports_exact_notices_and_preserves_bytes(self):
         sources, selected, models = self.toothform_sources()
         retained = {
