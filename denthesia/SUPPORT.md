@@ -2,7 +2,7 @@
 
 ## Prepared iPhone Duo update
 
-The next source update adapts to the iPhone Duo inner and outer displays. Local-anesthetic and sedation references use two readable columns when space permits. Session Assist places timers beside attention guidance on a wide window, so both can be reviewed together. Compact windows and accessibility text retain one column. Existing reference disclosures and session timing remain in the same view hierarchy while the window resizes.
+The next source update adapts to the iPhone Duo inner and outer displays. Local-anesthetic, sedation and emergency references use two readable columns when space permits, and wide windows show each emergency reference summary in full. Session Assist places timers beside attention guidance on a wide window, so both can be reviewed together. Compact windows and accessibility text retain one column. Existing reference disclosures and session timing remain in the same view hierarchy while the window resizes.
 
 The update has not been uploaded or released through App Store Connect. Existing Store builds retain their prior behavior. If reporting a layout issue, include the app version, whether the phone was folded or open, orientation and text-size setting; do not include patient information.
 
