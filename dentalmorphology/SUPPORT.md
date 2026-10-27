@@ -1,6 +1,6 @@
 # ToothForm: Dental Anatomy 3D Support
 
-Updated October 15, 2026. ToothForm: Dental Anatomy 3D (ToothForm) is a prototype educational 3D tooth atlas for dental students. It is not on the App Store yet. This page describes the current source and local builds containing the October 15 model and reliability changes. The **1.0 (4)** builds prepared in App Store Connect on October 14 predate these changes; newer local builds can still display the same version and build number. The app's display name and Mac application menu use **ToothForm**.
+Updated October 27, 2026. ToothForm: Dental Anatomy 3D (ToothForm) is an educational 3D tooth atlas for dental students. This page describes the current source, including the iPhone Duo layout update prepared on October 27. These Duo changes have not yet been uploaded to App Store Connect; the version number alone does not identify a build containing them. The app's display name and Mac application menu use **ToothForm**.
 
 Email: **sansargupta10@gmail.com**
 
@@ -24,6 +24,12 @@ A rotation glides briefly after you let go, except with Reduce Motion. A tap or 
 Each numbered position shows separately segmented enamel, dentin and pulp from a micro-CT specimen. Use **Enamel**, **Dentin** and **Pulp** to show or hide each tissue without moving the model; hide enamel and dentin to inspect the pulp chamber and canals. **Tissue opacity**, near the top of a tooth's details, has a slider for each tissue: lower the dentin's opacity, for example, to see the canals inside the root. 0% hides a tissue. Opacity applies to the standard view; with ray tracing on, shown tissues are opaque. **Additional scan specimens** at the end of a tooth's details opens four separate micro-CT demonstrations. Two of them offer **Endo**, which isolates that specimen's own pulp.
 
 On a Mac, and on an iPad with a hardware keyboard, the **Atlas** menu lists every tooth and specimen. Escape returns to all teeth, Command-0 resets the camera, Command-= and Command-− zoom, Command-Option-arrow keys rotate and tilt, and Shift-Command-R opens Sources & credits.
+
+## iPhone Duo and changing window sizes
+
+On an unfolded iPhone Duo, a wide enough window keeps the tooth model beside its anatomy and opacity controls, so you can study the tooth while reading its details. On the outer display, in a narrow Split View window, or with large accessibility text, the details move below the model in one scrolling study. Short windows also use the scrolling layout to keep controls reachable.
+
+Folding, unfolding or resizing keeps the selected tooth, camera, tissue visibility and opacity, ray-tracing choice, and expanded **About this model** and **Additional scan specimens** sections. The model refits to the space available; **Reset camera** restores its default view. Controls stay inside the current safe area, including the Duo's side status area. Sources & credits remains available from the overview and each study.
 
 ## What the models and colors represent
 

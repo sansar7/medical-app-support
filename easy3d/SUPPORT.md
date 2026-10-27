@@ -1,12 +1,20 @@
 # Dental 3D Support
 
-Updated October 9, 2026 for the prepared Dental 3D 2.0 update. The import, file-color, camera, and project-restoration improvements described below require version 2.0 or a build containing those changes. Earlier installed versions can behave differently; publishing these instructions does not update your app.
+Updated October 27, 2026. iPhone Duo guidance below describes the prepared source update; its App Store build has not been uploaded or released. The other guidance covers the prepared Dental 3D 2.0 update. The import, file-color, camera, and project-restoration improvements described below require version 2.0 or a build containing those changes. Earlier installed versions can behave differently; publishing these instructions does not update your app.
 
 Email: **sansargupta10@gmail.com**
 
 Supported platforms: iOS/iPadOS 17 or newer and macOS 15 or newer on Apple silicon (M-series). Intel Macs are not supported.
 
 For a problem report, include the Dental 3D version/build, device model, OS version, file format, and the steps that led to the issue. A screenshot of the error can help. Do not send patient files or private dental or medical information. Use a synthetic or de-identified example only when needed to explain a file-format issue.
+
+## iPhone Duo and resizable windows
+
+The prepared iPhone Duo update uses the larger display for a 3D canvas beside the View, Annotate, or Export tools when there is enough room. In a narrower or shorter window, the canvas gets the available space and the workspace-tools button opens those controls in a sheet. Larger accessibility text also uses the sheet so controls can remain readable. The viewer dock reduces to compact controls when space is short.
+
+Fold, unfold, or rotate without closing the workspace. Models, camera position, measurements, annotations, and the chosen workspace mode remain in memory. A saved camera can crop differently at another aspect ratio; use **Reset to Center** to fit the current viewport. Save a Dental 3D project before closing the app if you want to preserve the whole workspace.
+
+These layout changes require a future build compiled with Xcode 27.1 or later that includes the October 27 compatibility changes. Updating this support document does not update an installed app. Simulator checks do not establish physical-device or clinical validation.
 
 ## Send feedback from the app
 

@@ -1,5 +1,12 @@
 # Enamel — Support
 
+## Prepared iPhone Duo update
+
+The next source update adapts to the iPhone Duo inner and outer displays. Illustration and overview stay beside the procedure details when the window has enough width. Folding or using larger accessibility text returns the guide to one reading column. Library grids and procedure comparisons continue to adapt to their own available width. Guide navigation, saved items, comparisons, brushing and recall remain available through native tabs and toolbars.
+
+The update has not been uploaded or released through App Store Connect. Existing Store builds retain their prior behavior. If reporting a layout issue, include the app version, whether the phone was folded or open, orientation and text-size setting; do not include patient information.
+
+
 Thanks for using **Enamel**, a simple, on-device guide to common dental procedures and care.
 
 If you need help, you're in the right place.

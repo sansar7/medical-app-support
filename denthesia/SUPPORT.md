@@ -1,5 +1,12 @@
 # Denthesia Support
 
+## Prepared iPhone Duo update
+
+The next source update adapts to the iPhone Duo inner and outer displays. Local-anesthetic and sedation references use two readable columns when space permits. Session Assist places timers beside attention guidance on a wide window, so both can be reviewed together. Compact windows and accessibility text retain one column. Existing reference disclosures and session timing remain in the same view hierarchy while the window resizes.
+
+The update has not been uploaded or released through App Store Connect. Existing Store builds retain their prior behavior. If reporting a layout issue, include the app version, whether the phone was folded or open, orientation and text-size setting; do not include patient information.
+
+
 The app follows your system language automatically. Reviewed interface and clinical labels are bundled in 15 languages. Clinical text without a reviewed bundled translation stays in English, and earlier unreviewed clinical caches are ignored. Apple Translation is limited to a small explicit list of nonclinical interface text, such as feedback controls; Apple may request a language-model download for those strings. See [Language support](LOCALIZATION.md) for languages, platform requirements, and verification limits.
 
 **Office Settings → Language and translations** explains that English is the primary language and that translations into other languages may be inaccurate. If wording is unclear, consult the original linked source and report the affected language and screen without patient information.
