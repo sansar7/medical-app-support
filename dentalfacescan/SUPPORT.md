@@ -1,12 +1,16 @@
 # Easy3D Capture Support
 
-Last updated: October 14, 2026
+Last updated: October 31, 2026
 
 Easy3D Capture is an iPhone-only face and object capture app. The current application target requires iOS 27. Both Object and Face modes use rear-camera photogrammetry. Availability depends on the physical iPhone supporting native Object Capture and reconstruction; the app checks both capabilities. Front-camera and Gaussian capture are no longer available. Simulator samples exercise software only. Clinical accuracy and actual exocad interoperability require independent validation; facial capture does not replace an intraoral scanner.
 
+## Development status
+
+Development is paused as of October 31, 2026, with no scheduled update or restart date. These instructions, privacy information and the contact address remain available. Pausing development does not remove scans from your iPhone. Export any scans you need before deleting the app; its private storage is excluded from system backups, and the developer cannot recover lost local files.
+
 ## Release coverage
 
-This page describes **version 1.0 (13)**, submitted for App Review on October 14, 2026. Build 13 includes optional photograph retention, interrupted-reconstruction retry, unsaved-capture recovery, renaming, thumbnails, model extent, a privacy cover, export corrections and case-label exclusion from exports. App Store approval and distribution are pending. The earlier App Store submission **1.0 (12)**, built from `495b345`, does not include those changes and includes case labels in export manifests, as disclosed below. Earlier development copies may also report 1.0 (12) while using newer source; record their source commit when reporting a problem.
+This page describes **version 1.0 (13)**, submitted for App Review on October 14, 2026. Build 13 includes optional photograph retention, interrupted-reconstruction retry, unsaved-capture recovery, renaming, thumbnails, model extent, a privacy cover, export corrections and case-label exclusion from exports. Version **1.0 (13)** is available in the [US App Store](https://apps.apple.com/us/app/easy3d-capture/id6821235094), verified against App Store Connect and the public listing on October 31, 2026. Check your installed app’s version/build when applying these instructions. The earlier App Store submission **1.0 (12)**, built from `495b345`, does not include those changes and includes case labels in export manifests, as disclosed below. Earlier development copies may also report 1.0 (12) while using newer source; record their source commit when reporting a problem.
 
 ## Languages
 

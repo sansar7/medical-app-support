@@ -1,12 +1,16 @@
 # Easy3D Capture Privacy Policy
 
-Last updated: October 14, 2026
+Last updated: October 31, 2026
 
 Developer: Sansar Gupta. Contact: [sansargupta10@gmail.com](mailto:sansargupta10@gmail.com).
 
+## Development status
+
+Development is paused as of October 31, 2026, with no scheduled update or restart date. These instructions, privacy information and the contact address remain available. Pausing development does not remove scans from your iPhone. Export any scans you need before deleting the app; its private storage is excluded from system backups, and the developer cannot recover lost local files.
+
 ## Release coverage
 
-This policy describes **version 1.0 (13)**, submitted for App Review on October 14, 2026. Build 13 includes optional photograph retention, interrupted-reconstruction retry, unsaved-capture recovery, renaming, thumbnails, a privacy cover and case-label exclusion from exports. App Store approval and distribution are pending. The earlier App Store submission **1.0 (12)**, built from `495b345`, lacks those changes and includes case labels in export manifests, as disclosed below. Earlier development copies may also report 1.0 (12) while using newer source; retain their source commit to identify their behavior.
+This policy describes **version 1.0 (13)**, submitted for App Review on October 14, 2026. Build 13 includes optional photograph retention, interrupted-reconstruction retry, unsaved-capture recovery, renaming, thumbnails, a privacy cover and case-label exclusion from exports. Version **1.0 (13)** is available in the [US App Store](https://apps.apple.com/us/app/easy3d-capture/id6821235094), verified against App Store Connect and the public listing on October 31, 2026. Check your installed app’s version/build when applying these instructions. The earlier App Store submission **1.0 (12)**, built from `495b345`, lacks those changes and includes case labels in export manifests, as disclosed below. Earlier development copies may also report 1.0 (12) while using newer source; retain their source commit to identify their behavior.
 
 ## Information processed on your iPhone
 
