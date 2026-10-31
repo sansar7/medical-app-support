@@ -1,37 +1,32 @@
 # Foundry Call Studio — Privacy Policy
 
-Updated October 14, 2026. Applies to the local 0.1.0 desktop prototype and its current source. This app is for fictional practice calls only; it is not connected to clinic phones or patient records.
+Updated October 31, 2026. **Development is paused.** Applies to the two-tab desktop prototype installed on October 23, 2026 (version 0.1.0, source commit `4ce2d08`) and the source preserved at the pause. The October 31 removal of unused UI code does not change data handling or replace the installed app. It is for fictional practice calls only, including an optional isolated HT813/Asterisk phone-line lab. Patient use and clinic deployment are not authorized.
 
 ## What the app processes
 
-A call you start sends microphone audio or typed practice messages to the voice provider you select, Google Gemini or OpenAI. The provider also receives the bundled clinic instructions, current office-status context, conversation and tool messages needed to answer and prepare the simulated brief. Replies, streaming captions, fictional intake details, handoff or callback notes, timing and provider usage counts appear in the app. Typing-only practice does not request microphone access. The phone-line test processes audio locally before transmission or playback; it does not record a telephone call.
+A call sends the caller's audio (this Mac's microphone, or a test call on the phone line) or typed messages to Google Gemini, the app's only voice service. Gemini also receives the receptionist's instructions: the practice information, the current date and office status, and the conversation so far. Replies, captions, the handoff note (patient type, reason, and the caller's name only if they gave it), the office status, reply timing and token counts appear on the Call tab. Typing tests never request microphone access. The phone-line audio option changes the sound on this Mac only; it records nothing.
 
-## Local storage and access
+## What is stored on this Mac
 
-Provider API keys, settings and practice-call content are kept in application memory. The application does not deliberately write keys, audio recordings or transcripts to its settings, server logs or an application database. Its browser session is nonpersistent. Ending a call stops its streams but keeps the current brief visible for review and export; quitting the app clears its in-memory keys and call content. Operating-system diagnostics, swap and files you export are separate from this in-memory design.
+- **No automatic call storage.** There is no call log. The transcript and brief stay on the Call tab until the next call starts or the app closes. Audio is never recorded. Choosing **Save brief** creates a text file, described below.
+- **Practice information** you edit in Setup is saved as `practice-information.json` in the app's user-data folder and used for later calls. It must hold practice policies, never patient information. **Restore bundled information** replaces it with the bundled copy; an unreadable file is kept beside it as a recovery copy.
+- **The chime choice** uses local browser storage within the packaged app's temporary browser session and resets when the app quits. A development preview in a regular browser can retain it in that browser.
+- The Gemini API key, the free-tier confirmation, the voice and the testing office status are kept in memory and cleared when the app quits. The app does not write keys or audio to its settings, logs or files.
 
-The desktop service listens only on this computer at a random loopback port and requires the app's temporary token. The interface loads local resources and has no advertising, analytics or tracking SDK. There is no developer-operated relay receiving call content. Normal network requests still reveal connection metadata to the selected provider. Links you choose to open in your browser are governed by those websites' policies.
+The service inside the app listens only on this computer, at a random loopback port, and requires the app's temporary token. The interface loads only local files and has no advertising, analytics or tracking. The optional Asterisk lab is a local Linux VM; its SIP/RTP traffic and audio WebSocket carry fictional test-call audio, and its generated PBX credential stays in its private runtime outside the source, never shown to the app's window. A manually entered PBX password stays in memory until you disconnect or quit. The supplied lab configuration does not record audio or call details. Normal network requests reveal connection metadata to Google.
 
-## Exports and deletion
+## Saving a brief
 
-Save brief writes a text or JSON file only when you request it. These files include the conversation transcript, any entered name and callback number, intake and simulated handoff or callback details, and call metadata such as time, provider, office status, response delay and usage counts. Exports do not include the API key or an audio recording. They can contain sensitive information if you type or say it, which is why only fictional details belong in this prototype.
-
-You control the saved file and its destination. Delete exported files and any copies or backups separately; quitting or uninstalling the app does not delete them. A destination in iCloud, Google Drive or another synchronized folder follows that service's rules. Deleting a local export does not delete content retained by a model provider.
+**Save brief** writes a text file only when you choose: the brief, the call's date, length and office status, the caller ID for a line call, and the transcript. It contains no key and no audio, but it contains whatever the caller said, which is why only fictional details belong in this prototype. You control the file and its copies; deleting the app does not delete them, and a synchronized folder follows that service's rules.
 
 ## Provider handling
 
-Google's unpaid Gemini service uses submitted content and generated responses to improve its products and may have human reviewers process that content. Do not submit personal, confidential or sensitive information. See the [Gemini API terms](https://ai.google.dev/gemini-api/terms).
-
-OpenAI states that API content is not used for model training unless the account opts in. Provider-side retention can still apply, including abuse-monitoring logs and account-specific storage settings. This prototype does not establish that your account has zero data retention. See [OpenAI API data controls](https://developers.openai.com/api/docs/guides/your-data).
-
-Provider terms were reviewed on October 14, 2026 and can change. Local in-memory handling does not override them. This prototype is not configured or validated for real patient information.
+Google's unpaid Gemini service uses submitted content and generated responses to improve its products and may have human reviewers process it. Do not submit personal, confidential or sensitive information. See the [Gemini API terms](https://ai.google.dev/gemini-api/terms), reviewed on October 31, 2026; they can change, and the app's local handling does not override them. Deleting anything on this Mac does not delete content Google retains.
 
 ## Operator controls
 
-You choose the provider and supply your own key. Each provider has a separate usage confirmation. There is one active practice call, limited to five minutes, with explicit microphone, mute and end controls. The app makes no provider call until you start one and does not automatically switch providers. It cannot independently verify your account balance or billing status.
-
-The app does not place calls, transfer a real line, schedule appointments, send messages to staff, take payments or access patient charts. Handoffs and callbacks are simulations inside the app.
+You supply your own Gemini key and confirm that its Google project has billing turned off; the app cannot check your account. One call runs at a time, for up to five minutes, with explicit microphone, mute and end controls. No request reaches Gemini until a call starts or a line call is answered, and nothing is retried automatically. On a practice call a handoff only shows the brief; on a line call it continues the same call to the front desk phone after closing Gemini and its media channel. The app does not schedule appointments, take messages, take payments or open patient charts.
 
 ## Contact
 
-For questions, contact [sansargupta10@gmail.com](mailto:sansargupta10@gmail.com). Do not include patient information, API keys or unredacted practice transcripts in support requests.
+Questions: [sansargupta10@gmail.com](mailto:sansargupta10@gmail.com). Do not include patient information, API keys or call transcripts.
