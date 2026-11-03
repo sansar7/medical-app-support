@@ -53,19 +53,23 @@ one step) are undone in the order they were made. A new prediction or Restore
 Prediction drops the mask steps and keeps the trace steps; replacing the
 target drops both.
 
-**Distance to the nerve canal.** When an inferior alveolar canal has been
-traced in Slice & Panorama and the tooth is segmented, the Target tab's Nerve
+**Distance to the nerve canal.** Open Surface Export → Labels, select IAN,
+then open Canal tools to trace an inferior alveolar canal. Once the canal is
+traced and the tooth is segmented, the Target tab's Nerve
 Canal Distance shows, for each traced canal, the closest distance from the
 tooth mask boundary to that canal's radius envelope
 (`CanalCenterline.clearance(from:)`), in the volume's millimetre frame. The
 boundary is every tooth voxel (tooth or pulp label) with a six-neighbour
-outside the mask or on a face of the region; the search bounds each voxel by
-its distance to boxes around 4 mm runs of the centreline and evaluates the
-exact clearance in that order, so it gives the same minimum as an exhaustive
-search in a fraction of the time. When the boundary touches or enters the
-envelope the readout says "0.0 mm (within the canal envelope)". The
-measurement runs off the main actor, is superseded by a mask edit or a canal
-change, and is recorded nowhere: it is not part of the saved state, the
+outside the mask or on a face of the region, and the distance is measured
+from those voxels' faces: the centreline point nearest a voxel's centre is
+clamped into the voxel's cube and the clearance is evaluated there. The search
+bounds each voxel by its centre's distance to boxes around 4 mm runs of the
+centreline less half the voxel diagonal, so it gives the same minimum as an
+exhaustive search in a fraction of the time. When the region cuts off the
+tooth on the canal's side, the readout adds a caveat to enlarge the region.
+When the boundary touches or enters the envelope the readout says "0.0 mm
+(within the canal envelope)". The measurement runs off the main actor, is
+superseded by an edit of the tooth mask or a canal change, and is recorded nowhere: it is not part of the saved state, the
 review or the export. Show Where moves the three slices to the tooth point and
 marks both points on the slice overlays, with the measured segment projected
 onto each plane, until the slices move again. It is a geometric distance
@@ -100,7 +104,9 @@ pixels, positioned on the current-grid slice without changing its geometry or
 colors. Hidden slice panes cancel and release their overlays; source, slice,
 mask revision and visibility checks reject obsolete results. Brush commits
 and undo update tooth, pulp and edit counts from the changed indices rather
-than recounting the entire region. Component floods, contact splitting, pulp
+than recounting the entire region. An edit rebuilds only the surface whose
+membership it changed; painting or erasing pulp inside the tooth keeps the
+tooth surface. Component floods, contact splitting, pulp
 closing and source-grid mapping observe cancellation in addition to the
 prediction and minimum-cut boundaries. Current synthetic verification and
 performance limits are recorded in [STATUS.md](../STATUS.md).
