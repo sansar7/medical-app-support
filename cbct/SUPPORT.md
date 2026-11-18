@@ -1,12 +1,14 @@
 # Dental CBCT Studio support
 
-Updated November 3, 2026 for the current native iPhone, iPad and Apple-silicon Mac source. This guide describes builds containing the October 25 feature additions, October 26 reliability fixes, reorganized Viewer Controls, English-only resources, import-region selection, point-to-point arches, iPhone Duo layouts and the November 3 Media Export redesign and fixes. Those changes are not in the **1.1.1 (9)** binary submitted on October 15. The marketing version and build number alone do not establish source parity; [STATUS.md](STATUS.md) records the exact build, installation and publication evidence. Updating GitHub or this guide does not update an installed app.
+Updated November 17, 2026 for the current native iPhone, iPad and Apple-silicon Mac source. Version **2.0 (10)**, on the App Store since November 4, 2026, contains the October 25 feature additions, October 26 reliability fixes, reorganized Viewer Controls, English-only resources, import-region selection, point-to-point arches, iPhone Duo layouts and the November 3 Media Export redesign and fixes; **1.1.1 (9)** does not. The November 10–17 changes summarized below are in the current source and not in 2.0 (10); they reach the App Store with the next update. The marketing version and build number alone do not establish source parity; [STATUS.md](STATUS.md) records the exact build, installation and publication evidence. Updating GitHub or this guide does not update an installed app.
 
 The current source adds saved views, configurable PDF reports and CSV measurements; unsaved-work prompts and measurement Undo/Redo; arrows and text; Window/Level presets and 3D clipping; editable Endo canal points; model-uncertainty overlays and custom regions; JPEG Lossless import, a series picker and de-identified DICOM export; reviewed USDZ export; Universal/FDI numbers; optional recovery copies; and volume reorientation. The workflows below explain their controls and limits. The app is **not validated for diagnostic use**.
 
 The October 26 fixes preserve existing work when reorientation fails or is cancelled, prevent stale recovery/save work from replacing newer edits, improve cancellation and memory use during import and export, and keep compact report and Endo controls usable. Synthetic and simulator checks are engineering evidence; they do not establish clinical accuracy or physical-device performance.
 
 The November 3 changes redesign Media Export around **Image** and **Video**, write Surface Export STL files in DICOM patient millimetres, and correct 2D slice measurements, which could read slightly short (by up to one voxel across the full image) with overlays up to half a voxel off. They also fix recovery-copy, DICOM import, Implants and iPhone/iPad layout problems found in two review passes.
+
+The November 10–17 changes add moving, zooming and a chosen center of rotation to the Media Export 3D views, with **Ease in and out** and **Frame Crop Box**; keyboard commands that step the arch scout and the cross-section; **Copy Value** for a measurement and **Copy Readouts** in Implants; a brush outline in Labels and Endo; and a Save State, Discard or Cancel prompt when the Mac window is closed with unsaved work. They also fix problems found in four review passes, among them studies refused because their slice positions were written to two decimals, segmentation input at the outermost plane of some scan sizes, a cancelled segmentation that restarted when the Surface Export panel changed, and iPhone and iPad layout problems, and they shorten surface building, label overlays and region import.
 
 ## Endo
 
@@ -27,6 +29,11 @@ setting. Save State retains masks, traces, and notes; restored surfaces
 require review before export. Notes may identify a person. See the
 [Endo workflow](docs/ENDODONTICS.md).
 
+In Endo, Up and Down Arrow step the active slice view; with the Trace tool,
+Option+arrow moves the selected point one voxel, and a run of moves undoes as
+one step. **Endo ▸ Target** warns, without blocking, when no tooth identifier
+is entered or the target is not on a segmented tooth.
+
 For **Nerve Canal Distance**, open **Surface Export → Labels**, select **IAN**,
 then open **Canal tools** to trace an inferior alveolar canal. Once the tooth is
 segmented, Endo shows its closest geometric distance to the traced canal's
@@ -38,6 +45,8 @@ brush radius, including on scans with unequal voxel spacing. One stroke has
 one undo step and stays inside the selected region. Changing the slice,
 region, source or brush settings before release discards the pending stroke.
 Very long gestures can also be rejected; release and start a shorter stroke.
+In Labels and Endo, **Paint** and **Erase** show the brush's size as an outline
+under the pointer or finger.
 
 Mask overlays update in the background for the selected tooth region; hidden
 slice panes release their overlays. Cancellation also reaches component
@@ -89,7 +98,7 @@ The corrections are deliberately limited, so broad streaks may remain and the vi
 
 ## Exporting an enhanced CT copy
 
-Choose **Export → Export Enhanced CT…**, select Super Resolution and/or Metal Artifact Reduction, and choose a destination folder outside the open study's folder (a copy saved inside it would compete with the source series when that folder is reopened, so the app refuses it). This separately processes every axial slice and saves a derived DICOM series on the original voxel grid. The progress view reports completed slices; cancellation waits for the current calculation to finish and removes the incomplete output. If the app quits or stops during an export, a visible `…-incomplete` folder may remain; delete it, or the next export to the same folder removes it once it is a day old. **Open Saved CT** opens the completed copy with live enhancement off.
+Choose **Export → Export Enhanced CT…**, select Super Resolution and/or Metal Artifact Reduction, and choose a destination folder outside the open study's folder (a copy saved inside it would compete with the source series when that folder is reopened, so the app refuses it). This separately processes every axial slice and saves a derived DICOM series on the current study grid: the full scan, the region chosen during import, or the resampled grid after a reorientation, with that grid's dimensions and voxel spacing. The progress view reports completed slices; cancellation waits for the current calculation to finish and removes the incomplete output. If the app quits or stops during an export, a visible `…-incomplete` folder may remain; delete it, or the next export to the same folder removes it once it is a day old. **Open Saved CT** opens the completed copy with live enhancement off.
 
 The copy includes available source patient/study information and processed grayscale. Retain the original scan for comparison and review identifiers before sharing. The processed values are not calibrated HU, and the copy is not a validated diagnostic reconstruction. Regular PNG, PDF, DICOM Secondary Capture, and media exports continue to use source data. On narrow screens and at large text sizes, scroll the export details; the destination and cancel/done controls remain available.
 
@@ -103,11 +112,15 @@ In **Slice & Panorama**, choose the jaw and review its automatic arch. To draw i
 
 **Undo Last Point** (⌘Z on Mac) removes the latest point, **Clear Points** starts the draft over, and **Cancel** keeps the previous arch and its measurements. While points are placed, the scout slice controls are paused so the draft stays on one slice; changing the tool or workspace discards unfinished points. When zoomed, a one-finger drag pans the scout and never places a point. In the canal tools, Draw starts a mandibular arch when no arch exists. Replacing an arch with cross-section measurements asks for confirmation; the measurements are removed only when the new arch is finished.
 
+**Next Scout Slice** (⌥⌘↑) and **Previous Scout Slice** (⌥⌘↓) move the arch scout one slice; **Section Forward 1 mm** (⌥⌘→) and **Section Back 1 mm** (⌥⌘←) move the cross-section along the arch. They are in the View menu on Mac and work with a hardware keyboard on iPad.
+
 ## Measurements
 
 Cross-section measurements belong to the current dental arch. Switching jaw, **Use Automatic**, **Redraw Arch** from any of its buttons, or clearing the arch asks before those measurements are deleted. Cancel keeps the arch and its measurements. **Undo** (⌘Z) and **Redo** (⇧⌘Z), also under Measurements in Viewer Controls, step through placements, row Deletes, **Clear All** (which asks first), handle and label drags, and label text, font and size edits in MPR, Slice & Panorama and the implant sections; the history holds up to 100 steps for the open study and is not saved. Measurements are not clinically validated.
 
 **Arrow** and **Text** annotations carry no measured value. Arrow takes a tail and a head and an optional caption; Text asks for its text after one tap. Edit the text or caption under Measurements → Selected label. On the Mac, Arrow is **⌥⌘R** and Text is **⌥⌘K**. Labels are saved with states and reviews, drawn on PDF, image, DICOM SC and media exports, and listed in the report table (arrows only when they have a caption). Text you type may identify a person.
+
+In Viewer Controls → Measurements, **Copy Value** in a measurement's context menu copies its value as shown, with units. Arrows and text labels have no value to copy.
 
 A very small oval ROI between sample centers reports the nearest current-grid or
 cross-section sample. Its area still describes the drawn oval; a one-sample
@@ -128,7 +141,7 @@ Review the jaw, tooth, and IAN labels against the source slices, correct them, a
 
 **Custom region** lets you paint and erase your own label on slices, then **Fill Between Slices** interpolates between two or more painted slices in the selected plane. Inspect every filled slice: interpolation follows the outlines, not the anatomy. The displayed volume is voxel count × voxel volume. Custom strokes and fills have their own Undo/Redo; their Smooth or Exact surfaces use the same review gate and STL export as other segments. Names and masks are kept in states/reviews and can be identifying; names are not written into STL files or sidecars. Custom regions are not drawn in Media Export.
 
-**Export USDZ…** in the Segments panel saves the export-selected reviewed surfaces in their segment colors as one `.usdz` scaled to meters, optionally with the planned implants and schematic crowns (stock library crowns are never included). It opens in AR Quick Look on iPhone and iPad and in Quick Look on Mac. On iPhone and iPad the export first checks free memory; if the selected surfaces need more than is available, it stops with a message instead of risking the app being closed, so close other apps or export fewer surfaces. The same review gate and privacy notice apply as for STL; the file is a visualization, not a validated model.
+**Export USDZ…** in the Segments panel saves the export-selected reviewed surfaces in their segment colors as one `.usdz` scaled to meters, optionally with the planned implants and schematic crowns (stock library crowns are never included). It opens in AR Quick Look on iPhone and iPad and in Quick Look on Mac. On iPhone and iPad the export first checks free memory; if the selected surfaces need more than is available, it stops with a message instead of risking the app being closed, so close other apps or export fewer surfaces. The same review gate and privacy notice apply as for STL; the file is a visualization, not a validated model. When **Export USDZ…** is unavailable, the line beneath it says why.
 
 **Tooth numbers** (Viewer Controls ▸ Preferences) chooses Universal (1–32) or FDI two-digit numbers for the Implants tooth chart, labels, readouts, the implant report and its export; the report names the convention. Plans and saved states keep Universal numbers. The first launch chooses Universal in the United States and FDI elsewhere.
 
@@ -155,7 +168,18 @@ MPR Overview, Cross Section or Panorama. Drag the 3D preview, or choose Front,
 Left, Right or Back, to set the view; an image is exactly what the preview
 shows, and a slice image starts at the viewer's current slice. On iPhone and
 iPad, drag sideways on the preview to turn it; a vertical swipe scrolls the
-page, so use the Elevation slider to look from above or below. A video adds a
+page, so use the Elevation slider to look from above or below. In the 3D
+views, **Rotate** turns the view around its center of rotation and **Move**
+slides the picture. Choose **Set Center of Rotation** and then click or tap a
+point, or double-click or double-tap the preview, to turn the view around that
+point. Zoom with the zoom-out and zoom-in buttons or by pinching. **Reset
+View** turns around the center of the scan again, centers the picture and
+restores the opening framing. On a Mac, Option-drag or right-drag always moves
+the view; on iPhone and iPad, two fingers move the view. **Ease in and out**
+makes a Between two views video start gently from the Start view and slow down
+into the End view. **Frame Crop Box** turns the view around the middle of the
+3D crop box, centers it and zooms until the whole box just fits; on the Mac,
+Option-scroll over the preview zooms about the pointer. A video adds a
 motion and a speed: Orbit, Rock side to side and Tilt up and down turn around
 the view you set, **Between two views** keeps separate Start and End views,
 and slice, cross-section and panorama videos sweep, turn or hold. More motion
@@ -175,13 +199,13 @@ existing output files are replaced only after a complete export is ready.
 
 ## Saved views and reports
 
-**Save Current View** (Viewer Controls → Saved Views, or View → Save Current View…, **⇧⌘B**, on Mac) keeps the workspace, slices, zoom, display window and 3D cameras under a name; click or tap a saved view to show it again, and rename, caption, reorder or delete it from its menu. **Export → Report (PDF)…** opens the report composer: choose US Letter or A4 and the sections (study header, current views, saved views as key images with their captions and measurements, a cross-section contact sheet of evenly spaced sections along the installed arch numbered on a panorama, the measurement table and notes). The title, the not-validated notice and page footers are always printed. **Measurements (CSV)…** writes the measurement table as a spreadsheet file. Source DICOM patient demographics are excluded. Text labels and arrow captions are included and may identify a person. Report notes and saved views are kept in Save State; the clinic header printed above the title stays in this device's preferences only. Measurements on contact-sheet sections are not drawn; the table lists them.
+**Save Current View** (Viewer Controls → Saved Views, or View → Save Current View…, **⇧⌘B**, on Mac) keeps the workspace, slices, zoom, display window and 3D cameras under a name; click or tap a saved view to show it again, and rename, caption, reorder or delete it from its menu. **Export → Report (PDF)…** opens the report composer: choose US Letter or A4 and the sections (study header, current views, saved views as key images with their captions and measurements, a cross-section contact sheet of evenly spaced sections along the installed arch numbered on a panorama, the measurement table and notes). The title, the not-validated notice and page footers are always printed. **Measurements (CSV)…** writes the measurement table as a spreadsheet file; the report composer shows how many rows the CSV will contain, and explains when there are none, for example when the only annotations are arrows without captions. Source DICOM patient demographics are excluded. Text labels and arrow captions are included and may identify a person. Report notes and saved views are kept in Save State; the clinic header printed above the title stays in this device's preferences only. Measurements on contact-sheet sections are not drawn; the table lists them.
 
 Report buttons adapt to narrow portrait windows. Saved-view names, captions and report notes remain editable study content; saving an older snapshot while you make further edits leaves the newer work marked Edited. Saved views recall their captured workspace and pane; Media Export and Endo 3D cameras and the selected implant are not captured. If a key image cannot be rendered, the report identifies that limitation instead of silently implying an image was included.
 
 ## Implants
 
-The experimental **Implants** workspace is immediately after Endo in the workspace picker (**⌘6** on Mac) and supports full editing on Mac, iPad and iPhone using the CBCT. A source build containing this workspace is required; the submitted 1.1.1 (9) build does not include it. Its experimental-use notice appears the first time Implants opens on a device; the information button in the workspace header shows it again.
+The experimental **Implants** workspace is immediately after Endo in the workspace picker (**⌘6** on Mac) and supports full editing on Mac, iPad and iPhone using the CBCT. Version 2.0 (10) includes it; 1.1.1 (9) does not. Its experimental-use notice appears the first time Implants opens on a device; the information button in the workspace header shows it again.
 
 1. Wait for dental segmentation, then choose the jaw and review its arch. If the automatic arch is missing or unsuitable, draw one in Slice & Panorama.
 2. Use the panorama and position slider to browse the arch. In the tooth chart, select **Implant**, choose a tooth site, then click the arch-perpendicular X-ray section. A crown is optional; select **Crown** to place one separately or place it first and propose an implant from its axis. Crown dimensions and automatic orientation remain editable starting values.
@@ -190,7 +214,7 @@ The experimental **Implants** workspace is immediately after Endo in the workspa
 
 **Safety margin:** **Show safety margin** draws an operator-selected offset around every implant body, set separately at the sides and beyond the apex (0.5–4 mm): a translucent shell in 3D and dashed outlines in the X-ray views. Overlaps with another implant's margin, a traced canal or a segmented tooth are shaded. It is a display offset, not a validated safe distance.
 
-**Readouts:** geometric measurements are shown against literature reference lines, never pass/fail results or recommendations. **Key Distances** come first: the distance to the nerve canal for a lower-jaw implant, or for an upper-jaw implant the distance to air or low-density bone as a sinus or nasal floor proxy (not a segmented sinus); the mesial and distal teeth (when DentalSegmentator teeth labels exist); the nearest implant; and facial and lingual bone at the crest. **Bone** adds the platform depth below each crest and bone thickness at mid-body and apex; **Neighbouring Implants** lists the mesial and distal implants in the same jaw with the angle between their axes; **Orientation** gives the implant's tilt from the site's occlusal axis and its angle to the crown axis; **Crown and Screw Channel** shows where the screw channel leaves the crown and the crown-to-implant ratio; **Grey Values Around the Implant** summarizes gray values in a shell around the implant. The crosshair button beside a readout shows where it was measured. Readouts refresh shortly after each edit. CBCT values are not HU unless calibrated. Implants starts or resumes segmentation and waits for it to complete before placement.
+**Readouts:** geometric measurements are shown against literature reference lines, never pass/fail results or recommendations. **Key Distances** come first: the distance to the nerve canal for a lower-jaw implant, or for an upper-jaw implant the distance to air or low-density bone as a sinus or nasal floor proxy (not a segmented sinus); the mesial and distal teeth (when DentalSegmentator teeth labels exist); the nearest implant; and facial and lingual bone at the crest. **Bone** adds the platform depth below each crest and bone thickness at mid-body and apex; **Neighbouring Implants** lists the mesial and distal implants in the same jaw with the angle between their axes; **Orientation** gives the implant's tilt from the site's occlusal axis and its angle to the crown axis; **Crown and Screw Channel** shows where the screw channel leaves the crown and the crown-to-implant ratio; **Grey Values Around the Implant** summarizes gray values in a shell around the implant. The crosshair button beside a readout shows where it was measured. **Copy Readouts** copies the same readouts as text, one per line with its value and reference line, followed by the Implants notice. Readouts refresh shortly after each edit. CBCT values are not HU unless calibrated. Implants starts or resumes segmentation and waits for it to complete before placement.
 
 **Other workspaces:** MPR and Slice & Panorama show planned implants and crowns as display-only outlines. Turn them off with **Show Planned Implants** in Viewer Controls or the Mac View menu. **Show in MPR** and **Show in Slice & Panorama** open those workspaces with their planes through the selected implant.
 
@@ -204,7 +228,7 @@ Implant visualization is an experimental feature. It is not a medical device, is
 
 **Save State** (Viewer Controls → Save State) writes `Dental-CBCT-State.cbctstate` in the selected writable CBCT folder. Reopening that folder automatically restores the last explicitly saved state only after checking the full source content and geometry. Use **Save State Copy** for a different destination, a read-only folder, or a single-file study. To open a saved-state copy, select it and provide the matching original DICOM source when prompted. Save explicitly after changes; there is no autosave into the CBCT folder, recent-folder reopening, or automatic study restoration at app launch. **Keep a recovery copy** (Viewer Controls ▸ Session & Memory, off by default) writes the same state content into the app's private storage about half a minute after your changes pause, at most once a minute, for the last three studies. When you open the same scan again and the copy is newer than the folder's saved state, the app asks whether to restore or discard it. Save State, Close Study, Discard, or turning the option off deletes the copy; it has the same contents and sensitivity as a saved state.
 
-An **Edited** marker beside the workspace picker (and the window's edited dot on the Mac) shows that measurements, labels, arches, canal traces, segmentation edits, Endo work or the implant plan changed since the last Save State; display settings and navigation do not count. Undo that brings the measurements, labels and implant plan back to what was last saved clears the marker again when nothing else changed since. **Close Study**, opening a replacement study, opening a state or review over the current one, a file opened from the Finder or Files, and Quit on the Mac then ask whether to **Save State** (or **Save State Copy** when the study has no writable folder), **Discard** or **Cancel**. Clear Memory keeps the work and does not ask.
+An **Edited** marker beside the workspace picker (and the window's edited dot on the Mac) shows that measurements, labels, arches, canal traces, segmentation edits, Endo work, the implant plan, saved views, report notes or volume reorientation changed since the last Save State; display settings and navigation do not count. Undo that brings the measurements, labels and implant plan back to what was last saved clears the marker again when nothing else changed since. **Close Study**, opening a replacement study, opening a state or review over the current one, a file opened from the Finder or Files, and the window's close button and Quit on the Mac then ask whether to **Save State** (or **Save State Copy** when the study has no writable folder), **Discard** or **Cancel**. Clear Memory keeps the work and does not ask.
 
 A saved state is matched to the source pixels and geometry. Valid established spacing remains unchanged; if an older import represented a long decimal-rounded stack with incorrect spacing, the corrected geometry may reject that older state. Reopen the original source, review the work, and save a new state.
 
